@@ -1,0 +1,1 @@
+gcc liststatik.c listdinamik.c
