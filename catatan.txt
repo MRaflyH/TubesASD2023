@@ -1,0 +1,32 @@
+list statik
+daftar penyanyi
+
+
+list dinamik
+daftar playlist
+
+
+mesin karakter mesin karakter
+parsing command + membaca/membuat file
+
+
+queue
+queue lagu yang AKAN dimain
+
+
+stack
+stack lagu yang SUDAH dimain
+
+
+set
+lagu dalam album
+
+
+map
+album : penyanyi
+lagu : album
+
+
+struktur terkait
+playlist
+
