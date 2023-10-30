@@ -1,5 +1,3 @@
-/* Definisi type boolean */
-
 #ifndef BOOLEAN_H
 #define BOOLEAN_H
 
