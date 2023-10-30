@@ -2,8 +2,9 @@
 #define STACK_H
 
 #include "boolean.h"
+#include <stdlib.h>
 
-#define Nil -1
+#define Nil NULL
 
 typedef int ElType;
 typedef struct node* Address;
@@ -22,6 +23,8 @@ typedef struct {
 #define AddrTop(s) (s).AddrTop
 #define Top(s) (s).AddrTop->Info
 
+Address NewNode(ElType X);
+
 void CreateEmpty(Stack *S);
 /* I.S. sembarang; */
 /* F.S. Membuat sebuah stack S yang kosong berkapasitas MaxEl */
@@ -31,8 +34,6 @@ void CreateEmpty(Stack *S);
 /* ************ Predikat Untuk test keadaan KOLEKSI ************ */
 boolean IsEmpty(Stack S);
 /* Mengirim true jika Stack kosong: lihat definisi di atas */
-boolean IsFull(Stack S);
-/* Mengirim true jika tabel penampung nilai elemen stack penuh */
 
 /* ************ Menambahkan sebuah elemen ke Stack ************ */
 void Push(Stack * S, ElType X);

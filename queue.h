@@ -2,8 +2,9 @@
 #define QUEUE_H
 
 #include "boolean.h"
+#include <stdlib.h>
 
-#define Nil -1
+#define Nil NULL
 
 typedef int ElType;
 typedef struct node* Address;
