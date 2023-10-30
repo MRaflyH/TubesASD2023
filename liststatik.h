@@ -11,10 +11,11 @@
 
 typedef struct {
 	ElType Content[MaxCapacity];
-	int Neff;
+	IdxType IdxHead;
+	IdxType IdxTail;
 } ListStatik;
 
-#define ListStatik(i) L.Data(i)
+#define ListStatik(i) L.Content(i)
 
 ListStatik MakeList();
 /* I.S. sembarang */
