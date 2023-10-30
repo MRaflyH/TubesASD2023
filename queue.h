@@ -3,6 +3,7 @@
 
 #include "boolean.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 #define Nil NULL
 
@@ -26,7 +27,8 @@ typedef struct {
 #define AddrTail(q) (q).AddrTail
 #define Head(q) (q).AddrHead->Info
 
-/* ********** Konstruktor ********** */
+Address NewNode(ElType x);
+
 void CreateQueue(Queue *q);
 /* I.S. sembarang */
 /* F.S. Sebuah q kosong terbentuk dengan kondisi sbb: */
@@ -38,27 +40,23 @@ void CreateQueue(Queue *q);
 boolean IsEmpty(Queue q);
 /* Mengirim true jika q kosong: lihat definisi di atas */
 
-boolean IsFull(Queue q);
-/* Mengirim true jika tabel penampung elemen q sudah penuh */
-/* yaitu IDX_TAIL akan selalu di belakang IDX_HEAD dalam buffer melingkar*/
-
 int Length(Queue q);
 /* Mengirimkan banyaknya elemen queue. Mengirimkan 0 jika q kosong. */
 
 /* ********** Primitif Add/Delete ********** */
-void Enqueue(Queue *q, ElType val);
+void Enqueue(Queue *q, ElType x);
 /* Proses: Menambahkan val pada q dengan aturan FIFO */
 /* I.S. q mungkin kosong, tabel penampung elemen q TIDAK penuh */
 /* F.S. val menjadi TAIL yang baru, IDX_TAIL "mundur" dalam buffer melingkar. */
 
-void Dequeue(Queue *q, ElType *val);
+void Dequeue(Queue *q, ElType *x);
 /* Proses: Menghapus val pada q dengan aturan FIFO */
 /* I.S. q tidak mungkin kosong */
 /* F.S. val = nilai elemen HEAD pd I.S., IDX_HEAD "mundur";
         q mungkin kosong */
 
 /* ********** Display Queue ********** */
-void DDisplayQueue(Queue q);
+void DisplayQueue(Queue q);
 /* Proses : Menuliskan isi Queue dengan traversal, Queue ditulis di antara kurung 
    siku; antara dua elemen dipisahkan dengan separator "koma", tanpa tambahan 
    karakter di depan, di tengah, atau di belakang, termasuk spasi dan enter */
