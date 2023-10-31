@@ -1,32 +1,59 @@
-list statik
-daftar penyanyi
+list statik (rapat kiri aja) / daftar penyanyi
+CreateLS
+IsEmptyLS
+SearchLS
+InsertLastLS (ini langsung insert at aja)
+DisplayLS
 
 
-list dinamik
-daftar playlist
+list dinamik (terserah, lebih gampang rapat kiri) / daftar playlist
+CreateLD
+IsEmptyLD
+IsIdValidLD
+InsertLD (ini langsung insert at aja)
+DeleteLD (ini langsung delete at aja)
+GetLD
+DisplayLD
 
 
-mesin karakter mesin karakter
-parsing command + membaca/membuat file
+mesin karakter mesin karakter / parsing command + membaca/membuat file
 
 
-queue
-queue lagu yang AKAN dimain
+queue (circular buffer) / queue lagu yang AKAN dimain
+CreateQ
+IsEmptyQ
+IsIdValidQ
+EnqueueQ
+EnqueueFirstQ
+DequeueQ
+SwapQ
+RemoveQ
+DisplayQ
 
 
-stack
-stack lagu yang SUDAH dimain
+stack (rapat kiri) / stack lagu yang SUDAH dimain
+CreateS
+IsEmptyS
+PushS
+PopS
+DisplayS
 
 
-set
-lagu dalam album
+set / lagu dalam 1 album
+CreateSet
+IsEmptySet
+AddSet
+DeleteSet
+GetSet
+DisplaySet
 
 
-map
-album : penyanyi
-lagu : album
+map / album : penyanyi / lagu : album
+CreateM
+DisplayM
 
 
-struktur terkait
-playlist
+struktur berkait / lagu dalam 1 playlist
+CreateSB
+DisplaySB
 

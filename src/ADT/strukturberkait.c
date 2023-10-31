@@ -1,4 +1,5 @@
-#include "queue.h"
+// UDAH BIKIN UNTUK QUEUE TAPI TERNYATA GA KEPAKE
+#include "strukturberkait.h"
 
 Address NewNode(ElType x) {
     Address p = (Address) malloc(sizeof(Node));

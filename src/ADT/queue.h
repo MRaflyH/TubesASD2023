@@ -2,34 +2,20 @@
 #define QUEUE_H
 
 #include "boolean.h"
-#include <stdlib.h>
-#include <stdio.h>
 
-#define Nil NULL
+#define MaxCapacity 100
+#define IdxUndef -1
 
 typedef int ElType;
-typedef struct node* Address;
-
-typedef struct node { 
-  ElType Info;
-  Address Next;
-} Node;
+typedef int IdxType;
 
 typedef struct {
-  Address AddrHead;
-  Address AddrTail;
+    ElType Content[MaxCapacity];
+    IdxType IdxHead;
+    IdxType IdxTail;
 } Queue;
 
-#define Next(q) (q)->Next
-#define Info(q) (q)->Info
-
-#define AddrHead(q) (q).AddrHead
-#define AddrTail(q) (q).AddrTail
-#define Head(q) (q).AddrHead->Info
-
-Address NewNode(ElType x);
-
-void CreateQueue(Queue *q);
+void CreateQ(Queue *q);
 /* I.S. sembarang */
 /* F.S. Sebuah q kosong terbentuk dengan kondisi sbb: */
 /* - Index head bernilai IDX_UNDEF */
@@ -37,26 +23,31 @@ void CreateQueue(Queue *q);
 /* Proses : Melakukan alokasi, membuat sebuah q kosong */
 
 /* ********** Pemeriksa Status Queue ********** */
-boolean IsEmpty(Queue q);
+boolean IsEmptyQ(Queue q);
 /* Mengirim true jika q kosong: lihat definisi di atas */
 
-int Length(Queue q);
-/* Mengirimkan banyaknya elemen queue. Mengirimkan 0 jika q kosong. */
+boolean IsIdValidQ(Queue *q, int i);
 
 /* ********** Primitif Add/Delete ********** */
-void Enqueue(Queue *q, ElType x);
+void EnqueueQ(Queue *q, ElType x);
 /* Proses: Menambahkan val pada q dengan aturan FIFO */
 /* I.S. q mungkin kosong, tabel penampung elemen q TIDAK penuh */
 /* F.S. val menjadi TAIL yang baru, IDX_TAIL "mundur" dalam buffer melingkar. */
 
-void Dequeue(Queue *q, ElType *x);
+void EnqueueFirstQ(Queue *q, ElType x);
+
+void DequeueQ(Queue *q, ElType *x);
 /* Proses: Menghapus val pada q dengan aturan FIFO */
 /* I.S. q tidak mungkin kosong */
 /* F.S. val = nilai elemen HEAD pd I.S., IDX_HEAD "mundur";
         q mungkin kosong */
 
+void SwapQ(Queue *q, IdxType i, IdxType j);
+
+void DeleteQ(Queue *q, IdxType i);
+
 /* ********** Display Queue ********** */
-void DisplayQueue(Queue q);
+void DisplayQ(Queue q);
 /* Proses : Menuliskan isi Queue dengan traversal, Queue ditulis di antara kurung 
    siku; antara dua elemen dipisahkan dengan separator "koma", tanpa tambahan 
    karakter di depan, di tengah, atau di belakang, termasuk spasi dan enter */
