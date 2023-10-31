@@ -1,9 +1,9 @@
-#ifndef MESIN_KARAKATER_H
+#ifndef MESIN_KARAKTER_H
 #define MESIN_KARAKTER_H
 
 #include "boolean.h"
 
-#define Mark '.'
+#define Mark ';'
 extern char CurrentChar;
 extern boolean EOP;
 
