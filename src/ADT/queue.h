@@ -15,6 +15,13 @@ typedef struct {
     IdxType IdxTail;
 } Queue;
 
+/* ********* AKSES (Selektor) ********* */
+/* Jika q adalah Queue, maka akses elemen : */
+#define IDX_HEAD(q) (q).IdxHead
+#define IDX_TAIL(q) (q).IdxTail
+#define     HEAD(q) (q).Content[(q).IdxHead]
+#define     TAIL(q) (q).Content[(q).IdxTail]
+
 void CreateQ(Queue *q);
 /* I.S. sembarang */
 /* F.S. Sebuah q kosong terbentuk dengan kondisi sbb: */
@@ -26,7 +33,7 @@ void CreateQ(Queue *q);
 boolean IsEmptyQ(Queue q);
 /* Mengirim true jika q kosong: lihat definisi di atas */
 
-boolean IsIdValidQ(Queue *q, int i);
+boolean IsIdxValidQ(Queue *q, int i);
 
 /* ********** Primitif Add/Delete ********** */
 void EnqueueQ(Queue *q, ElType x);
