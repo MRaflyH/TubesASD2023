@@ -1,14 +1,12 @@
 #ifndef MESIN_KATA_H
 #define MESIN_KATA_H
 
-#include "boolean.h"
 #include "mesinkarakter.h"
 
-#define MaxChar 50
+#define MaxChar 100
 #define Blank ' '
 
-typedef struct
-{
+typedef struct {
    char Content[MaxChar];
    int Length;
 } Word;
@@ -43,5 +41,7 @@ void CopyWord();
           Jika panjang kata melebihi NMax, maka sisa kata "dipotong" */
 
 void DisplayWord();
+
+boolean IsWordSame(Word w, Word v);
 
 #endif

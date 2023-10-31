@@ -11,15 +11,16 @@ void IgnoreBlanks() {
 }
 
 void StartWord() {
-   Start();
-   IgnoreBlanks();
-   if (CurrentChar == Mark) {
-      EndWord = true;
-   }
-   else {
-      EndWord = false;
-      CopyWord();
-   }
+    printf(">> ");
+    Start();
+    IgnoreBlanks();
+    if (CurrentChar == Mark) {
+        EndWord = true;
+    }
+    else {
+        EndWord = false;
+        CopyWord();
+    }
 }
 
 void AdvWord() {
@@ -54,4 +55,21 @@ void DisplayWord() {
         printf("%c", CurrentWord.Content[i]);
     }
     printf("\n");
+}
+
+boolean IsWordSame(Word w, Word v) {
+    boolean IsSame = true;
+    if (w.Length != v.Length) {
+        IsSame = false;
+    }
+    else {
+        int i = 0;
+        while (IsSame && i < w.Length) {
+            if (w.Content[i] != v.Content[i]) {
+                IsSame = false;
+            }
+            i++;
+        }
+    }
+    return IsSame;
 }
