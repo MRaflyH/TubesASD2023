@@ -1,4 +1,5 @@
 // AKU UDAH BIKIN TAPI TERNYATA GA KEPAKE
+// hai dzul, ini aku rafly aja yang kerjain ya
 
 #ifndef STRUKTUR_BERKAIT_H
 #define STRUKTUR_BERKAIT_H

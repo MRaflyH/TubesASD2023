@@ -2,53 +2,41 @@
 #define STACK_H
 
 #include "boolean.h"
-#include <stdlib.h>
-#include <stdio.h>
 
-#define Nil NULL
+#define MaxCapacity 100
+#define IdxUndef -1
 
 typedef int ElType;
-typedef struct node* Address;
-
-typedef struct node { 
-  ElType Info;
-  Address Next;
-} Node;
+typedef int IdxType;
 
 typedef struct {
-  Address AddrTop;
+    ElType Content[MaxCapacity];
+    IdxType IdxTop;
 } Stack;
 
-#define Next(s) (s)->Next
-#define Info(s) (s)->Info
-#define AddrTop(s) (s).AddrTop
-#define Top(s) (s).AddrTop->Info
-
-Address NewNode(ElType x);
-
-void CreateStack(Stack *s);
+void CreateS(Stack *s);
 /* I.S. sembarang; */
 /* F.S. Membuat sebuah stack S yang kosong berkapasitas MaxEl */
 /* jadi indeksnya antara 0..MaxEl-1 (inklusif) */
 /* Ciri stack kosong : TOP bernilai Nil */
 
 /* ************ Predikat Untuk test keadaan KOLEKSI ************ */
-boolean IsEmpty(Stack s);
+boolean IsEmptyS(Stack s);
 /* Mengirim true jika Stack kosong: lihat definisi di atas */
 
 /* ************ Menambahkan sebuah elemen ke Stack ************ */
-void Push(Stack *s, ElType x);
+void PushS(Stack *s, ElType x);
 /* Menambahkan X sebagai elemen Stack S. */
 /* I.S. S mungkin kosong, tabel penampung elemen stack TIDAK penuh */
 /* F.S. TOP bertambah 1, X menjadi TOP yang baru, */
 
 /* ************ Menghapus sebuah elemen Stack ************ */
-void Pop(Stack *s, ElType *x);
+void PopS(Stack *s, ElType *x);
 /* Menghapus X dari Stack S. */
 /* I.S. S  tidak mungkin kosong */
 /* F.S. X adalah nilai elemen TOP yang lama, TOP berkurang 1 */
 
-void DisplayStack(Stack s);
+void DisplayStackS(Stack s);
 /* Proses : Menuliskan isi Queue dengan traversal, Queue ditulis di antara kurung 
    siku; antara dua elemen dipisahkan dengan separator "koma", tanpa tambahan 
    karakter di depan, di tengah, atau di belakang, termasuk spasi dan enter */

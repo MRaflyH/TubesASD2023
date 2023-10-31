@@ -1,4 +1,6 @@
 // UDAH BIKIN UNTUK QUEUE TAPI TERNYATA GA KEPAKE
+// hai dzul, ini aku rafly aja yang kerjain ya
+
 #include "strukturberkait.h"
 
 Address NewNode(ElType x) {
