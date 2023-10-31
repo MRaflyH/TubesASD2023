@@ -21,7 +21,7 @@ boolean IsEmptyQ(Queue q)
 
 boolean IsIdxValidQ(Queue *q, int i)
 {
-
+    
 }
 
 /* ********** Primitif Add/Delete ********** */
@@ -75,7 +75,7 @@ void SwapQ(Queue *q, IdxType i, IdxType j)
 
 void DeleteQ(Queue *q, IdxType i)
 {
-
+    
 }
 
 /* ********** Display Queue ********** */
