@@ -4,43 +4,42 @@
 // Driver code
 int main()
 {
-    StartWord();
 
-    int NPenyanyi;
-    NPenyanyi = CurrentWord.Content[0] - '0';
-    printf("%d\n", NPenyanyi);
+    StartLine();
+    int NPenyanyi = 0;
+    for (int i = 0; i < CurrentWord.Length; i++) {
+        NPenyanyi = NPenyanyi * 10 + (CurrentWord.Content[i] - '0');
+    }
 
     for (int i = 0; i < NPenyanyi; i++) {
-        int NAlbum;
-        NAlbum = 0;
-
+        printf("Penyanyi %d : ", i+1);
         AdvWord();
-        NAlbum = CurrentWord.Content[0] - '0';
-        DisplayWord();
-        printf("%d\n", NAlbum);
+        int NAlbum = 0;
+        for (int j = 0; j < CurrentWord.Length; j++) {
+            NAlbum = NAlbum * 10 + (CurrentWord.Content[j] - '0');
+        }
+        AdvLine();
+        Display();
 
         for (int j = 0; j < NAlbum; j++) {
-            int NLagu;
-            NLagu = 0;
-
+            printf("  Album %d : ", j+1);
             AdvWord();
-            NLagu = CurrentWord.Content[0] - '0';
-            DisplayWord();
-            printf("%d\n", NLagu);
+            int NLagu = 0;
+            for (int k = 0; k < CurrentWord.Length; k++) {
+                NLagu = NLagu * 10 + (CurrentWord.Content[k] - '0');
+            }
+            AdvLine();
+            Display();
 
             for (int k = 0; k < NLagu; k++) {
-                AdvWord();
-                DisplayWord();                
+                printf("    Lagu %d : ", k+1);
+                AdvLine();
+                Display();
             }
         }
     }
 
-    // do {
-    //     DisplayWord();
-    //     AdvWord();
-    // } while (CurrentChar != '|');
-
-    // DisplayWord();
-    
+    printf("KELAR\n");
+     
     return 0;
 }
