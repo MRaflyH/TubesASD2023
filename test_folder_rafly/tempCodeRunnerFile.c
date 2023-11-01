@@ -1,0 +1,1 @@
+CurrentWord.Length
