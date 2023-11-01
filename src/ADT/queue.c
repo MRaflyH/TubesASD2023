@@ -23,6 +23,7 @@ boolean IsIdxValidQ(Queue *q, int i)
 {
     return (i >= 0 && i < MaxCapacity);
 }
+/* Mengirim true jika index i adalah valid */
 
 /* ********** Primitif Add/Delete ********** */
 void EnqueueQ(Queue *q, ElType x)
@@ -55,6 +56,10 @@ void EnqueueFirstQ(Queue *q, ElType x)
     }
     HEAD(*q) = x;
 }
+/* Proses: Menambahkan val pada q dengan aturan LIFO */
+/* I.S. q mungkin kosong, tabel penampung elemen q TIDAK penuh */
+/* F.S. val menjadi HEAD yang baru, IDX_HEAD "naik" ke posisi pertama buffer
+dan IDX_HEAD tidak berubah apabila buffer sudah penuh. */
 
 void DequeueQ(Queue *q, ElType *x)
 {
@@ -82,6 +87,10 @@ void SwapQ(Queue *q, IdxType i, IdxType j)
     (*q).Content[i] = (*q).Content[j];
     (*q).Content[j] = temp;
 }
+/* Proses: Melakukan swap antara element di index i dan element di index j */
+/* I.S. q tidak mungkin kosong */
+/* F.S. Element di index i berubah menjadi isinya sama dengan element di index j,
+sedangkan element di index j berubah menjadi isinya sama dengan element di index i */
 
 void DeleteQ(Queue *q, IdxType i)
 {
@@ -97,6 +106,10 @@ void DeleteQ(Queue *q, IdxType i)
         IDX_TAIL(*q)--;
     }
 }
+/* Proses: Menghapus element pada indeks i dari queue */
+/* I.S. q tidak mungkin kosong */
+/* F.S. Elemen yg ada di indeks i tersebut telah dihapus,
+dan semua indeks selain i masih tetap */
 
 /* ********** Display Queue ********** */
 void DisplayQ(Queue q)
