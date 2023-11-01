@@ -21,7 +21,7 @@ boolean IsEmptyQ(Queue q)
 
 boolean IsIdxValidQ(Queue *q, int i)
 {
-    
+    return (i >= 0 && i < MaxCapacity);
 }
 
 /* ********** Primitif Add/Delete ********** */
@@ -45,7 +45,15 @@ void EnqueueQ(Queue *q, ElType x)
 
 void EnqueueFirstQ(Queue *q, ElType x)
 {
-    
+    if (IsEmptyQ(*q)) {
+        IDX_HEAD(*q) = 0;
+        IDX_TAIL(*q) = 0;
+    } else if (IDX_HEAD(*q) == 0) {
+        IDX_HEAD(*q) = MaxCapacity - 1;
+    } else {
+        IDX_HEAD(*q)--;
+    }
+    HEAD(*q) = x;
 }
 
 void DequeueQ(Queue *q, ElType *x)
@@ -70,12 +78,24 @@ void DequeueQ(Queue *q, ElType *x)
 
 void SwapQ(Queue *q, IdxType i, IdxType j)
 {
-
+    ElType temp = (*q).Content[i];
+    (*q).Content[i] = (*q).Content[j];
+    (*q).Content[j] = temp;
 }
 
 void DeleteQ(Queue *q, IdxType i)
 {
-    
+    for(IdxType j =i; j!= IDX_TAIL(*q); j= (j+1)%MaxCapacity){
+        (*q).Content[j] = (*q).Content[(j+1)%MaxCapacity];
+    }
+    if (IDX_HEAD(*q) == IDX_TAIL(*q)){
+        IDX_HEAD(*q) = IdxUndef;
+        IDX_TAIL(*q) = IdxUndef;
+    }else if (IDX_TAIL(*q) == 0) {
+        IDX_TAIL(*q) = MaxCapacity-1;
+    }else{
+        IDX_TAIL(*q)--;
+    }
 }
 
 /* ********** Display Queue ********** */
