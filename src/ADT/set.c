@@ -9,6 +9,15 @@ boolean IsEmptySet(Set *s){
     return (*s).Length == 0;
 }
 
+boolean isMember(Set s, ElType x){
+    for (int i =0; i < s.Length; i++){
+        if (s.Content[i] == x){
+            return true;
+        }
+    }
+    return false;
+}
+
 void AddSet(Set *s, ElType x){
     int i;
     boolean found = false;
