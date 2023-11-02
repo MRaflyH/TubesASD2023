@@ -16,6 +16,8 @@ void CreateSet(Set *s);
 
 boolean IsEmptySet(Set *s);
 
+boolean isMember(Set s, ElType x);
+
 void AddSet(Set *s, ElType x);
 
 void DeleteSet(Set *s, ElType x);
