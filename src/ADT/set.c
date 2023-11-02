@@ -57,7 +57,11 @@ void GetSet(Set s, int i){
 }
 
 void DisplaySet(Set s){
-    for (int i = 0; i < s.Length; i++){
-        printf("%d\n", s.Content[i]);
+    if (IsEmptySet(&s)){
+        printf("kosong");
+    } else{
+        for (int i = 0; i < s.Length; i++){
+            printf("%d\n", s.Content[i]);
+        }
     }
 }
