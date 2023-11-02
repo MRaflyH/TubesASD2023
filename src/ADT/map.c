@@ -47,7 +47,6 @@ void Delete(Map *m, KeyType k) {
         if ((*m).Content[i].Key == k) {
             (*m).Content[i] = (*m).Content[(*m).Length - 1];
             (*m).Length--;
-            return;
         }
     }
 }
