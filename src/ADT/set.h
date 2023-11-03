@@ -2,10 +2,11 @@
 #define SET_H
 
 #include "boolean.h"
+#include "mesinkata.h"
 
 #define MaxCapacity 100
 
-typedef int ElType;
+typedef Word ElType;
 
 typedef struct {
   ElType Content[MaxCapacity];
