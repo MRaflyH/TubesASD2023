@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "set.h"
-
+#include "mesinkata.h"
 void CreateSet(Set *s){
     (*s).Length = 0;
 }
@@ -11,7 +11,7 @@ boolean IsEmptySet(Set *s){
 
 boolean isMember(Set s, ElType x){
     for (int i =0; i < s.Length; i++){
-        if (s.Content[i] == x){
+        if (IsWordSame((s).Content[i],x)){
             return true;
         }
     }
@@ -22,13 +22,13 @@ void AddSet(Set *s, ElType x){
     int i;
     boolean found = false;
     for (i = 0; i < (*s).Length; i++){
-        if ((*s).Content[i] == x){
+        if (IsWordSame((*s).Content[i],x)){
             found = true;
             break;
         }
     }
     if (!found){
-        (*s).Content[i] = x;
+        PasteWord(x ,(*s).Content[i]);
         (*s).Length++;
     }
 }
@@ -37,14 +37,14 @@ void DeleteSet(Set *s, ElType x){
     int i;
     boolean found = false;
     for (i = 0; i < (*s).Length; i++){
-        if ((*s).Content[i] == x){
+        if (IsWordSame((*s).Content[i],x)){
             found = true;
             break;
         }
     }
     if (found){
         for (int j = i; j < (*s).Length - 1; j++){
-            (*s).Content[j] = (*s).Content[j+1];
+            PasteWord((*s).Content[j+1] ,(*s).Content[j]);
         }
         (*s).Length--;
     }
