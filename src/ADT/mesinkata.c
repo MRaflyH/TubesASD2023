@@ -73,3 +73,12 @@ boolean IsWordSame(Word w, Word v) {
     }
     return IsSame;
 }
+
+void PasteWord(Word w, Word *v) {
+    (*v).Length = 0;
+
+    for (int i = 0; i < w.Length; i++) {
+        (*v).Content[i] = w.Content[i];
+        (*v).Length++;
+    }
+}
