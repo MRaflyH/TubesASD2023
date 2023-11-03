@@ -44,4 +44,6 @@ void DisplayWord();
 
 boolean IsWordSame(Word w, Word v);
 
+Word PasteWord(Word w);
+
 #endif
