@@ -32,7 +32,7 @@ void Push (Stack * S, infotype X)
 /* F.S. X menjadi TOP yang baru,TOP bertambah 1 */
 {
     Top(*S) += 1;
-    InfoTop(*S) = X;
+    PasteWord(X, InfoTop(*S));
 }
 
 /* ************ Menghapus sebuah elemen Stack ************ */
@@ -41,7 +41,7 @@ void Pop (Stack * S, infotype* X)
 /* I.S. S  tidak mungkin kosong */
 /* F.S. X adalah nilai elemen TOP yang lama, TOP berkurang 1 */
 {
-    *X = InfoTop(*S);
+    PasteWord(InfoTop(*S), *X);
     Top(*S) -= 1;
 }
 

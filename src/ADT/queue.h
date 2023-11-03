@@ -2,11 +2,12 @@
 #define QUEUE_H
 
 #include "boolean.h"
+#include "mesinkata.h"
 
 #define MaxCapacity 100
 #define IdxUndef -1
 
-typedef int ElType;
+typedef Word ElType;
 typedef int IdxType;
 
 typedef struct {

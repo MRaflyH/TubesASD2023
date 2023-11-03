@@ -38,7 +38,7 @@ void EnqueueQ(Queue *q, ElType x)
             IDX_TAIL(*q)++;
         }
     }
-    TAIL(*q) = x;
+    PasteWord(x, TAIL(*q));
 }
 /* Proses: Menambahkan val pada q dengan aturan FIFO */
 /* I.S. q mungkin kosong, tabel penampung elemen q TIDAK penuh */
@@ -54,7 +54,7 @@ void EnqueueFirstQ(Queue *q, ElType x)
     } else {
         IDX_HEAD(*q)--;
     }
-    HEAD(*q) = x;
+    PasteWord(x, HEAD(*q));
 }
 /* Proses: Menambahkan val pada q dengan aturan LIFO */
 /* I.S. q mungkin kosong, tabel penampung elemen q TIDAK penuh */
@@ -65,8 +65,8 @@ void DequeueQ(Queue *q, ElType *x)
 {
      ElType x = HEAD(*q);
     if (IDX_HEAD(*q) == IDX_TAIL(*q)) {
-        IDX_HEAD(*q) = IdxUndef;
-        IDX_TAIL(*q) = IdxUndef;
+        PasteWord(IdxUndef, IDX_HEAD(*q));
+        PasteWord(IdxUndef, IDX_TAIL(*q));
     } else {
         if (IDX_HEAD(*q) == MaxCapacity-1) {
             IDX_HEAD(*q) = 0;
@@ -83,9 +83,9 @@ void DequeueQ(Queue *q, ElType *x)
 
 void SwapQ(Queue *q, IdxType i, IdxType j)
 {
-    ElType temp = (*q).Content[i];
-    (*q).Content[i] = (*q).Content[j];
-    (*q).Content[j] = temp;
+    PasteWord((*q).Content[i], ElType temp);
+    PasteWord((*q).Content[j], (*q).Content[i]);
+    PasteWord(temp, (*q).Content[j]);
 }
 /* Proses: Melakukan swap antara element di index i dan element di index j */
 /* I.S. q tidak mungkin kosong */
