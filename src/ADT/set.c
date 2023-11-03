@@ -28,7 +28,7 @@ void AddSet(Set *s, ElType x){
         }
     }
     if (!found){
-        PasteWord(x ,(*s).Content[i]);
+        PasteWord(x ,&(*s).Content[i]);
         (*s).Length++;
     }
 }
@@ -44,7 +44,7 @@ void DeleteSet(Set *s, ElType x){
     }
     if (found){
         for (int j = i; j < (*s).Length - 1; j++){
-            PasteWord((*s).Content[j+1] ,(*s).Content[j]);
+            PasteWord((*s).Content[j+1] ,&(*s).Content[j]);
         }
         (*s).Length--;
     }
