@@ -6,6 +6,8 @@ int main() {
     Set set;
 
     CreateM(&map);
+    printf("Ini map kosong: \n");
+    DisplayM(map);
 
     CreateWord(12, "Taylor Swift", &key);
     CreateSet(&set);
@@ -33,11 +35,13 @@ int main() {
 
     InsertM(&map, key, set);
 
+    printf("\nIni inisial map: \n");
     DisplayM(map);
 
     CreateWord(10, "John Mayer", &key);
     DeleteM(&map, key);
 
+    printf("\nDihapus John Mayer: \n");
     DisplayM(map);
 
     return 0;
