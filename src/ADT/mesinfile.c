@@ -12,19 +12,19 @@ void IgnoreBlanksF() {
 void StartFileF(char *FileName) {
    StartF(FileName);
    IgnoreBlanksF();
-   if (CurrentChar == Mark) {
+   if (CurrentChar == NewLine) {
       EndWord = true;
    }
    else {
       EndWord = false;
-      CopyWordF();
+      CopyLineF();
    }
    IgnoreBlanksF();
 }
 
 void AdvWordF() {
    IgnoreBlanksF();
-   if (CurrentChar == Mark) {
+   if (CurrentChar == Blank) {
       EndWord = true; 
    }
    else {
@@ -35,7 +35,7 @@ void AdvWordF() {
 
 void AdvLineF() {
    IgnoreBlanksF();
-   if (CurrentChar == Mark) {
+   if (CurrentChar == NewLine) {
       EndWord = true; 
    }
    else {
