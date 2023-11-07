@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "file2.h": "c",
-        "boolean.h": "c"
-    },
-    "C_Cpp.errorSquiggles": "disabled"
-}
