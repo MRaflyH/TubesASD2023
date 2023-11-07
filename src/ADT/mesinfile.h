@@ -1,5 +1,5 @@
-#ifndef MESIN_KATA_H
-#define MESIN_KATA_H
+#ifndef MESIN_FILE_H
+#define MESIN_FILE_H
 
 #include "mesinkarakter.h"
 #include "kata.h"
@@ -7,25 +7,25 @@
 extern boolean EndWord;
 extern Word CurrentWord;
 
-void IgnoreBlanks();
+void IgnoreBlanksI();
 /* Mengabaikan satu atau beberapa BLANK
    I.S. : currentChar sembarang
    F.S. : currentChar ≠ BLANK atau currentChar = MARK */
 
-void StartWord();
+void StartWordI();
 /* I.S. : currentChar sembarang
    F.S. : EndWord = true, dan currentChar = MARK;
           atau EndWord = false, currentWord adalah kata yang sudah diakuisisi,
           currentChar karakter pertama sesudah karakter terakhir kata */
 
-void AdvWord();
+void AdvWordI();
 /* I.S. : currentChar adalah karakter pertama kata yang akan diakuisisi
    F.S. : currentWord adalah kata terakhir yang sudah diakuisisi,
           currentChar adalah karakter pertama dari kata berikutnya, mungkin MARK
           Jika currentChar = MARK, EndWord = true.
    Proses : Akuisisi kata menggunakan procedure SalinWord */
 
-void CopyWord();
+void CopyWordI();
 /* Mengakuisisi kata, menyimpan dalam currentWord
    I.S. : currentChar adalah karakter pertama dari kata
    F.S. : currentWord berisi kata yang sudah diakuisisi;

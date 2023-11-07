@@ -4,7 +4,7 @@
 boolean EndWord;
 Word CurrentWord;
 
-void IgnoreBlanks() {
+void IgnoreBlanksI() {
    while (CurrentChar == Blank) {
       Adv();
    }
@@ -16,21 +16,21 @@ void IgnoreNewLines() {
    }
 }
 
-void StartWord() {
+void StartWordI() {
     Start();
-    IgnoreBlanks();
+    IgnoreBlanksI();
     if (CurrentChar == Mark) {
         EndWord = true;
     }
     else {
         EndWord = false;
-        CopyWord();
+        CopyWordI();
     }
 }
 
 void StartLine() {
     Start();
-    IgnoreBlanks();
+    IgnoreBlanksI();
     if (CurrentChar == NewLine) {
         EndWord = true;
     }
@@ -40,22 +40,22 @@ void StartLine() {
     }
 }
 
-void AdvWord() {
+void AdvWordI() {
    IgnoreNewLines();
-   IgnoreBlanks();
+   IgnoreBlanksI();
    if (CurrentChar == Mark) {
       EndWord = true; 
    }
    else {
-      CopyWord();
+      CopyWordI();
    }
    IgnoreNewLines();
-   IgnoreBlanks();
+   IgnoreBlanksI();
 }
 
 void AdvLine() {
    IgnoreNewLines();
-   IgnoreBlanks();
+   IgnoreBlanksI();
    if (CurrentChar == NewLine) {
       EndWord = true; 
    }
@@ -63,10 +63,10 @@ void AdvLine() {
       CopyLine();
    }
    IgnoreNewLines();
-   IgnoreBlanks();
+   IgnoreBlanksI();
 }
 
-void CopyWord() {
+void CopyWordI() {
    int i = 0;
    while (CurrentChar != Mark && CurrentChar != Blank) {
       CurrentWord.Content[i] = CurrentChar;

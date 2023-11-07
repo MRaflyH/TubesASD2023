@@ -15,7 +15,7 @@ int main() {
     while (!EndProgram) {
         // INPUT BERAKHIR DENGAN ';'
         printf("DISPLAY/EXIT:\n");
-        StartWord();
+        StartWordI();
         printf("\n");
         // DisplayWord(DISPLAY);
         if (IsWordSame(CurrentWord, EXIT)) {

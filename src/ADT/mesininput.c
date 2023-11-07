@@ -3,38 +3,38 @@
 boolean EndWord;
 Word CurrentWord;
 
-void IgnoreBlanks() {
+void IgnoreBlanksI() {
    while (CurrentChar == Blank || CurrentChar == NewLine) {
       Adv();
    }
 }
 
-void StartWord() {
+void StartWordI() {
    Start();
    // CreateWord(0, "", &CurrentWord);
-   IgnoreBlanks();
+   IgnoreBlanksI();
    if (CurrentChar == Mark) {
       EndWord = true;
    }
    else {
       EndWord = false;
-      CopyWord();
+      CopyWordI();
    }
-   IgnoreBlanks();
+   IgnoreBlanksI();
 }
 
-void AdvWord() {
-   IgnoreBlanks();
+void AdvWordI() {
+   IgnoreBlanksI();
    if (CurrentChar == Mark) {
       EndWord = true; 
    }
    else {
-      CopyWord();
+      CopyWordI();
    }
-   IgnoreBlanks();
+   IgnoreBlanksI();
 }
 
-void CopyWord() {
+void CopyWordI() {
    int i = 0;
    while (CurrentChar != Mark && CurrentChar != Blank) {
       CurrentWord.Content[i] = CurrentChar;

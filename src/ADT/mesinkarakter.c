@@ -6,9 +6,13 @@ boolean EOP;
 static FILE *pita;
 static int retval;
 
+void Start(char * FileName) {
+    pita = fopen(FileName, 'r');
+    Adv();
+}
+
 void Start() {
     printf(">> ");
-    EOP = false;
     pita = stdin;
     Adv();
 }

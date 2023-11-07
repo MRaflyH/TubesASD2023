@@ -26,7 +26,7 @@ void Display() {
     while (!IsValid) {
         // INPUT BERAKHIR DENGAN ';'
         printf("LS/LD/QUEUE/STACK/MAP1/MAP2/SB/CL:\n");
-        StartWord();
+        StartWordI();
         if (IsWordSame(CurrentWord, LS)) {
             printf("\nINI DAFTAR PENYANYI\n");
             DisplayLS(DaftarPenyanyi);

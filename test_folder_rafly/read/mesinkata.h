@@ -15,19 +15,19 @@ typedef struct {
 extern boolean EndWord;
 extern Word CurrentWord;
 
-void IgnoreBlanks();
+void IgnoreBlanksI();
 
 void IgnoreNewLines();
 
-void StartWord();
+void StartWordI();
 
 void StartLine();
 
-void AdvWord();
+void AdvWordI();
 
 void AdvLine();
 
-void CopyWord();
+void CopyWordI();
 
 void CopyLine();
 

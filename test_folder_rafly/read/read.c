@@ -13,7 +13,7 @@ int main()
 
     for (int i = 0; i < NPenyanyi; i++) {
         printf("Penyanyi %d : ", i+1);
-        AdvWord();
+        AdvWordI();
         int NAlbum = 0;
         for (int j = 0; j < CurrentWord.Length; j++) {
             NAlbum = NAlbum * 10 + (CurrentWord.Content[j] - '0');
@@ -23,7 +23,7 @@ int main()
 
         for (int j = 0; j < NAlbum; j++) {
             printf("  Album %d : ", j+1);
-            AdvWord();
+            AdvWordI();
             int NLagu = 0;
             for (int k = 0; k < CurrentWord.Length; k++) {
                 NLagu = NLagu * 10 + (CurrentWord.Content[k] - '0');
