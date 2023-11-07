@@ -1,4 +1,4 @@
-#include "mesininput.h"
+#include "mesinfile.h"
 
 boolean EndWord;
 Word CurrentWord;
@@ -10,7 +10,7 @@ void IgnoreBlanksF() {
 }
 
 void StartFileF(char *FileName) {
-   Start(FileName);
+   StartF(FileName);
    IgnoreBlanksF();
    if (CurrentChar == Mark) {
       EndWord = true;
@@ -28,9 +28,9 @@ void AdvWordF() {
       EndWord = true; 
    }
    else {
-      CopyWordI();
+      CopyWordF();
    }
-   IgnoreBlanksI();
+   IgnoreBlanksF();
 }
 
 void AdvLineF() {

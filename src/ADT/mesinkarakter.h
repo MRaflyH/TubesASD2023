@@ -9,7 +9,7 @@
 extern char CurrentChar;
 extern boolean EOP;
 
-void Start(char * FileName);
+void StartF(char * FileName);
 
 void Start();
 /* Mesin siap dioperasikan. Pita disiapkan untuk dibaca.
