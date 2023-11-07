@@ -2,6 +2,7 @@
 #define MESIN_KARAKTER_H
 
 #include "boolean.h"
+#include "stdio.h"
 
 #define Mark ';'
 extern char CurrentChar;

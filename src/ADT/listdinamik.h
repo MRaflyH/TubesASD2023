@@ -1,13 +1,14 @@
 #ifndef LIST_DINAMIK_H
 #define LIST_DINAMIK_H
 
-#include "boolean.h"
+#include "kata.h"
 #include <stdlib.h>
 
-#define InitialCapacity 10
+#define InitialCapacity 16
 
 typedef int IdxType;
-typedef int ElType;
+typedef Word ElType;
+
 typedef struct {
     ElType *Content;
     int Capacity;
@@ -36,7 +37,7 @@ boolean IsEmptyLD(ListDinamik l);
 
 boolean IsFullLD(ListDinamik l);
 
-boolean IsIdValidLD(ListDinamik l);
+boolean IsIdValidLD(ListDinamik l, IdxType i);
 
 ElType GetLD(ListDinamik l, IdxType i);
 /**

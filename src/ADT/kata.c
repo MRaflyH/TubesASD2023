@@ -46,3 +46,13 @@ void DisplayWord(Word w) {
         printf("\n");
     }
 }
+
+int WordToInt(Word w) {
+    int sum = 0;
+    int digit;
+    for (int i = 0; i < w.Length; i++) {
+        digit = w.Content[i] - '0';
+        sum = sum * 10 + digit;
+    }
+    return sum;
+}

@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "queue.h"
 
 void CreateQ(Queue *q)
@@ -28,7 +27,7 @@ boolean IsIdxValidQ(Queue *q, int i)
 /* ********** Primitif Add/Delete ********** */
 void EnqueueQ(Queue *q, ElType x)
 {
-    if (IsEmpty(*q)) {
+    if (IsEmptyQ(*q)) {
         IDX_HEAD(*q) = 0;
         IDX_TAIL(*q) = 0;
     } else {
@@ -38,7 +37,7 @@ void EnqueueQ(Queue *q, ElType x)
             IDX_TAIL(*q)++;
         }
     }
-    PasteWord(x, TAIL(*q));
+    PasteWord(x, &TAIL(*q));
 }
 /* Proses: Menambahkan val pada q dengan aturan FIFO */
 /* I.S. q mungkin kosong, tabel penampung elemen q TIDAK penuh */
@@ -54,7 +53,7 @@ void EnqueueFirstQ(Queue *q, ElType x)
     } else {
         IDX_HEAD(*q)--;
     }
-    PasteWord(x, HEAD(*q));
+    PasteWord(x, &HEAD(*q));
 }
 /* Proses: Menambahkan val pada q dengan aturan LIFO */
 /* I.S. q mungkin kosong, tabel penampung elemen q TIDAK penuh */
@@ -63,10 +62,10 @@ dan IDX_HEAD tidak berubah apabila buffer sudah penuh. */
 
 void DequeueQ(Queue *q, ElType *x)
 {
-     ElType x = HEAD(*q);
+    PasteWord(HEAD(*q), x);
     if (IDX_HEAD(*q) == IDX_TAIL(*q)) {
-        PasteWord(IdxUndef, IDX_HEAD(*q));
-        PasteWord(IdxUndef, IDX_TAIL(*q));
+        IDX_HEAD(*q) = IdxUndef;
+        IDX_TAIL(*q) = IdxUndef;
     } else {
         if (IDX_HEAD(*q) == MaxCapacity-1) {
             IDX_HEAD(*q) = 0;
@@ -74,7 +73,6 @@ void DequeueQ(Queue *q, ElType *x)
             IDX_HEAD(*q)++;
         }
     }
-    return x;
 }
 /* Proses: Menghapus val pada q dengan aturan FIFO */
 /* I.S. q tidak mungkin kosong */
@@ -83,9 +81,10 @@ void DequeueQ(Queue *q, ElType *x)
 
 void SwapQ(Queue *q, IdxType i, IdxType j)
 {
-    PasteWord((*q).Content[i], ElType temp);
-    PasteWord((*q).Content[j], (*q).Content[i]);
-    PasteWord(temp, (*q).Content[j]);
+    ElType temp;
+    PasteWord((*q).Content[i], &temp);
+    PasteWord((*q).Content[j], &(*q).Content[i]);
+    PasteWord(temp, &(*q).Content[j]);
 }
 /* Proses: Melakukan swap antara element di index i dan element di index j */
 /* I.S. q tidak mungkin kosong */
@@ -95,7 +94,7 @@ sedangkan element di index j berubah menjadi isinya sama dengan element di index
 void DeleteQ(Queue *q, IdxType i)
 {
     for(IdxType j =i; j!= IDX_TAIL(*q); j= (j+1)%MaxCapacity){
-        (*q).Content[j] = (*q).Content[(j+1)%MaxCapacity];
+        PasteWord((*q).Content[(j+1)%MaxCapacity], &(*q).Content[j]);
     }
     if (IDX_HEAD(*q) == IDX_TAIL(*q)){
         IDX_HEAD(*q) = IdxUndef;
@@ -114,20 +113,17 @@ dan semua indeks selain i masih tetap */
 /* ********** Display Queue ********** */
 void DisplayQ(Queue q)
 {
-    if (IsEmpty(q)) {
-        printf("[]\n");
+    if (IsEmptyQ(q)) {
+        printf("Kosong\n");
     } else {
         int i = IDX_HEAD(q);
-        printf("[");
         while (i != IDX_TAIL(q)) {
-            printf("%d,", q.Content[i]);
-            if (i == MaxCapacity-1) {
-                i = 0;
-            } else {
-                i++;
-            }
+            printf("%d. ", i+1);
+            DisplayWord(q.Content[i]);
+            i++;
         }
-        printf("%d]\n", q.Content[i]);
+        printf("%d. ", i+1);
+        DisplayWord(q.Content[i]);
     }
 }
 /* Proses : Menuliskan isi Queue dengan traversal, Queue ditulis di antara kurung 

@@ -1,8 +1,7 @@
 #ifndef SET_H
 #define SET_H
 
-#include "boolean.h"
-#include "mesinkata.h"
+#include "kata.h"
 
 #define MaxCapacity 100
 
@@ -17,7 +16,7 @@ void CreateSet(Set *s);
 
 boolean IsEmptySet(Set *s);
 
-boolean isMember(Set s, ElType x);
+boolean IsMemberSet(Set s, ElType x);
 
 void AddSet(Set *s, ElType x);
 
@@ -26,14 +25,7 @@ void DeleteSet(Set *s, ElType x);
 void GetSet(Set s, int i);
 
 void DisplaySet(Set s);
-// Mungkin kosong = "kosong"
-// 1. Pink Venom
-// 2. Shut Down
-// 3. Typa Girl
-// 4. Yeah Yeah Yeah
-// 5. Hard to Love
-// 6. The Happiest Girl
-// 7. Tally
-// 8. Ready for Love
+
+void CopySet(Set source, Set * dest);
 
 #endif

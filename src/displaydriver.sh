@@ -1,0 +1,2 @@
+gcc "ADT/kata.c" "ADT/mesinkarakter.c" "ADT/mesinkata.c" "ADT/listdinamik.c" "ADT/liststatik.c" "ADT/map.c" "ADT/queue.c" "ADT/set.c" "ADT/stack.c" "ADT/strukturberkait.c" "data.c" "display.c" "displaydriver.c" -o main
+./main

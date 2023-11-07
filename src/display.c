@@ -1,11 +1,21 @@
-// JANGAN LUPA INCLUDE DATA
-#include "data.h"
+// INCLUDE H FILE
+#include "display.h"
 
-int main() {
+void Display() {
     // HARUS LOAD DATA
     LoadData();
 
-    printf("INI DAFTAR PENYANYI\n");
+    // SEMENTARA UNTUK TEST CASE, HARUS INPUT MANUAL PAKE BERIKUT
+    char * inputString;
+    int inputLength;
+    Word inputWord;
+    inputString = "test input";
+    inputLength = 10;
+    CreateWord(inputLength, inputString, &inputWord);
+    printf("INI ADALAH INPUT KAMU : ");
+    DisplayWord(inputWord);
+
+    printf("\nINI DAFTAR PENYANYI\n");
     DisplayLS(DaftarPenyanyi);
 
     printf("\nINI DAFTAR PLAYLIST\n");
@@ -28,6 +38,4 @@ int main() {
 
     printf("\nINI CURRENT LAGU\n");
     DisplayWord(CurrentLagu);
-
-    return 0;
 }

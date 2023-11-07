@@ -1,5 +1,4 @@
 #include "mesinkata.h"
-#include <stdio.h>
 
 boolean EndWord;
 Word CurrentWord;
@@ -11,7 +10,6 @@ void IgnoreBlanks() {
 }
 
 void StartWord() {
-    printf(">> ");
     Start();
     IgnoreBlanks();
     if (CurrentChar == Mark) {
@@ -49,36 +47,3 @@ void CopyWord() {
       CurrentWord.Length = MaxChar;
    }
 } 
-
-void DisplayWord() {
-    for (int i = 0; i < CurrentWord.Length; i++) {
-        printf("%c", CurrentWord.Content[i]);
-    }
-    printf("\n");
-}
-
-boolean IsWordSame(Word w, Word v) {
-    boolean IsSame = true;
-    if (w.Length != v.Length) {
-        IsSame = false;
-    }
-    else {
-        int i = 0;
-        while (IsSame && i < w.Length) {
-            if (w.Content[i] != v.Content[i]) {
-                IsSame = false;
-            }
-            i++;
-        }
-    }
-    return IsSame;
-}
-
-void PasteWord(Word w, Word *v) {
-    (*v).Length = 0;
-
-    for (int i = 0; i < w.Length; i++) {
-        (*v).Content[i] = w.Content[i];
-        (*v).Length++;
-    }
-}

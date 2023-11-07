@@ -2,14 +2,7 @@
 #define MESIN_KATA_H
 
 #include "mesinkarakter.h"
-
-#define MaxChar 100
-#define Blank ' '
-
-typedef struct {
-   char Content[MaxChar];
-   int Length;
-} Word;
+#include "kata.h"
 
 extern boolean EndWord;
 extern Word CurrentWord;
@@ -39,11 +32,4 @@ void CopyWord();
           currentChar = BLANK atau currentChar = MARK;
           currentChar adalah karakter sesudah karakter terakhir yang diakuisisi.
           Jika panjang kata melebihi NMax, maka sisa kata "dipotong" */
-
-void DisplayWord();
-
-boolean IsWordSame(Word w, Word v);
-
-void PasteWord(Word w, Word *v);
-
 #endif

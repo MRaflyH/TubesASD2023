@@ -1,8 +1,7 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 
-#include "boolean.h"
-#include "mesinkata.h"
+#include "kata.h"
 
 #define MaxCapacity 100
 #define IdxUndef -1
@@ -63,4 +62,5 @@ void DisplayQ(Queue q);
 /* F.S. Jika q tidak kosong: [e1,e2,...,en] */
 /* Contoh : jika ada tiga elemen bernilai 1, 20, 30 akan dicetak: [1,20,30] */
 /* Jika Queue kosong : menulis [] */
+
 #endif

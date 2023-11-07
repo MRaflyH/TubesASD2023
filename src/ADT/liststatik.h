@@ -1,13 +1,13 @@
 #ifndef LIST_STATIK_H
 #define LIST_STATIK_H
 
-#include "boolean.h"
+#include "kata.h"
 
 #define MaxCapacity 100
 #define IdxUndef -1
 
-#define IdxType int
-#define ElType int
+typedef int IdxType;
+typedef Word ElType ;
 
 typedef struct {
 	ElType Content[MaxCapacity];
@@ -26,7 +26,7 @@ boolean SearchLS(ListStatik l, ElType x);
 /* Mengirimkan true jika terdapat elemen X di dalam list */
 /* yaitu antara FirstIdx(L)..LastIdx(L) */
 
-void InsertLastLS(ListStatik *l, ElType x);
+void InsertLS(ListStatik *l, ElType x);
 /* I.S. L terdefinisi, mungkin kosong. */
 /* F.S. v menjadi elemen terakhir L. */
 

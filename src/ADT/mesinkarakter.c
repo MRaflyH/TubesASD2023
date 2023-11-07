@@ -1,5 +1,4 @@
 #include "mesinkarakter.h"
-#include <stdio.h>
 
 char CurrentChar;
 boolean EOP;
@@ -8,6 +7,7 @@ static FILE *pita;
 static int retval;
 
 void Start() {
+    EOP = false;
     pita = stdin;
     Adv();
 }

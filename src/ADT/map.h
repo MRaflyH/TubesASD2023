@@ -1,17 +1,17 @@
 #ifndef MAP_H
 #define MAP_H
 
-#include "boolean.h"
+#include "set.h"
 
 #define MaxCapacity 100
-#define ValUndef -1
+// #define ValUndef -1
 
-typedef int KeyType;
-typedef int ElType;
+typedef Word KeyType;
+typedef Set ValType;
 
 typedef struct { 
   KeyType Key;
-  ElType Value;
+  ValType Value;
 } MapEntry;
 
 typedef struct {
@@ -23,17 +23,18 @@ void CreateM(Map *m);
 
 boolean IsEmptyM(Map m);
 
-boolean IsFull(Map m);
+boolean IsFullM(Map m);
 
-boolean IsMember(Map m, KeyType k);
-// check kalau ada keytype
+boolean IsMemberM(Map m, KeyType k);
 
-ElType Value(Map m, KeyType k);
-// return value dari key, kalau key gaada, ValUndef
+ValType ValueM(Map m, KeyType k);
 
-void Insert(Map *m, KeyType k, ElType v);
-// kalau udah ada keynya, replace
+void InsertM(Map *m, KeyType k, ValType v);
 
-void Delete(Map *m, KeyType k);
+void DeleteM(Map *m, KeyType k);
+
+void DisplayValueM(Map m, KeyType k);
+
+void DisplayM(Map m);
 
 #endif

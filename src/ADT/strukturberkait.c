@@ -3,71 +3,94 @@
 
 #include "strukturberkait.h"
 
-Address NewNode(ElType x) {
+Address NewNodeSB(ElType x) {
     Address p = (Address) malloc(sizeof(Node));
     if (p != NULL) {
-        Info(p) = x;
+        PasteWord(x, &Info(p));
         Next(p) = NULL;
     }
     return p;
 }
 
-void CreateQueue(Queue *q) {
-    AddrHead(*q) = Nil;
-    AddrTail(*q) = Nil;
+void CreateSB(StrukBerkait *s){
+    (*s) = Nil;
 }
 
-boolean IsEmpty(Queue q) {
-    return AddrHead(q) == Nil && AddrTail(q) == Nil;
+boolean IsEmptySB(StrukBerkait s) {
+    return s == Nil;
 }
 
-int Length(Queue q) {
+int LengthSB(StrukBerkait s) {
     Address p;
     int counter;
-    p = AddrHead(q);
+    p = s;
     while (p != Nil) {
-        counter++;
         p = Next(p);
+        counter++;
     }
     return counter;
 }
 
-void Enqueue(Queue *q, ElType x) {
+void InsertSB(StrukBerkait *s, ElType x, int i) {
     Address p;
-    p = NewNode(x);
+    p = NewNodeSB(x);
+
     if (p != NULL) {
-        if (IsEmpty(*q)) {
-            AddrHead(*q) = p;
+        if (i == 0) {
+            Next(p) = *s;
+            *s = p;
         }
         else {
-            Next(AddrTail(*q)) = p;
+            int counter = 0;
+            Address loc = *s;
+            while (counter < i - 1) {
+                counter++;
+                loc = Next(loc);
+            }
+            Next(p) = Next(loc);
+            Next(loc) = p;
         }
-        AddrTail(*q) = p;
     }
 }
 
-void Dequeue(Queue *q, ElType *x) {
+void DeleteSB(StrukBerkait *s, ElType *x, int i) {
     Address p;
-    *x = Head(*q);
-    p = AddrHead(*q);
-    AddrHead(*q) = Next(AddrHead(*q));
-    if (AddrHead(*q) == Nil) {
-        AddrHead(*q) = Nil;
-    }
-    Next(p) = Nil;
-    free(p);
-}
+    p = NewNodeSB(*x);
 
-void DisplayQueue(Queue q) {
-    Address p;
-    p = AddrHead(q);
-    printf("[");
-    while (p != Nil) {
-        printf("%d", Info(p));
-        p = Next(p);
-        if (p != Nil) {
-            printf(",");
+    if (p != NULL) {
+        if (i == 0) {
+            Next(p) = *s;
+            *s = p;
+        }
+        else {
+            int counter = 0;
+            Address loc = *s;
+            while (counter < i - 1) {
+                counter++;
+                loc = Next(loc);
+            }
+            p = Next(loc);
+            PasteWord(Info(p), x);
+            Next(loc) = Next(p);
+            free(p);
         }
     }
-    printf("]\n");
+}
+
+void DisplaySB(StrukBerkait s) {
+    Address p;
+    p = s;
+    
+    if (p == Nil) {
+        printf("Kosong\n");
+    }
+    else {
+        int i = 0;
+        while (p != Nil) {
+            printf("%d. ", i+1);
+            DisplayWord(Info(p));
+            p = Next(p);
+            i++;
+        }
+    }
 }
