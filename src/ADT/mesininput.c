@@ -1,4 +1,4 @@
-#include "mesinkata.h"
+#include "mesininput.h"
 
 boolean EndWord;
 Word CurrentWord;

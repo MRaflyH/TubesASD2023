@@ -15,9 +15,6 @@ void Start() {
 void Adv() {
     retval = fscanf(pita, "%c", &CurrentChar);
     EOP = (CurrentChar == Mark);
-    if (EOP) {
-        fclose(pita);
-    }
 }
 
 char GetCC() {
