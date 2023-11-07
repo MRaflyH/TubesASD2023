@@ -8,9 +8,14 @@
 
 typedef Word ElType;
 typedef int IdxType;
+typedef struct {
+    ElType Penyanyi;
+    ElType Album;
+    ElType Lagu;
+} Detail;
 
 typedef struct {
-    ElType Content[MaxCapacity];
+    Detail Content[MaxCapacity];
     IdxType IdxHead;
     IdxType IdxTail;
 } Queue;
@@ -19,8 +24,8 @@ typedef struct {
 /* Jika q adalah Queue, maka akses elemen : */
 #define IDX_HEAD(q) (q).IdxHead
 #define IDX_TAIL(q) (q).IdxTail
-#define     HEAD(q) (q).Content[(q).IdxHead]
-#define     TAIL(q) (q).Content[(q).IdxTail]
+#define HEAD(q) (q).Content[(q).IdxHead]
+#define TAIL(q) (q).Content[(q).IdxTail]
 
 void CreateQ(Queue *q);
 /* I.S. sembarang */
@@ -36,14 +41,14 @@ boolean IsEmptyQ(Queue q);
 boolean IsIdxValidQ(Queue *q, int i);
 
 /* ********** Primitif Add/Delete ********** */
-void EnqueueQ(Queue *q, ElType x);
+void EnqueueQ(Queue *q, Detail x);
 /* Proses: Menambahkan val pada q dengan aturan FIFO */
 /* I.S. q mungkin kosong, tabel penampung elemen q TIDAK penuh */
 /* F.S. val menjadi TAIL yang baru, IDX_TAIL "mundur" dalam buffer melingkar. */
 
-void EnqueueFirstQ(Queue *q, ElType x);
+void EnqueueFirstQ(Queue *q, Detail x);
 
-void DequeueQ(Queue *q, ElType *x);
+void DequeueQ(Queue *q, Detail *x);
 /* Proses: Menghapus val pada q dengan aturan FIFO */
 /* I.S. q tidak mungkin kosong */
 /* F.S. val = nilai elemen HEAD pd I.S., IDX_HEAD "mundur";
