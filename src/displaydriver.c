@@ -5,16 +5,25 @@ int main() {
     // JANGAN LUPA LOAD
     LoadData();
 
-    // CONTOH INPUT UNTUK PARAMETER
-    char * inputString;
-    int inputLength;
-    Word inputWord;
-    inputString = "test input 1";
-    inputLength = 12;
-    CreateWord(inputLength, inputString, &inputWord);
-    printf("INI ADALAH INPUT KAMU DI DRIVER: ");
-    DisplayWord(inputWord);
+    Word DISPLAY;
+    Word EXIT;
+    boolean EndProgram = false;
 
-    // KALAU MAU PAKE INTEGER, PAKE x = WordToInt(Word w)
-    Display();
+    CreateWord(7, "DISPLAY", &DISPLAY);
+    CreateWord(4, "EXIT", &EXIT);
+
+    while (!EndProgram) {
+        // INPUT BERAKHIR DENGAN ';'
+        printf("DISPLAY/EXIT:\n");
+        StartWord();
+        printf("\n");
+        // DisplayWord(DISPLAY);
+        if (IsWordSame(CurrentWord, EXIT)) {
+            EndProgram = true;
+        }
+        else if (IsWordSame(CurrentWord, DISPLAY)) {
+            Display();
+        }
+    }
+    return 0;
 }

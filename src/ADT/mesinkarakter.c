@@ -7,6 +7,7 @@ static FILE *pita;
 static int retval;
 
 void Start() {
+    printf(">> ");
     EOP = false;
     pita = stdin;
     Adv();

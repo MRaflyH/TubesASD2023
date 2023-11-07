@@ -4,6 +4,7 @@
 
 // INCLUDE DATA YA
 #include "data.h"
+#include "ADT/mesininput.h"
 
 // TULIS SEMUA FUNGSI/PROSEDUR YANG ADA DI C
 void Display();

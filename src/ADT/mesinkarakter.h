@@ -5,6 +5,7 @@
 #include "stdio.h"
 
 #define Mark ';'
+#define NewLine '\n'
 extern char CurrentChar;
 extern boolean EOP;
 

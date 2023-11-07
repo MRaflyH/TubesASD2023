@@ -4,21 +4,23 @@ boolean EndWord;
 Word CurrentWord;
 
 void IgnoreBlanks() {
-   while (CurrentChar == Blank) {
+   while (CurrentChar == Blank || CurrentChar == NewLine) {
       Adv();
    }
 }
 
 void StartWord() {
-    Start();
-    IgnoreBlanks();
-    if (CurrentChar == Mark) {
-        EndWord = true;
-    }
-    else {
-        EndWord = false;
-        CopyWord();
-    }
+   Start();
+   // CreateWord(0, "", &CurrentWord);
+   IgnoreBlanks();
+   if (CurrentChar == Mark) {
+      EndWord = true;
+   }
+   else {
+      EndWord = false;
+      CopyWord();
+   }
+   IgnoreBlanks();
 }
 
 void AdvWord() {
