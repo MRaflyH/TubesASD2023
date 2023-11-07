@@ -40,6 +40,13 @@ void InsertM(Map *m, KeyType k, ValType v) {
         CopySet(v, &(*m).Content[(*m).Length].Value);
         (*m).Length++;
     }
+    else if (IsMemberM(*m, k)) {
+        for (int i = 0; i < (*m).Length; i++) {
+            if (IsWordSame((*m).Content[i].Key, k)) {
+                CopySet(v, &(*m).Content[i].Value);
+            }
+        }
+    }
 }
 
 void DeleteM(Map *m, KeyType k) {

@@ -22,7 +22,7 @@ boolean SearchLS(ListStatik l, ElType x) {
     return found;
 }
 
-void InsertLastLS(ListStatik *l, ElType x) {
+void InsertLS(ListStatik *l, ElType x) {
     PasteWord(x, &(*l).Content[(*l).Neff]);
     (*l).Neff++;
 }

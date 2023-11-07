@@ -4,7 +4,7 @@ int main() {
     Stack s;
     Word w;
 
-    CreateEmptyS(&s);
+    CreateS(&s);
 
     CreateWord(6, "pisang", &w);
     PushS(&s, w);

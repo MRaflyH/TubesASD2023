@@ -85,8 +85,13 @@ void DeleteLD(ListDinamik *l, IdxType i) {
 }
 
 void DisplayLD(ListDinamik l) {
-    for (int i = 0; i < l.Neff; i++) {
-        printf("%d. ", i+1);
-        DisplayWord(l.Content[i]);
-    }
+	if (IsEmptyLD(l)) {
+		printf("Kosong\n");
+	}
+	else {
+		for (int i = 0; i < l.Neff; i++) {
+			printf("%d. ", i+1);
+			DisplayWord(l.Content[i]);
+		}
+	}
 }

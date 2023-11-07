@@ -36,8 +36,13 @@ void PasteWord(Word source, Word * dest) {
 }
 
 void DisplayWord(Word w) {
-    for (int i = 0; i < w.Length; i++) {
-        printf("%c", w.Content[i]);
+    if (w.Length == 0) {
+        printf("Kosong\n");
     }
-    printf("\n");
+    else {
+        for (int i = 0; i < w.Length; i++) {
+            printf("%c", w.Content[i]);
+        }
+        printf("\n");
+    }
 }
