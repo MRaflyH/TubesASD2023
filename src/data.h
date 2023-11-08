@@ -19,4 +19,27 @@ extern Word CurrentLagu;
 extern boolean EndProgram;
 extern boolean IsLoggedIn;
 
+extern Word WordSTART;
+extern Word WordLOAD;
+extern Word WordLIST;
+extern Word WordDEFAULT;
+extern Word WordPLAYLIST;
+extern Word WordPLAY;
+extern Word WordSONG;
+extern Word WordQUEUE;
+extern Word WordSWAP;
+extern Word WordCLEAR;
+extern Word WordNEXT;
+extern Word WordPREVIOUS;
+extern Word WordCREATE;
+extern Word WordADD;
+extern Word WordALBUM;
+extern Word WordDELETE;
+extern Word WordSTATUS;
+extern Word WordSAVE;
+extern Word WordQUIT;
+extern Word WordHELP;
+
+void LoadWords();
+
 #endif
