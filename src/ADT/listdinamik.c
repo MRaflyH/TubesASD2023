@@ -75,6 +75,7 @@ void DeleteLD(ListDinamik *l, IdxType i) {
 	for (j = i; j < (*l).Neff; j++)
 	{
 		PasteWord((*l).Content[j + 1].Info.Name, &(*l).Content[j].Info.Name);
+		(*l).Content[j].Next = (*l).Content[j + 1].Next;
 	}
 	(*l).Neff--;
 
@@ -83,6 +84,7 @@ void DeleteLD(ListDinamik *l, IdxType i) {
 		for (j = 0; j < (*l).Neff; j++)
 		{
             PasteWord((*l).Content[j].Info.Name, &temp[j].Info.Name);
+			temp[j].Next = (*l).Content[j].Next;
 		}
 
 		DeallocateLD(l);
@@ -92,6 +94,7 @@ void DeleteLD(ListDinamik *l, IdxType i) {
 		for (j = 0; j < (*l).Neff; j++)
 		{
             PasteWord(temp[j].Info.Name, &(*l).Content[j].Info.Name);
+			(*l).Content[j].Next = temp[j].Next;
 		}
 		free(temp);
     }
