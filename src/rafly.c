@@ -102,7 +102,7 @@ void LOAD() {
             AdvLineF();
             PasteWord(CurrentWord, &tempLagu);
             CreateD(&DLagu, tempPenyanyi, tempAlbum, tempLagu);
-            PushS(&RiwayatLagu, DLagu);
+            PushFirstS(&RiwayatLagu, DLagu);
         }
 
         printf("Save file berhasil dibaca. WayangWave berhasil dijalankan.\n");

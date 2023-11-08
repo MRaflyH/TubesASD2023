@@ -33,6 +33,15 @@ void PushS (Stack * S, Detail X)
     PasteD(X, &InfoTop(*S));
 }
 
+void PushFirstS (Stack * S, Detail X)
+{
+    Top(*S) += 1;
+    for (int i = Top(*S); i > 0; i--) {
+        PasteD((*S).Content[i-1], &(*S).Content[i]);
+    }
+    PasteD(X, &(*S).Content[0]);
+}
+
 /* ************ Menghapus sebuah elemen Stack ************ */
 void PopS (Stack * S, Detail* X)
 /* Menghapus X dari Stack S. */

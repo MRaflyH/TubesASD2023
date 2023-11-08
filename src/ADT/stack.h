@@ -47,6 +47,8 @@ void PushS(Stack * S, Detail X);
 /* I.S. S mungkin kosong, tabel penampung elemen stack TIDAK penuh */
 /* F.S. Top bertambah 1, X menjadi Top yang baru, */
 
+void PushFirstS(Stack * S, Detail X);
+
 /* ************ Menghapus sebuah elemen Stack ************ */
 void PopS(Stack * S, Detail* X);
 /* Menghapus X dari Stack S. */
