@@ -16,7 +16,7 @@ extern Stack RiwayatLagu;
 extern Map AlbumPenyanyi;
 extern Map LaguAlbum;
 extern Word CurrentLagu;
-
-void LoadData();
+extern boolean EndProgram;
+extern boolean IsLoggedIn;
 
 #endif

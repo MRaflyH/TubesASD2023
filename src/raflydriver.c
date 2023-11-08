@@ -1,7 +1,7 @@
 #include "rafly.h"
 
 int main() {
-    boolean EndProgram = false;
+    EndProgram = false;
     DaftarPenyanyi = CreateLS();
     DaftarPlaylist = CreateLD();
     CreateQ(&QueueLagu);
@@ -21,7 +21,7 @@ int main() {
             LOAD();
         }
         else if (IsWordSame(CurrentWord, WordDisplay)) {
-            Display();
+            DISPLAY();
         }
         else if (IsWordSame(CurrentWord, WordExit)) {
             EndProgram = true;
