@@ -25,12 +25,17 @@ boolean IsIdValidLD(ListDinamik l, IdxType i) {
 }
 
 ElType GetLD(ListDinamik l, IdxType i) {
-    return l.Content[i].Info;
+    return l.Content[i].Info.Name;
 }
 
 void InsertLD(ListDinamik *l, ElType x, IdxType i) {
 	Address xnode;
-	xnode = NewNodeSB(x);
+    Word wkosong;
+    Detail d;
+
+    CreateWord(0, "", &wkosong);
+	CreateD(&d, wkosong, wkosong, x);
+	xnode = NewNodeSB(d);
 
     int j;
 
@@ -38,7 +43,7 @@ void InsertLD(ListDinamik *l, ElType x, IdxType i) {
 		StrukBerkait *temp = (StrukBerkait *)malloc(sizeof(StrukBerkait) * (*l).Capacity);
 		for (j = 0; j < (*l).Neff; j++)
 		{
-            PasteWord((*l).Content[j].Info, &temp[j].Info);
+            PasteWord((*l).Content[j].Info.Name, &temp[j].Info.Name);
 			temp[j].Next = (*l).Content[j].Next;
 		}
 
@@ -48,7 +53,7 @@ void InsertLD(ListDinamik *l, ElType x, IdxType i) {
 
 		for (j = 0; j < (*l).Neff; j++)
 		{
-            PasteWord(temp[j].Info, &(*l).Content[j].Info);
+            PasteWord(temp[j].Info.Name, &(*l).Content[j].Info.Name);
 			(*l).Content[j].Next = temp[j].Next;
 		}
 		free(temp);
@@ -56,10 +61,10 @@ void InsertLD(ListDinamik *l, ElType x, IdxType i) {
 
 	for (j = (*l).Neff; j > i; j--)
 	{
-		PasteWord((*l).Content[j - 1].Info, &(*l).Content[j].Info);
+		PasteWord((*l).Content[j - 1].Info.Name, &(*l).Content[j].Info.Name);
 		(*l).Content[j].Next = (*l).Content[j - 1].Next;
 	}
-	PasteWord(xnode->Info, &(*l).Content[i].Info);
+	PasteWord(xnode->Info.Name, &(*l).Content[i].Info.Name);
 	CreateSB(xnode);
 	(*l).Neff++;
 }
@@ -68,7 +73,7 @@ void DeleteLD(ListDinamik *l, IdxType i) {
 	int j;
 	for (j = i; j < (*l).Neff; j++)
 	{
-		PasteWord((*l).Content[j + 1].Info, &(*l).Content[j].Info);
+		PasteWord((*l).Content[j + 1].Info.Name, &(*l).Content[j].Info.Name);
 	}
 	(*l).Neff--;
 
@@ -76,7 +81,7 @@ void DeleteLD(ListDinamik *l, IdxType i) {
 		StrukBerkait *temp = (StrukBerkait *)malloc(sizeof(StrukBerkait) * (*l).Capacity);
 		for (j = 0; j < (*l).Neff; j++)
 		{
-            PasteWord((*l).Content[j].Info, &temp[j].Info);
+            PasteWord((*l).Content[j].Info.Name, &temp[j].Info.Name);
 		}
 
 		DeallocateLD(l);
@@ -85,7 +90,7 @@ void DeleteLD(ListDinamik *l, IdxType i) {
 
 		for (j = 0; j < (*l).Neff; j++)
 		{
-            PasteWord(temp[j].Info, &(*l).Content[j].Info);
+            PasteWord(temp[j].Info.Name, &(*l).Content[j].Info.Name);
 		}
 		free(temp);
     }
@@ -98,7 +103,7 @@ void DisplayLD(ListDinamik l) {
 	else {
 		for (int i = 0; i < l.Neff; i++) {
 			printf("%d. ", i+1);
-			DisplayWord(l.Content[i].Info);
+			DisplayWord(l.Content[i].Info.Name);
 		}
 	}
 }
