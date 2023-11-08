@@ -4,7 +4,7 @@ boolean EndWord;
 Word CurrentWord;
 
 void IgnoreBlanksF() {
-   while (CurrentChar == Blank || CurrentChar == NewLine) {
+   while (CurrentChar == Blank || CurrentChar == NewLine || CurrentChar == Mark) {
       Adv();
    }
 }

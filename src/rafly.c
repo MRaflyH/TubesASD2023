@@ -1,7 +1,6 @@
 #include "rafly.h"
 
 int LOAD() {
-
     Word tempPenyanyi, tempAlbum, tempLagu;
     Set tempSetAlbum, tempSetLagu;
 
@@ -13,17 +12,20 @@ int LOAD() {
     CreateM(&LaguAlbum);
     CreateSB(&Playlist);
 
+    int NPenyanyi, NAlbum, NLagu, NQueue, NRiwayat, NPlaylist;
+    Detail DLagu;
+
     char * file_name = "data.txt";
     StartFileF(file_name);
-    int NPenyanyi = 0;
+
+    NPenyanyi = 0;
     for (int i = 0; i < CurrentWord.Length; i++) {
         NPenyanyi = NPenyanyi * 10 + (CurrentWord.Content[i] - '0');
     }
 
     for (int i = 0; i < NPenyanyi; i++) {
-        // printf("Penyanyi %d : ", i+1);
         AdvWordF();
-        int NAlbum = 0;
+        NAlbum = 0;
         for (int j = 0; j < CurrentWord.Length; j++) {
             NAlbum = NAlbum * 10 + (CurrentWord.Content[j] - '0');
         }
@@ -31,12 +33,10 @@ int LOAD() {
         PasteWord(CurrentWord, &tempPenyanyi);
         InsertLS(&DaftarPenyanyi, tempPenyanyi);
         CreateSet(&tempSetAlbum);
-        // DisplayWord(CurrentWord);
 
         for (int j = 0; j < NAlbum; j++) {
-            // printf("  Album %d : ", j+1);
             AdvWordF();
-            int NLagu = 0;
+            NLagu = 0;
             for (int k = 0; k < CurrentWord.Length; k++) {
                 NLagu = NLagu * 10 + (CurrentWord.Content[k] - '0');
             }
@@ -44,12 +44,9 @@ int LOAD() {
             PasteWord(CurrentWord, &tempAlbum);
             AddSet(&tempSetAlbum, tempAlbum);
             CreateSet(&tempSetLagu);
-            // DisplayWord(CurrentWord);
 
             for (int k = 0; k < NLagu; k++) {
-                // printf("    Lagu %d : ", k+1);
                 AdvLineF();
-                // DisplayWord(CurrentWord);
                 PasteWord(CurrentWord, &tempLagu);
                 AddSet(&tempSetLagu, tempLagu);
             }
@@ -58,6 +55,42 @@ int LOAD() {
         }
 
         InsertM(&AlbumPenyanyi, tempPenyanyi, tempSetAlbum);
+    }
+
+    AdvLineF();
+
+    NQueue = 0;
+    for (int i = 0; i < CurrentWord.Length; i++) {
+        NQueue = NQueue * 10 + (CurrentWord.Content[i] - '0');
+    }
+
+    for (int i = 0; i < NQueue; i++) {
+        AdvMarkF();
+        PasteWord(CurrentWord, &tempPenyanyi);
+        AdvMarkF();
+        PasteWord(CurrentWord, &tempAlbum);
+        AdvLineF();
+        PasteWord(CurrentWord, &tempLagu);
+        CreateD(&DLagu, tempPenyanyi, tempAlbum, tempLagu);
+        EnqueueQ(&QueueLagu, DLagu);
+    }
+    
+    AdvLineF();
+
+    NRiwayat = 0;
+    for (int i = 0; i < CurrentWord.Length; i++) {
+        NRiwayat = NRiwayat * 10 + (CurrentWord.Content[i] - '0');
+    }
+
+    for (int i = 0; i < NRiwayat; i++) {
+        AdvMarkF();
+        PasteWord(CurrentWord, &tempPenyanyi);
+        AdvMarkF();
+        PasteWord(CurrentWord, &tempAlbum);
+        AdvLineF();
+        PasteWord(CurrentWord, &tempLagu);
+        CreateD(&DLagu, tempPenyanyi, tempAlbum, tempLagu);
+        PushS(&RiwayatLagu, DLagu);
     }
 
     printf("\nINI DAFTAR PENYANYI\n");
