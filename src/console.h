@@ -1,3 +1,6 @@
+#ifndef CONSOLE_H
+#define CONSOLE_H
+
 #include "data.h"
 
 void START();
@@ -22,3 +25,5 @@ void STATUS();
 void SAVE();
 void QUIT();
 void HELP();
+
+#endif
