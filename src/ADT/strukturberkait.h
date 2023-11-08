@@ -2,15 +2,15 @@
 #define STRUKTUR_BERKAIT_H
 
 #include "kata.h"
+#include "detaillagu.h"
 #include <stdlib.h>
 
 #define Nil NULL
 
-typedef Word ElType;
 typedef struct node* Address;
 
 typedef struct node { 
-  ElType Info;
+  Detail Info;
   Address Next;
 } Node;
 
@@ -19,7 +19,7 @@ typedef Node StrukBerkait;
 #define Next(q) (q)->Next
 #define Info(q) (q)->Info
 
-Address NewNodeSB(ElType x);
+Address NewNodeSB(Detail x);
 
 boolean IsIdxValidSB(StrukBerkait *s, int i);
 
@@ -37,9 +37,9 @@ boolean IsEmptySB(StrukBerkait s);
 int LengthSB(StrukBerkait s);
 /* Mengirimkan banyaknya elemen StrukBerkait. Mengirimkan 0 jika sb kosong. */
 
-void InsertSB(StrukBerkait *s, ElType x, int i);
+void InsertSB(StrukBerkait *s, Detail x, int i);
 
-void DeleteSB(StrukBerkait *s, ElType *x, int i);
+void DeleteSB(StrukBerkait *s, Detail *x, int i);
 
 /* ********** Display StrukBerkait ********** */
 void DisplaySB(StrukBerkait s);

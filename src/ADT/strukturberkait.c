@@ -3,10 +3,10 @@
 
 #include "strukturberkait.h"
 
-Address NewNodeSB(ElType x) {
+Address NewNodeSB(Detail x) {
     Address p = (Address) malloc(sizeof(Node));
     if (p != NULL) {
-        PasteWord(x, &Info(p));
+        PasteD(x, &Info(p));
         Next(p) = NULL;
     }
     return p;
@@ -31,7 +31,7 @@ int LengthSB(StrukBerkait s) {
     return counter;
 }
 
-void InsertSB(StrukBerkait *s, ElType x, int i) {
+void InsertSB(StrukBerkait *s, Detail x, int i) {
     Address p;
     p = NewNodeSB(x);
 
@@ -53,7 +53,7 @@ void InsertSB(StrukBerkait *s, ElType x, int i) {
     }
 }
 
-void DeleteSB(StrukBerkait *s, ElType *x, int i) {
+void DeleteSB(StrukBerkait *s, Detail *x, int i) {
     Address p;
     p = NewNodeSB(*x);
 
@@ -70,7 +70,7 @@ void DeleteSB(StrukBerkait *s, ElType *x, int i) {
                 loc = Next(loc);
             }
             p = Next(loc);
-            PasteWord(Info(p), x);
+            PasteD(Info(p), x);
             Next(loc) = Next(p);
             free(p);
         }
@@ -88,7 +88,7 @@ void DisplaySB(StrukBerkait s) {
         int i = 0;
         while (p != Nil) {
             printf("%d. ", i+1);
-            DisplayWord(Info(p));
+            DisplayD(Info(p));
             p = Next(p);
             i++;
         }
