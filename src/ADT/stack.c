@@ -24,22 +24,22 @@ boolean IsFullS (Stack S)
 }
 
 /* ************ Menambahkan sebuah elemen ke Stack ************ */
-void PushS (Stack * S, ElType X)
+void PushS (Stack * S, Detail X)
 /* Menambahkan X sebagai elemen Stack S. */
 /* I.S. S mungkin kosong, tabel penampung elemen stack TIDAK penuh */
 /* F.S. X menjadi Top yang baru,Top bertambah 1 */
 {
     Top(*S) += 1;
-    PasteWord(X, &InfoTop(*S));
+    PasteD(X, &InfoTop(*S));
 }
 
 /* ************ Menghapus sebuah elemen Stack ************ */
-void PopS (Stack * S, ElType* X)
+void PopS (Stack * S, Detail* X)
 /* Menghapus X dari Stack S. */
 /* I.S. S  tidak mungkin kosong */
 /* F.S. X adalah nilai elemen Top yang lama, Top berkurang 1 */
 {
-    PasteWord(InfoTop(*S), X);
+    PasteD(InfoTop(*S), X);
     Top(*S) -= 1;
 }
 
@@ -50,10 +50,10 @@ void DisplayS(Stack s){
         IdxType i;
         for(i=Top(s); i>0; i--){
             printf("%d. ",  Top(s) - i + 1);
-            DisplayWord(s.Content[i]);
+            DisplayD(s.Content[i]);
         }
         printf("%d. ", Top(s) - i + 1);
-        DisplayWord(s.Content[i]);
+        DisplayD(s.Content[i]);
     }
 }
 /* Proses : Menuliskan isi Queue dengan traversal, Queue ditulis di antara kurung 
