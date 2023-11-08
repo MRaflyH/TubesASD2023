@@ -1,6 +1,14 @@
 #include "rafly.h"
 
 int main() {
+    DaftarPenyanyi = CreateLS();
+    DaftarPlaylist = CreateLD();
+    CreateQ(&QueueLagu);
+    CreateS(&RiwayatLagu);
+    CreateM(&AlbumPenyanyi);
+    CreateM(&LaguAlbum);
+    CreateSB(&Playlist);
+
     Word WordLoad, WordExit, WordDisplay;
     CreateWord(4, "LOAD", &WordLoad);
     CreateWord(4, "EXIT", &WordExit);
