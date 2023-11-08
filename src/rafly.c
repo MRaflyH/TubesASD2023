@@ -15,7 +15,7 @@ int LOAD() {
     int NPenyanyi, NAlbum, NLagu, NQueue, NRiwayat, NPlaylist;
     Detail DLagu;
 
-    char * file_name = "data.txt";
+    char * file_name = "../save/data.txt";
     StartFileF(file_name);
 
     NPenyanyi = 0;
@@ -109,9 +109,6 @@ int LOAD() {
     DisplayWord(CurrentLagu);
     printf("\nINI ISI PLAYLIST\n");
     DisplaySB(Playlist);
-    printf("\n");
-
-    printf("KELAR\n");
-     
+    printf("\n");     
     return 0;
 }
