@@ -2,6 +2,8 @@
 #define CONSOLE_H
 
 #include "data.h"
+#include "ADT/mesinfile.h"
+#include "ADT/mesininput.h"
 
 void START();
 void LOAD();
