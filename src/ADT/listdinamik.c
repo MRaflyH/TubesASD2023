@@ -2,7 +2,7 @@
 
 ListDinamik CreateLD() {
 	ListDinamik A;
-	A.Content = (ElType *)malloc(sizeof(ElType) * InitialCapacity);
+	A.Content = (StrukBerkait *)malloc(sizeof(StrukBerkait) * InitialCapacity);
 	A.Capacity = InitialCapacity;
 	A.Neff = 0;
 	return A;
@@ -25,35 +25,42 @@ boolean IsIdValidLD(ListDinamik l, IdxType i) {
 }
 
 ElType GetLD(ListDinamik l, IdxType i) {
-    return l.Content[i];
+    return l.Content[i].Info;
 }
 
 void InsertLD(ListDinamik *l, ElType x, IdxType i) {
+	Address xnode;
+	xnode = NewNodeSB(x);
+
     int j;
 
     if (IsFullLD(*l)) {
-		ElType *temp = (ElType *)malloc(sizeof(ElType) * (*l).Capacity);
+		StrukBerkait *temp = (StrukBerkait *)malloc(sizeof(StrukBerkait) * (*l).Capacity);
 		for (j = 0; j < (*l).Neff; j++)
 		{
-            PasteWord((*l).Content[j], &temp[j]);
+            PasteWord((*l).Content[j].Info, &temp[j].Info);
+			temp[j].Next = (*l).Content[j].Next;
 		}
 
 		DeallocateLD(l);
 		(*l).Capacity *= 2;
-		(*l).Content = (ElType *)malloc(sizeof(ElType) * (*l).Capacity);
+		(*l).Content = (StrukBerkait *)malloc(sizeof(StrukBerkait) * (*l).Capacity);
 
 		for (j = 0; j < (*l).Neff; j++)
 		{
-            PasteWord(temp[j], &(*l).Content[j]);
+            PasteWord(temp[j].Info, &(*l).Content[j].Info);
+			(*l).Content[j].Next = temp[j].Next;
 		}
 		free(temp);
     }
 
 	for (j = (*l).Neff; j > i; j--)
 	{
-		PasteWord((*l).Content[j - 1], &(*l).Content[j]);
+		PasteWord((*l).Content[j - 1].Info, &(*l).Content[j].Info);
+		(*l).Content[j].Next = (*l).Content[j - 1].Next;
 	}
-	PasteWord(x, &(*l).Content[i]);
+	PasteWord(xnode->Info, &(*l).Content[i].Info);
+	CreateSB(xnode);
 	(*l).Neff++;
 }
 
@@ -61,24 +68,24 @@ void DeleteLD(ListDinamik *l, IdxType i) {
 	int j;
 	for (j = i; j < (*l).Neff; j++)
 	{
-		PasteWord((*l).Content[j + 1], &(*l).Content[j]);
+		PasteWord((*l).Content[j + 1].Info, &(*l).Content[j].Info);
 	}
 	(*l).Neff--;
 
     if ((*l).Neff <= ((*l).Capacity / 4)) {
-		ElType *temp = (ElType *)malloc(sizeof(ElType) * (*l).Capacity);
+		StrukBerkait *temp = (StrukBerkait *)malloc(sizeof(StrukBerkait) * (*l).Capacity);
 		for (j = 0; j < (*l).Neff; j++)
 		{
-            PasteWord((*l).Content[j], &temp[j]);
+            PasteWord((*l).Content[j].Info, &temp[j].Info);
 		}
 
 		DeallocateLD(l);
 		(*l).Capacity /= 2;
-		(*l).Content = (ElType *)malloc(sizeof(ElType) * (*l).Capacity);
+		(*l).Content = (StrukBerkait *)malloc(sizeof(StrukBerkait) * (*l).Capacity);
 
 		for (j = 0; j < (*l).Neff; j++)
 		{
-            PasteWord(temp[j], &(*l).Content[j]);
+            PasteWord(temp[j].Info, &(*l).Content[j].Info);
 		}
 		free(temp);
     }
@@ -91,7 +98,7 @@ void DisplayLD(ListDinamik l) {
 	else {
 		for (int i = 0; i < l.Neff; i++) {
 			printf("%d. ", i+1);
-			DisplayWord(l.Content[i]);
+			DisplayWord(l.Content[i].Info);
 		}
 	}
 }

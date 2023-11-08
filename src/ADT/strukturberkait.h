@@ -14,7 +14,7 @@ typedef struct node {
   Address Next;
 } Node;
 
-typedef Address StrukBerkait;
+typedef Node StrukBerkait;
 
 #define Next(q) (q)->Next
 #define Info(q) (q)->Info

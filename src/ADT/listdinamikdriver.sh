@@ -1,2 +1,2 @@
-gcc "kata.c" "listdinamik.c" "listdinamikdriver.c" -o main
+gcc "kata.c" "listdinamik.c" "strukturberkait.c" "listdinamikdriver.c" -o main
 ./main

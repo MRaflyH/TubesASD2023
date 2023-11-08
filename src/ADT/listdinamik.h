@@ -1,16 +1,15 @@
 #ifndef LIST_DINAMIK_H
 #define LIST_DINAMIK_H
 
-#include "kata.h"
+#include "strukturberkait.h"
 #include <stdlib.h>
 
 #define InitialCapacity 16
 
 typedef int IdxType;
-typedef Word ElType;
 
 typedef struct {
-    ElType *Content;
+    StrukBerkait *Content;
     int Capacity;
     int Neff;
 } ListDinamik;

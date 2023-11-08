@@ -13,17 +13,17 @@ Address NewNodeSB(ElType x) {
 }
 
 void CreateSB(StrukBerkait *s){
-    (*s) = Nil;
+    (*s).Next = Nil;
 }
 
 boolean IsEmptySB(StrukBerkait s) {
-    return s == Nil;
+    return s.Next == Nil;
 }
 
 int LengthSB(StrukBerkait s) {
     Address p;
     int counter;
-    p = s;
+    p = s.Next;
     while (p != Nil) {
         p = Next(p);
         counter++;
@@ -37,12 +37,12 @@ void InsertSB(StrukBerkait *s, ElType x, int i) {
 
     if (p != NULL) {
         if (i == 0) {
-            Next(p) = *s;
-            *s = p;
+            Next(p) = (*s).Next;
+            (*s).Next = p;
         }
         else {
             int counter = 0;
-            Address loc = *s;
+            Address loc = (*s).Next;
             while (counter < i - 1) {
                 counter++;
                 loc = Next(loc);
@@ -59,12 +59,12 @@ void DeleteSB(StrukBerkait *s, ElType *x, int i) {
 
     if (p != NULL) {
         if (i == 0) {
-            Next(p) = *s;
-            *s = p;
+            Next(p) = (*s).Next;
+            (*s).Next = p;
         }
         else {
             int counter = 0;
-            Address loc = *s;
+            Address loc = (*s).Next;
             while (counter < i - 1) {
                 counter++;
                 loc = Next(loc);
@@ -79,7 +79,7 @@ void DeleteSB(StrukBerkait *s, ElType *x, int i) {
 
 void DisplaySB(StrukBerkait s) {
     Address p;
-    p = s;
+    p = s.Next;
     
     if (p == Nil) {
         printf("Kosong\n");
