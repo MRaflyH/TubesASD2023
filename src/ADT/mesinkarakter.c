@@ -19,7 +19,7 @@ void Start() {
 
 void Adv() {
     retval = fscanf(pita, "%c", &CurrentChar);
-    EOP = (CurrentChar == Mark);
+    EOP = feof(pita);
 }
 
 char GetCC() {
@@ -27,5 +27,5 @@ char GetCC() {
 }
 
 boolean IsEOP() {
-    return (CurrentChar == Mark);
+    return (feof(pita));
 }

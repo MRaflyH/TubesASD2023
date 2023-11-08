@@ -111,17 +111,18 @@ void LOAD() {
             NPlaylist = NPlaylist * 10 + (CurrentWord.Content[i] - '0');
         }
 
-        for (int i = 0; i < NPlaylist-1; i++) {
+        for (int i = 0; i < NPlaylist; i++) {
             AdvWordF();
             NLagu = 0;
             for (int j = 0; j < CurrentWord.Length; j++) {
                 NLagu = NLagu * 10 + (CurrentWord.Content[j] - '0');
             }
+
             AdvLineF();
             PasteWord(CurrentWord, &tempPlayist);
             InsertLD(&DaftarPlaylist, tempPlayist, i);
 
-            for (int j = 0; j < NAlbum; j++) {
+            for (int j = 0; j < NLagu; j++) {
                 AdvMarkF();
                 PasteWord(CurrentWord, &tempPenyanyi);
                 AdvMarkF();
