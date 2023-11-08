@@ -18,5 +18,6 @@ void Display() {
     printf("\nINI CURRENT LAGU\n");
     DisplayWord(CurrentLagu);
     printf("\nINI ISI PLAYLIST\n");
-    DisplaySB(Playlist);
+    DisplaySemuaLD(DaftarPlaylist);
+
 }

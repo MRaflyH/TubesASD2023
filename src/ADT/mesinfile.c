@@ -52,6 +52,7 @@ void AdvMarkF() {
    else {
       CopyMarkF();
    }
+   Adv();
    IgnoreBlanksF();
 }
 

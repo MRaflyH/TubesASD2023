@@ -15,7 +15,6 @@ extern Queue QueueLagu;
 extern Stack RiwayatLagu;
 extern Map AlbumPenyanyi;
 extern Map LaguAlbum;
-extern StrukBerkait Playlist;
 extern Word CurrentLagu;
 
 void LoadData();

@@ -1,20 +1,20 @@
 #include "rafly.h"
 
 int main() {
+    boolean EndProgram = false;
     DaftarPenyanyi = CreateLS();
     DaftarPlaylist = CreateLD();
     CreateQ(&QueueLagu);
     CreateS(&RiwayatLagu);
     CreateM(&AlbumPenyanyi);
     CreateM(&LaguAlbum);
-    CreateSB(&Playlist);
 
     Word WordLoad, WordExit, WordDisplay;
     CreateWord(4, "LOAD", &WordLoad);
     CreateWord(4, "EXIT", &WordExit);
     CreateWord(7, "DISPLAY", &WordDisplay);
 
-    while (true) {
+    while (!EndProgram) {
         StartWordI();
         if (IsWordSame(CurrentWord, WordLoad)) {
             AdvWordI();
@@ -24,7 +24,7 @@ int main() {
             Display();
         }
         else if (IsWordSame(CurrentWord, WordExit)) {
-            break;
+            EndProgram = true;
         }
         printf("\n");
     }

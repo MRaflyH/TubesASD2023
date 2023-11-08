@@ -64,6 +64,7 @@ void InsertLD(ListDinamik *l, ElType x, IdxType i) {
 		PasteWord((*l).Content[j - 1].Info.Name, &(*l).Content[j].Info.Name);
 		(*l).Content[j].Next = (*l).Content[j - 1].Next;
 	}
+
 	PasteWord(xnode->Info.Name, &(*l).Content[i].Info.Name);
 	CreateSB(xnode);
 	(*l).Neff++;
@@ -106,4 +107,32 @@ void DisplayLD(ListDinamik l) {
 			DisplayWord(l.Content[i].Info.Name);
 		}
 	}
+}
+
+void DisplayIsiLD(ListDinamik l, ElType x) {
+	boolean found = false;
+	int i = 0;
+	while (i < l.Neff && !found) {
+		if (IsWordSame(l.Content[i].Info.Name, x)) {
+			DisplaySB(l.Content[i]);
+			found = true;
+		}
+		i++;
+	}
+	if (!found) {
+		printf("Playlist tidak ada\n");
+	}
+}
+
+void DisplaySemuaLD(ListDinamik l) {
+	if (IsEmptyLD(l)) {
+		printf("Kosong\n");
+	}
+
+	for (int i = 0; i < l.Neff; i++) {
+		printf("Playlist ");
+		DisplayWord(l.Content[i].Info.Name);
+		DisplaySB(l.Content[i]);
+	}
+
 }

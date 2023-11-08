@@ -14,7 +14,7 @@ void LOAD() {
     char * file_name = WordtoFileName(CurrentWord);
 
     if (FileExists(file_name)) {
-        Word tempPenyanyi, tempAlbum, tempLagu;
+        Word tempPenyanyi, tempAlbum, tempLagu, tempPlayist;
         Set tempSetAlbum, tempSetLagu;
 
         DaftarPenyanyi = CreateLS();
@@ -23,7 +23,6 @@ void LOAD() {
         CreateS(&RiwayatLagu);
         CreateM(&AlbumPenyanyi);
         CreateM(&LaguAlbum);
-        CreateSB(&Playlist);
 
         int NPenyanyi, NAlbum, NLagu, NQueue, NRiwayat, NPlaylist;
         Detail DLagu;
@@ -105,6 +104,34 @@ void LOAD() {
             PushFirstS(&RiwayatLagu, DLagu);
         }
 
+        AdvLineF();
+
+        NPlaylist = 0;
+        for (int i = 0; i < CurrentWord.Length; i++) {
+            NPlaylist = NPlaylist * 10 + (CurrentWord.Content[i] - '0');
+        }
+
+        for (int i = 0; i < NPlaylist-1; i++) {
+            AdvWordF();
+            NLagu = 0;
+            for (int j = 0; j < CurrentWord.Length; j++) {
+                NLagu = NLagu * 10 + (CurrentWord.Content[j] - '0');
+            }
+            AdvLineF();
+            PasteWord(CurrentWord, &tempPlayist);
+            InsertLD(&DaftarPlaylist, tempPlayist, i);
+
+            for (int j = 0; j < NAlbum; j++) {
+                AdvMarkF();
+                PasteWord(CurrentWord, &tempPenyanyi);
+                AdvMarkF();
+                PasteWord(CurrentWord, &tempAlbum);
+                AdvLineF();
+                PasteWord(CurrentWord, &tempLagu);
+                CreateD(&DLagu, tempPenyanyi, tempAlbum, tempLagu);
+                InsertSB(&DaftarPlaylist.Content[i], DLagu, j);
+            }
+        }
         printf("Save file berhasil dibaca. WayangWave berhasil dijalankan.\n");
     }
     else {

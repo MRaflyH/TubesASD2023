@@ -63,4 +63,8 @@ void DisplayLD(ListDinamik l);
 // 3. Be the main character
 // 4. Hey i liked you.
 
+void DisplayIsiLD(ListDinamik l, ElType x);
+void DisplaySemuaLD(ListDinamik l);
+
+
 #endif
