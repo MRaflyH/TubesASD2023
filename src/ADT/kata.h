@@ -1,7 +1,7 @@
 #ifndef KATA_H
 #define KATA_H
 
-#include "boolean.h"
+#include "../../src/boolean.h"
 #include <stdio.h>
 
 #define MaxChar 100

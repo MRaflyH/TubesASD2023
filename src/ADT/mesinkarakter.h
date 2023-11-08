@@ -1,7 +1,7 @@
 #ifndef MESIN_KARAKTER_H
 #define MESIN_KARAKTER_H
 
-#include "boolean.h"
+#include "../../src/boolean.h"
 #include "stdio.h"
 
 #define Mark ';'
