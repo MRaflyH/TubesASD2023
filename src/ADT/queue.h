@@ -1,18 +1,10 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 
-#include "kata.h"
+#include "detaillagu.h"
 
 #define MaxCapacity 100
 #define IdxUndef -1
-
-typedef Word ElType;
-typedef int IdxType;
-typedef struct {
-    ElType Penyanyi;
-    ElType Album;
-    ElType Lagu;
-} Detail;
 
 typedef struct {
     Detail Content[MaxCapacity];

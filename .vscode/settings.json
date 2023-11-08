@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "mesinfile.h": "c"
+        "mesinfile.h": "c",
+        "detaillagu.h": "c"
     }
 }

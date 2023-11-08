@@ -1,2 +1,2 @@
-gcc "kata.c" "queue.c" "queuedriver.c" -o main
+gcc "kata.c" "detaillagu.c" "queue.c" "queuedriver.c" -o main
 ./main
