@@ -28,6 +28,7 @@ extern Word WordPLAY;
 extern Word WordSONG;
 extern Word WordQUEUE;
 extern Word WordSWAP;
+extern Word WordREMOVE;
 extern Word WordCLEAR;
 extern Word WordNEXT;
 extern Word WordPREVIOUS;
@@ -38,6 +39,8 @@ extern Word WordDELETE;
 extern Word WordSTATUS;
 extern Word WordSAVE;
 extern Word WordQUIT;
+extern Word WordY;
+extern Word WordN;
 extern Word WordHELP;
 
 void LoadWords();
