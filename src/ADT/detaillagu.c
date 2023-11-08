@@ -13,7 +13,10 @@ void PasteD(Detail source, Detail *dest) {
 }
 
 void DisplayD(Detail d) {
-    DisplayWord(d.Penyanyi);
-    DisplayWord(d.Album);
-    DisplayWord(d.Lagu);
+    DisplayWordSpace(d.Penyanyi);
+    printf("- ");
+    DisplayWordSpace(d.Album);
+    printf("- ");
+    DisplayWordSpace(d.Lagu);
+    printf("\n");
 }

@@ -20,6 +20,8 @@ void PasteWord(Word source, Word * dest);
 
 void DisplayWord(Word w);
 
+void DisplayWordSpace(Word w);
+
 int WordToInt(Word w);
 
 #endif

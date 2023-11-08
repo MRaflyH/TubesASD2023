@@ -47,6 +47,19 @@ void DisplayWord(Word w) {
     }
 }
 
+void DisplayWordSpace(Word w) {
+    if (w.Length == 0) {
+        printf("Kosong\n");
+    }
+    else {
+        for (int i = 0; i < w.Length; i++) {
+            printf("%c", w.Content[i]);
+        }
+        printf(" ");
+    }
+}
+
+
 int WordToInt(Word w) {
     int sum = 0;
     int digit;
