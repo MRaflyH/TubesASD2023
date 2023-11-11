@@ -94,7 +94,7 @@ void InsertSB(StrukBerkait *s, Detail x, int i) {
 
 void DeleteSB(StrukBerkait *s, Detail *x, int i) {
     Address p;
-    p = NewNodeSB(*x);
+    p = First(*s);
 
     if (p != NULL) {
         if (i == 0) {
@@ -108,6 +108,7 @@ void DeleteSB(StrukBerkait *s, Detail *x, int i) {
                 counter++;
                 loc = Next(loc);
             }
+            printf("999\n");
             p = Next(loc);
             PasteD(Info(p), x);
             Next(loc) = Next(p);
