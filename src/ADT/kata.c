@@ -70,6 +70,20 @@ int WordToInt(Word w) {
     return sum;
 }
 
+void IntToWord(int i, Word * w) {
+    int digit;
+    CreateWord(0, "", w);
+
+    while (i > 0) {
+        digit = i % 10;
+        for (int j = (*w).Length; j > 0; j--) {
+            (*w).Content[j] = (*w).Content[j-1];
+        }
+        i = i / 10;
+        (*w).Length++;
+    }
+}
+
 char* WordtoFileName(Word w) {
     // char * file_name = "../save/saved1.txt";
     int folder_length = 8;
