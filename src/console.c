@@ -393,14 +393,14 @@ void PLAYLISTSWAP(){
     y = WordToInt(CurrentWord)-1;
 
     if (id < 0 || id >= DaftarPlaylist.Neff) {
-        printf("Tidak ada playlist dengan playlist ID %d\n", id);
+        printf("Tidak ada playlist dengan playlist ID %d\n", id+1);
         return;
     }
     else {
         StrukBerkait playlist = DaftarPlaylist.Content[id];
         
         if (x < 0 || x >= LengthSB(playlist) || y < 0 || y >= LengthSB(playlist)) {
-            printf("Tidak ada lagu dengan urutan %d atau %d di playlist\n", x, y);
+            printf("Tidak ada lagu dengan urutan %d atau %d di playlist\n", x+1, y+1);
         }
         else {
             // Menukar lagu pada urutan x dan y
@@ -420,8 +420,60 @@ void PLAYLISTSWAP(){
         }
     }
 }
-void PLAYLISTREMOVE();
-void PLAYLISTDELETE();
+void PLAYLISTREMOVE() {
+    int id, n;
+    AdvWordI();
+    id = WordToInt(CurrentWord)-1;
+    AdvWordI();
+    n = WordToInt(CurrentWord)-1;
+    if (id < 0 || id >= DaftarPlaylist.Neff) {
+        printf("Tidak ada playlist dengan playlist ID %d\n", id+1);
+    }
+    else {
+        StrukBerkait playlist = DaftarPlaylist.Content[id];
+        if (n < 0 || n >= LengthSB(playlist)) {
+            printf("Tidak ada lagu dengan urutan %d di playlist\n", n+1);
+        }
+        else {
+            Detail lagu;
+            DeleteSB(&playlist, &lagu, n);
+
+            printf("Lagu “");
+            DisplayWordSpace(lagu.Lagu);
+            printf("” oleh “");
+            DisplayWordSpace(lagu.Penyanyi);
+            printf("” telah dihapus dari playlist “");
+            DisplayWordSpace(Title(playlist));
+            printf("”!\n");
+        }
+    }
+}
+
+void PLAYLISTDELETE() {
+    printf("Daftar Playlist Pengguna :\n");
+    DisplayLD(DaftarPlaylist);
+    printf("\n");
+    // Tampilkan daftar playlist
+    // ...
+
+    printf("Masukkan ID Playlist yang dipilih : ");
+    StartLineI(); // Mulai membaca kata
+    printf("\n");
+    int id = WordToInt(CurrentWord) - 1; // Mengubah Word ke integer
+
+    if (id < 0 || id >= DaftarPlaylist.Neff) {
+        printf("Tidak ada playlist dengan ID %d dalam daftar playlist pengguna. Silakan coba lagi.\n", id+1);
+    }
+    else {
+        // Hapus playlist dengan ID yang diberikan
+        ElType playlist;
+        playlist = GetLD(DaftarPlaylist, id);
+        DeleteLD(&DaftarPlaylist, id);
+        printf("Playlist ID %d dengan judul ”", id+1);
+        DisplayWordSpace(playlist);
+        printf("” berhasil dihapus.\n");
+    }
+}
 
 void STATUS();
 void SAVE();
@@ -440,7 +492,7 @@ void INVALIDCOMMAND() {
 }
 
 void DISPLAY() {
-    printf("\nINI DAFTAR PENYANYI\n");
+    printf("INI DAFTAR PENYANYI\n");
     DisplayLS(DaftarPenyanyi);
     printf("\nINI DAFTAR PLAYLIST\n");
     DisplayLD(DaftarPlaylist);
