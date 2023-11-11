@@ -24,6 +24,8 @@ void DisplayWordSpace(Word w);
 
 int WordToInt(Word w);
 
+void IntToWord(int i, Word * w);
+
 char *WordtoFileName(Word w);
 
 #endif
