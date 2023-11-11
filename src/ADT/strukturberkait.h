@@ -42,6 +42,8 @@ boolean IsEmptySB(StrukBerkait s);
 int LengthSB(StrukBerkait s);
 /* Mengirimkan banyaknya elemen StrukBerkait. Mengirimkan 0 jika sb kosong. */
 
+void SetSB(StrukBerkait *s, ElType x, int i);
+
 void InsertSB(StrukBerkait *s, Detail x, int i);
 
 void DeleteSB(StrukBerkait *s, Detail *x, int i);
