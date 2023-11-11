@@ -131,7 +131,7 @@ void DisplaySemuaLD(ListDinamik l) {
 	}
 
 	for (int i = 0; i < l.Neff; i++) {
-		printf("Playlist ");
+		printf("Playlist %d ", i+1);
 		DisplayWord(Title(l.Content[i]));
 		DisplaySB(l.Content[i]);
 	}
