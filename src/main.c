@@ -48,8 +48,8 @@ int main() {
             }
         }
         else if (IsWordSame(CurrentWord, WordLOAD)) {
+            AdvWordI();
             if (!LoggedIn) {
-                AdvWordI();
                 LOAD();
             }
             else {
@@ -57,8 +57,8 @@ int main() {
             }
         }
         else if (IsWordSame(CurrentWord, WordLIST)) {
+            AdvWordI();
             if (LoggedIn) {
-                AdvWordI();
                 if (IsWordSame(CurrentWord, WordDEFAULT)) {
                     printf("RUN LISTDEFAULT\n");
                     // LISTDEFAULT();
@@ -76,8 +76,8 @@ int main() {
             }
         }
         else if (IsWordSame(CurrentWord, WordPLAY)) {
+            AdvWordI();
             if (LoggedIn) {
-                AdvWordI();
                 if (IsWordSame(CurrentWord, WordSONG)) {
                     printf("RUN PLAYSONG\n");
                     // PLAYSONG();
@@ -95,8 +95,8 @@ int main() {
             }
         }
         else if (IsWordSame(CurrentWord, WordQUEUE)) {
+            AdvWordI();
             if (LoggedIn) {
-                AdvWordI();
                 if (IsWordSame(CurrentWord, WordSONG)) {
                     printf("RUN QUEUESONG\n");
                     // QUEUESONG();
@@ -126,8 +126,8 @@ int main() {
             }
         }
         else if (IsWordSame(CurrentWord, WordSONG)) {
+            AdvWordI();
             if (LoggedIn) {
-                AdvWordI();
                 if (IsWordSame(CurrentWord, WordNEXT)) {
                     printf("RUN SONGNEXT\n");
                     // SONGNEXT();
@@ -145,8 +145,8 @@ int main() {
             }
         }
         else if (IsWordSame(CurrentWord, WordPLAYLIST)) {
+            AdvWordI();
             if (LoggedIn) {
-                AdvWordI();
                 if (IsWordSame(CurrentWord, WordCREATE)) {
                     PLAYLISTCREATE();
                 }
@@ -189,8 +189,8 @@ int main() {
             }
         }
         else if (IsWordSame(CurrentWord, WordSAVE)) {
+            AdvWordI();
             if (LoggedIn) {
-                AdvWordI();
                 printf("RUN SAVE\n");
                 //SAVE();
             }
@@ -225,6 +225,9 @@ int main() {
             INVALIDCOMMAND();
         }
 
+        if (!IsEOP()) {
+            AdvLineI();
+        }
         printf("\n");
     }
 
