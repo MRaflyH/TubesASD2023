@@ -166,12 +166,10 @@ int main() {
                     PLAYLISTSWAP();
                 }
                 else if (IsWordSame(CurrentWord, WordREMOVE)) {
-                    printf("RUN PLAYLISTREMOVE\n");
-                    // PLAYLISTREMOVE();
+                    PLAYLISTREMOVE();
                 }
                 else if (IsWordSame(CurrentWord, WordDELETE)) {
-                    printf("RUN PLAYLISTDELETE\n");
-                    // PLAYLISTDELETE();
+                    PLAYLISTDELETE();
                 }
                 else {
                     KnownCommand = false;
