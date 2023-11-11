@@ -207,7 +207,7 @@ void PLAYLISTCREATE()
 {
     printf("Masukkan nama playlist yang ingin dibuat : ");
     StartLineI(); // Mulai membaca kata
-
+    printf("\n");
     // Memeriksa apakah nama playlist valid (minimal 3 karakter non-whitespace)
     int count = 0;
     for (int i = 0; i < CurrentWord.Length; i++) {
@@ -221,7 +221,9 @@ void PLAYLISTCREATE()
     } else {
         // Menambahkan playlist baru ke ListDinamik
         InsertLD(&DaftarPlaylist, CurrentWord, DaftarPlaylist.Neff);
-        printf("Playlist %s berhasil dibuat! Silakan masukkan lagu - lagu artis terkini kesayangan Anda!\n", CurrentWord.Content);
+        printf("Playlist ");
+        DisplayWordSpace(CurrentWord);
+        printf(" berhasil dibuat! Silakan masukkan lagu - lagu artis terkini kesayangan Anda!\n");        
     }
 }
 
@@ -266,13 +268,13 @@ void PLAYLISTADDSONG() {
                 StartWordI(); // Mulai membaca kata
                 int id_playlist = WordToInt(CurrentWord) - 1;
 
-                if (IsIdValidLD(DaftarPlaylist, id_playlist)) {
+                if (IsIdxValidLD(DaftarPlaylist, id_playlist)) {
                     Word playlist;
                     Detail d;
                     PasteWord(Title(DaftarPlaylist.Content[id_playlist]), &playlist);
                     
                     CreateD(&d, penyanyi, album, lagu);
-                    InsertSB(&First(DaftarPlaylist.Content[id_playlist]), d, LengthSB(DaftarPlaylist.Content[id_playlist]));
+                    InsertSB(&DaftarPlaylist.Content[id_playlist], d, LengthSB(DaftarPlaylist.Content[id_playlist]));
                     
                     printf("Lagu dengan judul “");
                     DisplayWordSpace(lagu);
@@ -332,7 +334,7 @@ void PLAYLISTADDALBUM(){
             StartWordI(); // Mulai membaca kata
             int id_playlist = WordToInt(CurrentWord) - 1;
 
-            if (IsIdValidLD(DaftarPlaylist, id_playlist)) {
+            if (IsIdxValidLD(DaftarPlaylist, id_playlist)) {
                 Word playlist;
                 Detail d;
                 PasteWord(Title(DaftarPlaylist.Content[id_playlist]), &playlist);
@@ -341,7 +343,7 @@ void PLAYLISTADDALBUM(){
                 for (int i = 0; i < ValueM(LaguAlbum, album).Length; i++) {
                     PasteWord(ValueM(LaguAlbum, album).Content[i], &lagu);
                     CreateD(&d, penyanyi, album, lagu);
-                    InsertSB(&First(DaftarPlaylist.Content[id_playlist]), d, LengthSB(DaftarPlaylist.Content[id_playlist]));
+                    InsertSB(&DaftarPlaylist.Content[id_playlist], d, LengthSB(DaftarPlaylist.Content[id_playlist]));
                 }
                 
                 printf("Album dengan judul “");
