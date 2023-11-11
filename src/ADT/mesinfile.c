@@ -113,3 +113,9 @@ void CopyMarkF() {
       CurrentWord.Length = MaxChar;
    }
 }
+
+void AdvWriteWord(Word w) {
+   for (int i = 0; i < w.Length; i++) {
+      AdvWrite(w.Content[i]);
+   }
+}
