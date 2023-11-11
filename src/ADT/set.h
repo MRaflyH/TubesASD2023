@@ -18,6 +18,8 @@ boolean IsEmptySet(Set *s);
 
 boolean IsMemberSet(Set s, ElType x);
 
+boolean IsIdxValidSet(Set s, int i);
+
 void AddSet(Set *s, ElType x);
 
 void DeleteSet(Set *s, ElType x);
