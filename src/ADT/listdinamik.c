@@ -25,17 +25,15 @@ boolean IsIdValidLD(ListDinamik l, IdxType i) {
 }
 
 ElType GetLD(ListDinamik l, IdxType i) {
-    return l.Content[i].Info.Lagu;
+    return Title(l.Content[i]);
 }
 
 void InsertLD(ListDinamik *l, ElType x, IdxType i) {
-	Address xnode;
+	StrukBerkait xsb;
     Word wkosong;
     Detail d;
 
-    CreateWord(0, "", &wkosong);
-	CreateD(&d, wkosong, wkosong, x);
-	xnode = NewNodeSB(d);
+	CreateSB(&xsb);
 
     int j;
 
@@ -43,8 +41,8 @@ void InsertLD(ListDinamik *l, ElType x, IdxType i) {
 		StrukBerkait *temp = (StrukBerkait *)malloc(sizeof(StrukBerkait) * (*l).Capacity);
 		for (j = 0; j < (*l).Neff; j++)
 		{
-            PasteWord((*l).Content[j].Info.Lagu, &temp[j].Info.Lagu);
-			temp[j].Next = (*l).Content[j].Next;
+            PasteWord(Title((*l).Content[j]), &Title(temp[j]));
+			First(temp[j]) = First((*l).Content[j]);
 		}
 
 		DeallocateLD(l);
@@ -53,20 +51,19 @@ void InsertLD(ListDinamik *l, ElType x, IdxType i) {
 
 		for (j = 0; j < (*l).Neff; j++)
 		{
-            PasteWord(temp[j].Info.Lagu, &(*l).Content[j].Info.Lagu);
-			(*l).Content[j].Next = temp[j].Next;
+            PasteWord(Title(temp[j]), &Title((*l).Content[j]));
+			First((*l).Content[j]) = First(temp[j]);
 		}
 		free(temp);
     }
 
 	for (j = (*l).Neff; j > i; j--)
 	{
-		PasteWord((*l).Content[j - 1].Info.Lagu, &(*l).Content[j].Info.Lagu);
-		(*l).Content[j].Next = (*l).Content[j - 1].Next;
+		PasteWord(Title((*l).Content[j - 1]), &Title((*l).Content[j]));
+		First((*l).Content[j]) = First((*l).Content[j - 1]);
 	}
 
-	PasteWord(xnode->Info.Lagu, &(*l).Content[i].Info.Lagu);
-	CreateSB(xnode);
+	PasteWord(Title(xsb), &Title((*l).Content[i]));
 	(*l).Neff++;
 }
 
@@ -74,8 +71,8 @@ void DeleteLD(ListDinamik *l, IdxType i) {
 	int j;
 	for (j = i; j < (*l).Neff; j++)
 	{
-		PasteWord((*l).Content[j + 1].Info.Lagu, &(*l).Content[j].Info.Lagu);
-		(*l).Content[j].Next = (*l).Content[j + 1].Next;
+		PasteWord(Title((*l).Content[j + 1]), &Title((*l).Content[j]));
+		First((*l).Content[j]) = First((*l).Content[j + 1]);
 	}
 	(*l).Neff--;
 
@@ -83,8 +80,8 @@ void DeleteLD(ListDinamik *l, IdxType i) {
 		StrukBerkait *temp = (StrukBerkait *)malloc(sizeof(StrukBerkait) * (*l).Capacity);
 		for (j = 0; j < (*l).Neff; j++)
 		{
-            PasteWord((*l).Content[j].Info.Lagu, &temp[j].Info.Lagu);
-			temp[j].Next = (*l).Content[j].Next;
+            PasteWord(Title((*l).Content[j]), &Title(temp[j]));
+			First(temp[j]) = First((*l).Content[j]);
 		}
 
 		DeallocateLD(l);
@@ -93,8 +90,8 @@ void DeleteLD(ListDinamik *l, IdxType i) {
 
 		for (j = 0; j < (*l).Neff; j++)
 		{
-            PasteWord(temp[j].Info.Lagu, &(*l).Content[j].Info.Lagu);
-			(*l).Content[j].Next = temp[j].Next;
+            PasteWord(Title(temp[j]), &Title((*l).Content[j]));
+			First((*l).Content[j]) = First(temp[j]);
 		}
 		free(temp);
     }
@@ -107,7 +104,7 @@ void DisplayLD(ListDinamik l) {
 	else {
 		for (int i = 0; i < l.Neff; i++) {
 			printf("%d. ", i+1);
-			DisplayWord(l.Content[i].Info.Lagu);
+			DisplayWord(Title(l.Content[i]));
 		}
 	}
 }
@@ -116,7 +113,7 @@ void DisplayIsiLD(ListDinamik l, ElType x) {
 	boolean found = false;
 	int i = 0;
 	while (i < l.Neff && !found) {
-		if (IsWordSame(l.Content[i].Info.Lagu, x)) {
+		if (IsWordSame(Title(l.Content[i]), x)) {
 			DisplaySB(l.Content[i]);
 			found = true;
 		}
@@ -134,7 +131,7 @@ void DisplaySemuaLD(ListDinamik l) {
 
 	for (int i = 0; i < l.Neff; i++) {
 		printf("Playlist ");
-		DisplayWord(l.Content[i].Info.Lagu);
+		DisplayWord(Title(l.Content[i]));
 		DisplaySB(l.Content[i]);
 	}
 
