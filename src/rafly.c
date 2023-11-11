@@ -158,3 +158,5 @@ void DISPLAY() {
     printf("\nINI ISI PLAYLIST\n");
     DisplaySemuaLD(DaftarPlaylist);
 }
+
+void 
