@@ -27,6 +27,7 @@ boolean IsEmptySB(StrukBerkait s) {
 int LengthSB(StrukBerkait s) {
     Address p;
     int counter;
+    counter = 0;
     p = First(s);
     while (p != Nil) {
         p = Next(p);
