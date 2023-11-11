@@ -12,7 +12,6 @@ void StartF(char * FileName) {
 }
 
 void Start() {
-    printf(">> ");
     pita = stdin;
     Adv();
 }
