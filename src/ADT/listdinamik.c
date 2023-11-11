@@ -21,7 +21,7 @@ boolean IsFullLD(ListDinamik l) {
 }
 
 boolean IsIdValidLD(ListDinamik l, IdxType i) {
-    return i <= l.Neff;
+    return i < l.Neff && i >= 0;
 }
 
 ElType GetLD(ListDinamik l, IdxType i) {
