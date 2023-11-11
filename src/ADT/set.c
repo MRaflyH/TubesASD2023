@@ -17,6 +17,10 @@ boolean IsMemberSet(Set s, ElType x){
     return false;
 }
 
+boolean IsIdxValidSet(Set s, int i) {
+    return i < s.Length && i >= 0;
+}
+
 void AddSet(Set *s, ElType x){
     int i;
     boolean found = false;
