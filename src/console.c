@@ -57,6 +57,7 @@ void START() {
     }
 
     printf("File konfigurasi aplikasi berhasil dibaca. WayangWave berhasil dijalankan.\n");
+    LoggedIn = true;
 }
 
 void LOAD() {
@@ -183,6 +184,7 @@ void LOAD() {
             }
         }
         printf("Save file berhasil dibaca. WayangWave berhasil dijalankan.\n");
+        LoggedIn = true;
     }
     else {
         printf("Save file tidak ditemukan. WayangWave gagal dijalankan.\n");
