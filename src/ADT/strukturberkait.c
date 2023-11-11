@@ -108,7 +108,6 @@ void DeleteSB(StrukBerkait *s, Detail *x, int i) {
                 counter++;
                 loc = Next(loc);
             }
-            printf("999\n");
             p = Next(loc);
             PasteD(Info(p), x);
             Next(loc) = Next(p);
