@@ -17,7 +17,7 @@ extern Map AlbumPenyanyi;
 extern Map LaguAlbum;
 extern Word CurrentLagu;
 extern boolean EndProgram;
-extern boolean IsLoggedIn;
+extern boolean LoggedIn;
 
 extern Word WordSTART;
 extern Word WordLOAD;

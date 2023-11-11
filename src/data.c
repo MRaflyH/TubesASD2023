@@ -8,7 +8,7 @@ Map AlbumPenyanyi;
 Map LaguAlbum;
 Word CurrentLagu;
 boolean EndProgram;
-boolean IsLoggedIn;
+boolean LoggedIn;
 
 Word WordSTART;
 Word WordLOAD;
@@ -36,7 +36,7 @@ Word WordHELP;
 
 void Initiate() {
     EndProgram = false;
-    IsLoggedIn = false;
+    LoggedIn = false;
     DaftarPenyanyi = CreateLS();
     DaftarPlaylist = CreateLD();
     CreateQ(&QueueLagu);

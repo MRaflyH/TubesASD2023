@@ -3,9 +3,9 @@
 
 int main() {
     Initiate();
+    // untuk testing aja
     Word WordDISPLAY;
     CreateWord(7, "DISPLAY", &WordDISPLAY);
-
 
     printf(" _       __     __                             __                \n");
     printf("| |     / /__  / /________  ____ ___  ___     / /_____           \n");
@@ -22,17 +22,23 @@ int main() {
 
     while (!EndProgram) {
         StartWordI();
-        if (IsWordSame(CurrentWord, WordLOAD)) {
+        if (IsWordSame(CurrentWord, WordSTART)) {
+            START();
+        }
+        else if (IsWordSame(CurrentWord, WordLOAD)) {
             AdvWordI();
             LOAD();
-        }
-        else if (IsWordSame(CurrentWord, WordDISPLAY)) {
-            DISPLAY();
         }
         else if (IsWordSame(CurrentWord, WordQUIT)) {
             EndProgram = true;
         }
-        printf("\n");
+        // UNTUK TESTING
+        else if (IsWordSame(CurrentWord, WordDISPLAY)) {
+            DISPLAY();
+        }
+        else {
+            printf("Command tidak diketahui!\n");
+        }
     }
 
 
