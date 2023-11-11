@@ -1,6 +1,9 @@
 #include "kata.h"
 #include "stdlib.h"
 
+boolean EndWord;
+Word CurrentWord;
+
 void CreateWord(int length, char * string, Word * w) {
     (*w).Length = 0;
     for (int i = 0; i < length; i++) {

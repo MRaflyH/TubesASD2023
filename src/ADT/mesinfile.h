@@ -4,9 +4,6 @@
 #include "mesinkarakter.h"
 #include "kata.h"
 
-extern boolean EndWord;
-extern Word CurrentWord;
-
 boolean FileExists(char *fname);
 
 void IgnoreBlanksF();

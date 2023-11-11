@@ -12,6 +12,9 @@ typedef struct {
    int Length;
 } Word;
 
+extern boolean EndWord;
+extern Word CurrentWord;
+
 void CreateWord(int length, char * string, Word * w);
 
 boolean IsWordSame(Word w, Word v);

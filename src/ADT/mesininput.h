@@ -4,9 +4,6 @@
 #include "mesinkarakter.h"
 #include "kata.h"
 
-extern boolean EndWord;
-extern Word CurrentWord;
-
 void IgnoreBlanksI();
 /* Mengabaikan satu atau beberapa BLANK
    I.S. : currentChar sembarang
