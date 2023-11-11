@@ -212,6 +212,16 @@ void SAVE();
 void QUIT();
 void HELP();
 
+void INVALIDCOMMAND() {
+    if (!ValidCommand) {
+        printf("Command tidak bisa dieksekusi!\n");
+        ValidCommand = true;
+    }
+    else {
+        printf("Command tidak diketahui!\n");
+    }
+}
+
 void DISPLAY() {
     printf("\nINI DAFTAR PENYANYI\n");
     DisplayLS(DaftarPenyanyi);
