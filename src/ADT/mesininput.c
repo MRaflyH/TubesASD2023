@@ -84,4 +84,11 @@ void CopyLineI() {
    else {
       CurrentWord.Length = MaxChar;
    }
+
+   i = CurrentWord.Length;
+
+   while (CurrentWord.Content[i] != Blank) {
+      i -= 1;
+      CurrentWord.Length -= 1;
+   }
 } 
