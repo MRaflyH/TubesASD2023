@@ -10,14 +10,19 @@
 typedef struct node* Address;
 
 typedef struct node { 
-  Detail Info;
-  Address Next;
+    Detail Info;
+    Address Next;
 } Node;
 
-typedef Node StrukBerkait;
+typedef struct {
+    Word Title;
+    Address First;
+} StrukBerkait;
 
 #define Next(q) (q)->Next
 #define Info(q) (q)->Info
+#define First(sb) ((sb).First)
+#define Title(sb) ((sb).Title)
 
 Address NewNodeSB(Detail x);
 
