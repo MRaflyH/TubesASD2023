@@ -43,6 +43,6 @@ extern Word WordY;
 extern Word WordN;
 extern Word WordHELP;
 
-void LoadWords();
+void Initiate();
 
 #endif

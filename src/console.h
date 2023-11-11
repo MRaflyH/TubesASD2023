@@ -27,5 +27,6 @@ void STATUS();
 void SAVE();
 void QUIT();
 void HELP();
+void DISPLAY();
 
 #endif

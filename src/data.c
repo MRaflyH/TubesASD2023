@@ -1,13 +1,11 @@
 #include "data.h"
 
 ListStatik DaftarPenyanyi;
-ListStatik DaftarPenyanyi;
 ListDinamik DaftarPlaylist;
 Queue QueueLagu;
 Stack RiwayatLagu;
 Map AlbumPenyanyi;
 Map LaguAlbum;
-StrukBerkait Playlist;
 Word CurrentLagu;
 boolean EndProgram;
 boolean IsLoggedIn;
@@ -36,7 +34,17 @@ Word WordY;
 Word WordN;
 Word WordHELP;
 
-void LoadWords() {
+void Initiate() {
+    EndProgram = false;
+    IsLoggedIn = false;
+    DaftarPenyanyi = CreateLS();
+    DaftarPlaylist = CreateLD();
+    CreateQ(&QueueLagu);
+    CreateS(&RiwayatLagu);
+    CreateM(&AlbumPenyanyi);
+    CreateM(&LaguAlbum);
+    CreateWord(0, "", &CurrentLagu);
+
     CreateWord(5, "START", &WordSTART);
     CreateWord(4, "LOAD", &WordLOAD);
     CreateWord(4, "LIST", &WordLIST);
