@@ -24,4 +24,7 @@ void CopyWordF();
 void CopyLineF();
 
 void CopyMarkF();
+
+void AdvWriteWord(Word w);
+
 #endif
