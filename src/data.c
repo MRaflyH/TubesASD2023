@@ -9,6 +9,7 @@ Map LaguAlbum;
 Word CurrentLagu;
 boolean EndProgram;
 boolean LoggedIn;
+boolean ValidCommand;
 
 Word WordSTART;
 Word WordLOAD;
