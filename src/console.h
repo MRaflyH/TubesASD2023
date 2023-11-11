@@ -27,6 +27,7 @@ void STATUS();
 void SAVE();
 void QUIT();
 void HELP();
+void INVALIDCOMMAND();
 void DISPLAY();
 
 #endif
