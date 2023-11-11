@@ -56,7 +56,6 @@ void DisplayWordSpace(Word w) {
         for (int i = 0; i < w.Length; i++) {
             printf("%c", w.Content[i]);
         }
-        printf(" ");
     }
 }
 

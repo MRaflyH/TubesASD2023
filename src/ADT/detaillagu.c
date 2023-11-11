@@ -14,9 +14,9 @@ void PasteD(Detail source, Detail *dest) {
 
 void DisplayD(Detail d) {
     DisplayWordSpace(d.Penyanyi);
-    printf("- ");
+    printf(" - ");
     DisplayWordSpace(d.Album);
-    printf("- ");
+    printf(" - ");
     DisplayWordSpace(d.Lagu);
     printf("\n");
 }
