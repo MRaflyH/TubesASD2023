@@ -37,6 +37,7 @@ Word WordHELP;
 void Initiate() {
     EndProgram = false;
     LoggedIn = false;
+    ValidCommand = true;
     DaftarPenyanyi = CreateLS();
     DaftarPlaylist = CreateLD();
     CreateQ(&QueueLagu);
