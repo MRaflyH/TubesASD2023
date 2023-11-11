@@ -32,8 +32,11 @@ int main() {
     printf("             /____/            /____/                            \n\n");
     usleep(100000);
 
+
     while (!EndProgram) {
+
         StartWordI();
+
         if (IsWordSame(CurrentWord, WordSTART)) {
             if (!LoggedIn) {
                 START();
@@ -43,16 +46,165 @@ int main() {
             }
         }
         else if (IsWordSame(CurrentWord, WordLOAD)) {
-            AdvWordI();
             if (!LoggedIn) {
+                AdvWordI();
                 LOAD();
             }
             else {
                 ValidCommand = false;
             }
         }
+        else if (IsWordSame(CurrentWord, WordLIST)) {
+            if (LoggedIn) {
+                AdvWordI();
+                if (IsWordSame(CurrentWord, WordDEFAULT)) {
+                    printf("RUN LISTDEFAULT\n");
+                    // LISTDEFAULT();
+                }
+                else if (IsWordSame(CurrentWord, WordPLAYLIST)) {
+                    printf("RUN LISTPLAYLIST\n");
+                    // LISTPLAYLIST();
+                }
+                else {
+                    KnownCommand = false;
+                }
+            }
+            else {
+                ValidCommand = false;
+            }
+        }
+        else if (IsWordSame(CurrentWord, WordPLAY)) {
+            if (LoggedIn) {
+                AdvWordI();
+                if (IsWordSame(CurrentWord, WordSONG)) {
+                    printf("RUN PLAYSONG\n");
+                    // PLAYSONG();
+                }
+                else if (IsWordSame(CurrentWord, WordPLAYLIST)) {
+                    printf("RUN PLAYPLAYLIST\n");
+                    // PLAYPLAYLIST();
+                }
+                else {
+                    KnownCommand = false;
+                }
+            }
+            else {
+                ValidCommand = false;
+            }
+        }
+        else if (IsWordSame(CurrentWord, WordQUEUE)) {
+            if (LoggedIn) {
+                AdvWordI();
+                if (IsWordSame(CurrentWord, WordSONG)) {
+                    printf("RUN QUEUESONG\n");
+                    // QUEUESONG();
+                }
+                else if (IsWordSame(CurrentWord, WordPLAYLIST)) {
+                    printf("RUN QUEUEPLAYLIST\n");
+                    // QUEUEPLAYLIST();
+                }
+                else if (IsWordSame(CurrentWord, WordSWAP)) {
+                    printf("RUN QUEUESWAP\n");
+                    // QUEUEPLAYSWAP();
+                }
+                else if (IsWordSame(CurrentWord, WordREMOVE)) {
+                    printf("RUN QUEUEREMOVE\n");
+                    // QUEUEREMOVE();
+                }
+                else if (IsWordSame(CurrentWord, WordCLEAR)) {
+                    printf("RUN QUEUECLEAR\n");
+                    // QUEUECLEAR();
+                }
+                else {
+                    KnownCommand = false;
+                }
+            }
+            else {
+                ValidCommand = false;
+            }
+        }
+        else if (IsWordSame(CurrentWord, WordSONG)) {
+            if (LoggedIn) {
+                AdvWordI();
+                if (IsWordSame(CurrentWord, WordNEXT)) {
+                    printf("RUN SONGNEXT\n");
+                    // SONGNEXT();
+                }
+                else if (IsWordSame(CurrentWord, WordPREVIOUS)) {
+                    printf("RUN SONGPREVIOUS\n");
+                    // SONGPREVIOUS();
+                }
+                else {
+                    KnownCommand = false;
+                }
+            }
+            else {
+                ValidCommand = false;
+            }
+        }
+        else if (IsWordSame(CurrentWord, WordPLAYLIST)) {
+            if (LoggedIn) {
+                AdvWordI();
+                if (IsWordSame(CurrentWord, WordCREATE)) {
+                    printf("RUN PLAYLISTCREATE\n");
+                    // PLAYLISTCREATE();
+                }
+                else if (IsWordSame(CurrentWord, WordADD)) {
+                    printf("RUN PLAYLISTADD\n");
+                    // PLAYLISTADD();
+                }
+                else if (IsWordSame(CurrentWord, WordSWAP)) {
+                    printf("RUN PLAYLISTSWAP\n");
+                    // PLAYLISTSWAP();
+                }
+                else if (IsWordSame(CurrentWord, WordREMOVE)) {
+                    printf("RUN PLAYLISTREMOVE\n");
+                    // PLAYLISTREMOVE();
+                }
+                else if (IsWordSame(CurrentWord, WordDELETE)) {
+                    printf("RUN PLAYLISTDELETE\n");
+                    // PLAYLISTDELETE();
+                }
+                else {
+                    KnownCommand = false;
+                }
+            }
+            else {
+                ValidCommand = false;
+            }
+        }
+        else if (IsWordSame(CurrentWord, WordSTATUS)) {
+            if (LoggedIn) {
+                printf("RUN STATUS\n");
+                // STATUS();
+            }
+            else {
+                ValidCommand = false;
+            }
+        }
+        else if (IsWordSame(CurrentWord, WordSAVE)) {
+            if (LoggedIn) {
+                AdvWordI();
+                printf("RUN SAVE\n");
+                //SAVE();
+            }
+            else {
+                ValidCommand = false;
+            }
+        }
         else if (IsWordSame(CurrentWord, WordQUIT)) {
-            EndProgram = true;
+            if (LoggedIn) {
+                printf("RUN QUIT\n");
+                // QUIT();
+                EndProgram = true;
+            }
+            else {
+                ValidCommand = false;
+            }
+        }
+        else if (IsWordSame(CurrentWord, WordHELP)) {
+            printf("RUN HELP\n");
+            // HELP();
         }
         // UNTUK TESTING
         else if (IsWordSame(CurrentWord, WordDISPLAY)) {
@@ -69,6 +221,7 @@ int main() {
 
         printf("\n");
     }
+
 
     printf("  ________                __      __  __               \n");
     usleep(100000);
