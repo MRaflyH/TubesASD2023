@@ -192,7 +192,7 @@ int main() {
             AdvWordI();
             if (LoggedIn) {
                 printf("RUN SAVE\n");
-                //SAVE();
+                SAVE();
             }
             else {
                 ValidCommand = false;
