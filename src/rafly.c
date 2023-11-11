@@ -159,4 +159,48 @@ void DISPLAY() {
     DisplaySemuaLD(DaftarPlaylist);
 }
 
-void 
+void SAVE() {
+    Word tempPenyanyi, tempAlbum, tempLagu, tempPlayist, tempInt;
+    Set tempSetAlbum, tempSetLagu;
+    int NPenyanyi, NAlbum, NLagu, NQueue, NRiwayat, NPlaylist;
+    Detail DLagu;
+
+    AdvWordI();
+    char * file_name = WordtoFileName(CurrentWord);
+    StartWrite(file_name);
+
+    NPenyanyi = DaftarPenyanyi.Neff;
+    IntToWord(NPenyanyi, &tempInt);
+    AdvWriteWord(tempInt);
+    AdvWriteNewLine();
+
+    for (int i = 0; i < NPenyanyi; i++) {
+        PasteWord(DaftarPenyanyi.Content[i], &tempPenyanyi);
+        tempSetAlbum = ValueM(AlbumPenyanyi, tempPenyanyi);
+        NAlbum = tempSetAlbum.Length;
+        IntToWord(NAlbum, &tempInt);
+        AdvWriteWord(tempInt);
+        AdvWriteBlank();
+        AdvWriteWord(tempPenyanyi);
+        AdvWriteNewLine();
+
+        for (int j = 0; j < NAlbum; j++) {
+            PasteWord(tempSetAlbum.Content[i], &tempAlbum);
+            tempSetLagu = ValueM(LaguAlbum, tempAlbum);
+            NLagu = tempSetLagu.Length;
+            IntToWord(NLagu, &tempInt);
+            AdvWriteWord(tempInt);
+            AdvWriteBlank();
+            AdvWriteWord(tempAlbum);
+            AdvWriteNewLine();
+
+            for (int k = 0; k < NLagu; k++) {
+                PasteWord(tempSetLagu.Content[i], &tempLagu);
+                AdvWriteWord(tempLagu);
+                AdvWriteNewLine();
+            }
+        }
+    }
+    
+    EndWrite();
+}
