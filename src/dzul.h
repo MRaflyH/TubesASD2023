@@ -6,16 +6,16 @@
 #include "ADT/mesinfile.h"
 #include "ADT/mesininput.h"
 
-void PlaylistCreate(ListDinamik *l);
+void PlaylistCreate();
 
 void PlaylistAddSong();
 
 void PlaylistAddAlbums();
 
-void PlaylistSwap(ListDinamik *l, int id, int x, int y);
+void PlaylistSwap();
 
-void PlaylistRemove(ListDinamik *l, int id, int n);
+void PlaylistRemove();
 
-void PlaylistDelete(ListDinamik *l);
+void PlaylistDelete();
 
 #endif
