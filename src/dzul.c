@@ -3,12 +3,12 @@
 void PlaylistCreate()
 {
     printf("Masukkan nama playlist yang ingin dibuat : ");
-    StartLineI(); // Mulai membaca kata
+    StartWordI(); // Mulai membaca kata
 
     // Memeriksa apakah nama playlist valid (minimal 3 karakter non-whitespace)
     int count = 0;
     for (int i = 0; i < CurrentWord.Length; i++) {
-        if (CurrentWord.Content[i] != Blank) {
+        if (CurrentWord.Content[i] != ' ') {
             count++;
         }
     }
@@ -16,192 +16,122 @@ void PlaylistCreate()
     if (count < 3) {
         printf("Minimal terdapat 3 karakter selain whitespace dalam nama playlist. Silakan coba lagi.\n");
     } else {
+        // Membuat StrukBerkait baru untuk playlist
+        ElType newPlaylist;
+        ListDinamik *l;
+        CreateSB(&newPlaylist);
         // Menambahkan playlist baru ke ListDinamik
-        InsertLD(&DaftarPlaylist, CurrentWord, DaftarPlaylist.Neff);
+        InsertLD(l, newPlaylist, l->Neff);
         printf("Playlist %s berhasil dibuat! Silakan masukkan lagu - lagu artis terkini kesayangan Anda!\n", CurrentWord.Content);
     }
 }
-
 void PlaylistAddSong(){
     printf("Daftar Penyanyi :\n");
-    DisplayLS(DaftarPenyanyi);
+    // Tampilkan daftar penyanyi
+    // ...
 
     printf("Masukkan Nama Penyanyi yang dipilih : ");
-    StartLineI(); // Mulai membaca kata
+    StartWordI(); // Mulai membaca kata
     Word penyanyi = CurrentWord;
 
-    if (SearchLS(DaftarPenyanyi, penyanyi)) {
-        printf("Daftar Album oleh ");
-        DisplayWordSpace(penyanyi);
-        printf(" :\n");
-        DisplayValueM(AlbumPenyanyi, penyanyi);
+    // Cek apakah penyanyi ada dalam daftar
+    // ...
 
-        printf("Masukkan Judul Album yang dipilih : ");
-        StartLineI(); // Mulai membaca kata
-        Word album = CurrentWord;
-        
-        if (IsMemberSet(ValueM(AlbumPenyanyi, penyanyi), album)) {
-            printf("Daftar Lagu Album ");
-            DisplayWordSpace(album);
-            printf(" oleh ");
-            DisplayWordSpace(penyanyi);
-            printf(" :\n");
+    printf("Daftar Album oleh %s :\n", penyanyi.Content);
+    // Tampilkan daftar album
+    // ...
 
-            DisplayValueM(LaguAlbum, album);
+    printf("Masukkan Judul Album yang dipilih : ");
+    StartWordI(); // Mulai membaca kata
+    Word album = CurrentWord;
 
-            printf("Masukkan ID Lagu yang dipilih : ");
-            StartLineI(); // Mulai membaca kata
-            int id_lagu = WordToInt(CurrentWord) - 1;
+    // Cek apakah album ada dalam daftar
+    // ...
 
-            if (IsIdxValidSet(ValueM(LaguAlbum, album), id_lagu)) {
-                Word lagu;
-                PasteWord(ValueM(LaguAlbum, album).Content[id_lagu], &lagu);
-                printf("Daftar Playlist Pengguna :\n");
-                DisplayLD(DaftarPlaylist);
+    printf("Daftar Lagu Album %s oleh %s :\n", album.Content, penyanyi.Content);
+    // Tampilkan daftar lagu
+    // ...
 
-                printf("Masukkan ID Playlist yang dipilih : ");
-                StartWordI(); // Mulai membaca kata
-                int id_playlist = WordToInt(CurrentWord) - 1;
+    printf("Masukkan ID Lagu yang dipilih : ");
+    StartWordI(); // Mulai membaca kata
+    Word lagu = CurrentWord;
 
-                if (IsIdValidLD(DaftarPlaylist, id_playlist)) {
-                    Word playlist;
-                    Detail d;
-                    PasteWord(Title(DaftarPlaylist.Content[id_playlist]), &playlist);
-                    
-                    CreateD(&d, penyanyi, album, lagu);
-                    InsertSB(&First(DaftarPlaylist.Content[id_playlist]), d, LengthSB(DaftarPlaylist.Content[id_playlist]));
-                    
-                    printf("Lagu dengan judul “");
-                    DisplayWordSpace(lagu);
-                    printf("” pada album ");
-                    DisplayWordSpace(album);
-                    printf(" oleh penyanyi \n");
-                    DisplayWordSpace(penyanyi);
-                    printf(" berhasil ditambahkan ke dalam playlist ");
-                    DisplayWordSpace(playlist);
-                    printf(".\n");
-                }
-                else {
-                    printf("ID Playlist %d tidak ada dalam daftar. Silakan coba lagi.\n", id_playlist + 1);
-                }
-            }
-            else {
-                printf("ID Lagu %d tidak ada dalam daftar. Silakan coba lagi.\n", id_lagu + 1);
-            }
-        }
-        else {
-            printf("Album ");
-            DisplayWordSpace(album);
-            printf(" tidak ada dalam daftar. Silakan coba lagi.\n");
-        }
-    }
-    else {
-        printf("Penyanyi ");
-        DisplayWordSpace(penyanyi);
-        printf(" tidak ada dalam daftar. Silakan coba lagi.\n");
-    }
+    // Cek apakah lagu ada dalam daftar
+    // ...
+
+    printf("Daftar Playlist Pengguna :\n");
+    // Tampilkan daftar playlist
+    // ...
+
+    printf("Masukkan ID Playlist yang dipilih : ");
+    StartWordI(); // Mulai membaca kata
+    Word playlist = CurrentWord;
+
+    // Cek apakah playlist ada dalam daftar
+    // ...
+
+    // Tambahkan lagu ke playlist
+    // ...
+
+    printf("Lagu dengan judul “%s” pada album %s oleh penyanyi %s berhasil ditambahkan ke dalam playlist %s.\n", lagu.Content, album.Content, penyanyi.Content, playlist.Content);
 }
-
 void PlaylistAddAlbum(){
     printf("Daftar Penyanyi :\n");
-    DisplayLS(DaftarPenyanyi);
+    // Tampilkan daftar penyanyi
+    // ...
 
     printf("Masukkan Nama Penyanyi yang dipilih : ");
-    StartLineI(); // Mulai membaca kata
+    StartWordI(); // Mulai membaca kata
     Word penyanyi = CurrentWord;
 
-    if (SearchLS(DaftarPenyanyi, penyanyi)) {
-        printf("Daftar Album oleh ");
-        DisplayWordSpace(penyanyi);
-        printf(" :\n");
-        DisplayValueM(AlbumPenyanyi, penyanyi);
+    // Cek apakah penyanyi ada dalam daftar
+    // ...
 
-        printf("Masukkan Judul Album yang dipilih : ");
-        StartLineI(); // Mulai membaca kata
-        Word album = CurrentWord;
-        
-        if (IsMemberSet(ValueM(AlbumPenyanyi, penyanyi), album)) {
+    printf("Daftar Album oleh %s :\n", penyanyi.Content);
+    // Tampilkan daftar album
+    // ...
 
-            printf("Daftar Playlist Pengguna :\n");
-            DisplayLD(DaftarPlaylist);
+    printf("Masukkan Judul Album yang dipilih : ");
+    StartWordI(); // Mulai membaca kata
+    Word album = CurrentWord;
 
-            printf("Masukkan ID Playlist yang dipilih : ");
-            StartWordI(); // Mulai membaca kata
-            int id_playlist = WordToInt(CurrentWord) - 1;
+    // Cek apakah album ada dalam daftar
+    // ...
 
-            if (IsIdValidLD(DaftarPlaylist, id_playlist)) {
-                Word playlist;
-                Detail d;
-                PasteWord(Title(DaftarPlaylist.Content[id_playlist]), &playlist);
+    printf("Daftar Playlist Pengguna :\n");
+    // Tampilkan daftar playlist
+    // ...
 
-                Word lagu;
-                for (int i = 0; i < ValueM(LaguAlbum, album).Length; i++) {
-                    PasteWord(ValueM(LaguAlbum, album).Content[i], &lagu);
-                    CreateD(&d, penyanyi, album, lagu);
-                    InsertSB(&First(DaftarPlaylist.Content[id_playlist]), d, LengthSB(DaftarPlaylist.Content[id_playlist]));
-                }
-                
-                printf("Album dengan judul “");
-                DisplayWordSpace(album);
-                printf(" berhasil ditambahkan ke dalam playlist pengguna “");
-                DisplayWordSpace(playlist);
-                printf("”.\n");
-            }
-            else {
-                printf("ID Playlist %d tidak ada dalam daftar. Silakan coba lagi.\n", id_playlist + 1);
-            }
-        }
-        else {
-            printf("Album ");
-            DisplayWordSpace(album);
-            printf(" tidak ada dalam daftar. Silakan coba lagi.\n");
-        }
-    }
-    else {
-        printf("Penyanyi ");
-        DisplayWordSpace(penyanyi);
-        printf(" tidak ada dalam daftar. Silakan coba lagi.\n");
-    }
+    printf("Masukkan ID Playlist yang dipilih : ");
+    StartWordI(); // Mulai membaca kata
+    Word playlist = CurrentWord;
+
+    // Cek apakah playlist ada dalam daftar
+    // ...
+
+    // Tambahkan semua lagu dalam album ke playlist
+    // ...
+
+    printf("Album dengan judul “%s” berhasil ditambahkan ke dalam pada playlist pengguna “%s”.\n", album.Content, playlist.Content);
 }
-
-void PlaylistSwap(){
-    int id, x, y;
-    AdvWordI();
-    id = WordToInt(CurrentWord)-1;
-    AdvWordI();
-    x = WordToInt(CurrentWord)-1;
-    AdvWordI();
-    y = WordToInt(CurrentWord)-1;
-
-    if (id < 0 || id >= DaftarPlaylist.Neff) {
+void PlaylistSwap(ListDinamik *l, int id, int x, int y){
+    if (id < 0 || id >= l->Neff) {
         printf("Tidak ada playlist dengan playlist ID %d\n", id);
         return;
     }
-    else {
-        StrukBerkait playlist = DaftarPlaylist.Content[id];
-        
-        if (x < 0 || x >= LengthSB(playlist) || y < 0 || y >= LengthSB(playlist)) {
-            printf("Tidak ada lagu dengan urutan %d atau %d di playlist\n", x, y);
-        }
-        else {
-            // Menukar lagu pada urutan x dan y
-            Detail tempx, tempy;
-            GetSB(DaftarPlaylist.Content, &tempx, x);
-            GetSB(DaftarPlaylist.Content, &tempy, y);
-            SetSB(DaftarPlaylist.Content, tempy, x);
-            SetSB(DaftarPlaylist.Content, tempx, y);
 
-            printf("Berhasil menukar lagu dengan nama “");
-            DisplayWordSpace(tempx.Lagu);
-            printf("” dengan “");
-            DisplayWordSpace(tempy.Lagu);
-            printf("” di playlist “");
-            DisplayWordSpace(Title(DaftarPlaylist.Content[id]));
-            printf("”\n");
-        }
+    StrukBerkait playlist = l->Content[id];
+    if (x < 0 || x >= LengthSB(playlist) || y < 0 || y >= LengthSB(playlist)) {
+        printf("Tidak ada lagu dengan urutan %d atau %d di playlist\n", x, y);
+        return;
     }
-}
 
+    // Menukar lagu pada urutan x dan y
+    Detail temp = Info(Elmt(playlist, x));
+    Info(Elmt(playlist, x)) = Info(Elmt(playlist, y));
+    Info(Elmt(playlist, y)) = temp;
+
+    printf("Berhasil menukar lagu dengan nama “%s” dengan “%s” di playlist “%s”\n", Info(Elmt(playlist, x)).judul, Info(Elmt(playlist, y)).judul, Info(playlist).judul);}
 void PlaylistRemove(ListDinamik *l, int id, int n){
     if (id < 0 || id >= l->Neff) {
         printf("Tidak ada playlist dengan playlist ID %d\n", id);
