@@ -6,10 +6,12 @@
 
 #define Mark ';'
 #define NewLine '\n'
+#define Blank ' '
 extern char CurrentChar;
 extern boolean EOP;
 
 void StartF(char * FileName);
+void StartWrite(char * FileName);
 
 void Start();
 /* Mesin siap dioperasikan. Pita disiapkan untuk dibaca.
@@ -26,6 +28,16 @@ void Adv();
    F.S. : currentChar adalah karakter berikutnya dari currentChar yang lama,
           currentChar mungkin = MARK
           Jika  currentChar = MARK maka EOP akan menyala (true) */
+
+void AdvWrite(char cc);
+
+void AdvWriteBlank();
+
+void AdvWriteMark();
+
+void AdvWriteNewLine();
+
+void EndWrite();
 
 char GetCC();
 /* Mengirimkan currentChar */
