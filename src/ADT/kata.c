@@ -79,6 +79,7 @@ void IntToWord(int i, Word * w) {
         for (int j = (*w).Length; j > 0; j--) {
             (*w).Content[j] = (*w).Content[j-1];
         }
+        (*w).Content[0] = digit + '0';
         i = i / 10;
         (*w).Length++;
     }
