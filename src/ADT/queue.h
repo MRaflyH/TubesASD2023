@@ -32,6 +32,8 @@ boolean IsEmptyQ(Queue q);
 
 boolean IsIdxValidQ(Queue *q, int i);
 
+int LengthQ(Queue q);
+
 /* ********** Primitif Add/Delete ********** */
 void EnqueueQ(Queue *q, Detail x);
 /* Proses: Menambahkan val pada q dengan aturan FIFO */
