@@ -12,4 +12,6 @@ void LOAD();
 
 void DISPLAY();
 
+void SAVE()
+
 #endif
