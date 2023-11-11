@@ -230,7 +230,6 @@ int main() {
             INVALIDCOMMAND();
         }
 
-        AdvLineI();
         printf("\n");
     }
 
