@@ -37,6 +37,7 @@ int main() {
 
         printf(">> ");
         StartWordI();
+        printf("\n");
 
         if (IsWordSame(CurrentWord, WordSTART)) {
             if (!LoggedIn) {
@@ -147,12 +148,21 @@ int main() {
             if (LoggedIn) {
                 AdvWordI();
                 if (IsWordSame(CurrentWord, WordCREATE)) {
-                    printf("RUN PLAYLISTCREATE\n");
-                    // PLAYLISTCREATE();
+                    PLAYLISTCREATE();
                 }
                 else if (IsWordSame(CurrentWord, WordADD)) {
-                    printf("RUN PLAYLISTADD\n");
-                    // PLAYLISTADD();
+                    AdvWordI();
+                    if (IsWordSame(CurrentWord, WordSONG)) {
+                        printf("RUN PLAYLISTADDSONG\n");
+                        PLAYLISTADDSONG();
+                    }
+                    else if (IsWordSame(CurrentWord, WordALBUM)) {
+                        printf("RUN PLAYLISTADDALBUM\n");
+                        PLAYLISTADDALBUM();
+                    }
+                    else {
+                        KnownCommand = false;
+                    }
                 }
                 else if (IsWordSame(CurrentWord, WordSWAP)) {
                     printf("RUN PLAYLISTSWAP\n");
@@ -220,6 +230,7 @@ int main() {
             INVALIDCOMMAND();
         }
 
+        AdvLineI();
         printf("\n");
     }
 
