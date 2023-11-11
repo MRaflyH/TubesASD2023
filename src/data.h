@@ -18,6 +18,7 @@ extern Map LaguAlbum;
 extern Word CurrentLagu;
 extern boolean EndProgram;
 extern boolean LoggedIn;
+extern boolean ValidCommand;
 
 extern Word WordSTART;
 extern Word WordLOAD;
