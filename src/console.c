@@ -230,9 +230,11 @@ void PLAYLISTCREATE()
 void PLAYLISTADDSONG() {
     printf("Daftar Penyanyi :\n");
     DisplayLS(DaftarPenyanyi);
+    printf("\n");
 
     printf("Masukkan Nama Penyanyi yang dipilih : ");
     StartLineI(); // Mulai membaca kata
+    printf("\n");
     Word penyanyi = CurrentWord;
 
     if (SearchLS(DaftarPenyanyi, penyanyi)) {
@@ -240,9 +242,11 @@ void PLAYLISTADDSONG() {
         DisplayWordSpace(penyanyi);
         printf(" :\n");
         DisplayValueM(AlbumPenyanyi, penyanyi);
+        printf("\n");
 
         printf("Masukkan Judul Album yang dipilih : ");
         StartLineI(); // Mulai membaca kata
+        printf("\n");
         Word album = CurrentWord;
         
         if (IsMemberSet(ValueM(AlbumPenyanyi, penyanyi), album)) {
@@ -253,9 +257,11 @@ void PLAYLISTADDSONG() {
             printf(" :\n");
 
             DisplayValueM(LaguAlbum, album);
+            printf("\n");
 
             printf("Masukkan ID Lagu yang dipilih : ");
             StartLineI(); // Mulai membaca kata
+            printf("\n");
             int id_lagu = WordToInt(CurrentWord) - 1;
 
             if (IsIdxValidSet(ValueM(LaguAlbum, album), id_lagu)) {
@@ -263,11 +269,13 @@ void PLAYLISTADDSONG() {
                 PasteWord(ValueM(LaguAlbum, album).Content[id_lagu], &lagu);
                 printf("Daftar Playlist Pengguna :\n");
                 DisplayLD(DaftarPlaylist);
+                printf("\n");
 
                 printf("Masukkan ID Playlist yang dipilih : ");
                 StartWordI(); // Mulai membaca kata
+                printf("\n");
                 int id_playlist = WordToInt(CurrentWord) - 1;
-
+                
                 if (IsIdxValidLD(DaftarPlaylist, id_playlist)) {
                     Word playlist;
                     Detail d;
@@ -310,9 +318,11 @@ void PLAYLISTADDSONG() {
 void PLAYLISTADDALBUM(){
     printf("Daftar Penyanyi :\n");
     DisplayLS(DaftarPenyanyi);
+    printf("\n");
 
     printf("Masukkan Nama Penyanyi yang dipilih : ");
     StartLineI(); // Mulai membaca kata
+    printf("\n");
     Word penyanyi = CurrentWord;
 
     if (SearchLS(DaftarPenyanyi, penyanyi)) {
@@ -320,18 +330,22 @@ void PLAYLISTADDALBUM(){
         DisplayWordSpace(penyanyi);
         printf(" :\n");
         DisplayValueM(AlbumPenyanyi, penyanyi);
+        printf("\n");
 
         printf("Masukkan Judul Album yang dipilih : ");
         StartLineI(); // Mulai membaca kata
+        printf("\n");
         Word album = CurrentWord;
         
         if (IsMemberSet(ValueM(AlbumPenyanyi, penyanyi), album)) {
 
             printf("Daftar Playlist Pengguna :\n");
             DisplayLD(DaftarPlaylist);
+            printf("\n");
 
             printf("Masukkan ID Playlist yang dipilih : ");
             StartWordI(); // Mulai membaca kata
+            printf("\n");
             int id_playlist = WordToInt(CurrentWord) - 1;
 
             if (IsIdxValidLD(DaftarPlaylist, id_playlist)) {
@@ -348,7 +362,7 @@ void PLAYLISTADDALBUM(){
                 
                 printf("Album dengan judul “");
                 DisplayWordSpace(album);
-                printf(" berhasil ditambahkan ke dalam playlist pengguna “");
+                printf("” berhasil ditambahkan ke dalam playlist pengguna “");
                 DisplayWordSpace(playlist);
                 printf("”.\n");
             }
@@ -391,10 +405,10 @@ void PLAYLISTSWAP(){
         else {
             // Menukar lagu pada urutan x dan y
             Detail tempx, tempy;
-            GetSB(DaftarPlaylist.Content, &tempx, x);
-            GetSB(DaftarPlaylist.Content, &tempy, y);
-            SetSB(DaftarPlaylist.Content, tempy, x);
-            SetSB(DaftarPlaylist.Content, tempx, y);
+            GetSB(&DaftarPlaylist.Content[id], &tempx, x);
+            GetSB(&DaftarPlaylist.Content[id], &tempy, y);
+            SetSB(&DaftarPlaylist.Content[id], tempy, x);
+            SetSB(&DaftarPlaylist.Content[id], tempx, y);
 
             printf("Berhasil menukar lagu dengan nama “");
             DisplayWordSpace(tempx.Lagu);
