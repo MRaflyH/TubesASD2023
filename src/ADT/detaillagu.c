@@ -3,13 +3,13 @@
 void CreateD(Detail *d, Word penyanyi, Word album, Word lagu) {
     PasteWord(penyanyi, &(*d).Penyanyi);
     PasteWord(album, &(*d).Album);
-    PasteWord(lagu, &(*d).Name);
+    PasteWord(lagu, &(*d).Lagu);
 }
 
 void PasteD(Detail source, Detail *dest) {
     PasteWord(source.Penyanyi, &(*dest).Penyanyi);
     PasteWord(source.Album, &(*dest).Album);
-    PasteWord(source.Name, &(*dest).Name);
+    PasteWord(source.Lagu, &(*dest).Lagu);
 }
 
 void DisplayD(Detail d) {
@@ -17,6 +17,6 @@ void DisplayD(Detail d) {
     printf("- ");
     DisplayWordSpace(d.Album);
     printf("- ");
-    DisplayWordSpace(d.Name);
+    DisplayWordSpace(d.Lagu);
     printf("\n");
 }

@@ -9,7 +9,7 @@ typedef int IdxType;
 typedef struct {
     ElType Penyanyi;
     ElType Album;
-    ElType Name;
+    ElType Lagu;
 } Detail;
 
 
