@@ -1,7 +1,7 @@
 #include "console.h"
 
 void START() {
-    char * file_name = "config.txt";
+    char * file_name = "../save/config.txt";
 
     Word tempPenyanyi, tempAlbum, tempLagu, tempPlayist;
     Set tempSetAlbum, tempSetLagu;
@@ -17,7 +17,6 @@ void START() {
     Detail DLagu;
 
     StartFileF(file_name);
-
     NPenyanyi = 0;
     for (int i = 0; i < CurrentWord.Length; i++) {
         NPenyanyi = NPenyanyi * 10 + (CurrentWord.Content[i] - '0');
