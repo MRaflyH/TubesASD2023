@@ -12,6 +12,10 @@ Address NewNodeSB(Detail x) {
     return p;
 }
 
+boolean IsIdxValidSB(StrukBerkait *s, int i) {
+    return i < LengthSB && i >= 0;
+}
+
 void CreateSB(StrukBerkait *s){
     First(*s) = Nil;
 }
