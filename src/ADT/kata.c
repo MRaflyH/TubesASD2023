@@ -71,17 +71,22 @@ int WordToInt(Word w) {
 }
 
 void IntToWord(int i, Word * w) {
-    int digit;
-    CreateWord(0, "", w);
+    if (i == 0) {
+        CreateWord(1, "0", w);
+    }
+    else {
+        int digit;
+        CreateWord(0, "", w);
 
-    while (i > 0) {
-        digit = i % 10;
-        for (int j = (*w).Length; j > 0; j--) {
-            (*w).Content[j] = (*w).Content[j-1];
+        while (i > 0) {
+            digit = i % 10;
+            for (int j = (*w).Length; j > 0; j--) {
+                (*w).Content[j] = (*w).Content[j-1];
+            }
+            (*w).Content[0] = digit + '0';
+            i = i / 10;
+            (*w).Length++;
         }
-        (*w).Content[0] = digit + '0';
-        i = i / 10;
-        (*w).Length++;
     }
 }
 
