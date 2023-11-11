@@ -34,6 +34,23 @@ int LengthSB(StrukBerkait s) {
     }
     return counter;
 }
+void GetSB(StrukBerkait *s, Detail *x, int i) {
+    int idx;
+    Address p;
+
+    idx = 0;
+    p = First(*s);
+
+    while (p != Nil && idx != i) {
+        idx++;
+        p = Next(p);
+    }
+
+    if (i == idx) {
+        PasteD(Info(p), x);
+    }
+
+}
 
 void SetSB(StrukBerkait *s, Detail x, int i) {
     int idx;
