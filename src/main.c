@@ -35,6 +35,7 @@ int main() {
 
     while (!EndProgram) {
 
+        printf(">> ");
         StartWordI();
 
         if (IsWordSame(CurrentWord, WordSTART)) {
