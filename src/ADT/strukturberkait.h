@@ -26,7 +26,7 @@ typedef struct {
 
 Address NewNodeSB(Detail x);
 
-boolean IsIdxValidSB(StrukBerkait *s, int i);
+boolean IsIdxValidSB(StrukBerkait s, int i);
 
 void CreateSB(StrukBerkait *s);
 /* I.S. sembarang */
