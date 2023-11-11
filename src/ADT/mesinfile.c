@@ -1,8 +1,5 @@
 #include "mesinfile.h"
 
-boolean EndWord;
-Word CurrentWord;
-
 boolean FileExists(char *fname) {
     FILE *file;
     if ((file = fopen(fname, "r")))

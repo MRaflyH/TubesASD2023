@@ -1,8 +1,5 @@
 #include "mesininput.h"
 
-boolean EndWord;
-Word CurrentWord;
-
 void IgnoreBlanksI() {
    while (CurrentChar == Blank || CurrentChar == NewLine) {
       Adv();
