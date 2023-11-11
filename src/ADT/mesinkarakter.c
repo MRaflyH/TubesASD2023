@@ -11,6 +11,10 @@ void StartF(char * FileName) {
     Adv();
 }
 
+void StartWrite(char * FileName) {
+    pita = fopen(FileName, "w");
+}
+
 void Start() {
     pita = stdin;
     Adv();
@@ -19,6 +23,22 @@ void Start() {
 void Adv() {
     retval = fscanf(pita, "%c", &CurrentChar);
     EOP = feof(pita);
+}
+void AdvWrite(char cc) {
+    fprintf(pita, "%c", cc);
+}
+void AdvWriteBlank() {
+    fprintf(pita, "%c", Blank);
+}
+void AdvWriteMark() {
+    fprintf(pita, "%c", Mark);
+}
+void AdvWriteNewLine() {
+    fprintf(pita, "%c", NewLine);
+}
+
+void EndWrite() {
+    fclose(pita);
 }
 
 char GetCC() {
