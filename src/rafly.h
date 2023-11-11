@@ -12,6 +12,6 @@ void LOAD();
 
 void DISPLAY();
 
-void SAVE()
+void SAVE();
 
 #endif
