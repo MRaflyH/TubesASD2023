@@ -3,6 +3,16 @@
 boolean EndWord;
 Word CurrentWord;
 
+boolean FileExists(char *fname) {
+    FILE *file;
+    if ((file = fopen(fname, "r")))
+    {
+        fclose(file);
+        return true;
+    }
+    return false;
+}
+
 void IgnoreBlanksF() {
    while (CurrentChar == Blank || CurrentChar == NewLine || CurrentChar == Mark) {
       Adv();
