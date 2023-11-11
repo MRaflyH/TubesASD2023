@@ -153,11 +153,9 @@ int main() {
                 else if (IsWordSame(CurrentWord, WordADD)) {
                     AdvWordI();
                     if (IsWordSame(CurrentWord, WordSONG)) {
-                        printf("RUN PLAYLISTADDSONG\n");
                         PLAYLISTADDSONG();
                     }
                     else if (IsWordSame(CurrentWord, WordALBUM)) {
-                        printf("RUN PLAYLISTADDALBUM\n");
                         PLAYLISTADDALBUM();
                     }
                     else {
@@ -165,8 +163,7 @@ int main() {
                     }
                 }
                 else if (IsWordSame(CurrentWord, WordSWAP)) {
-                    printf("RUN PLAYLISTSWAP\n");
-                    // PLAYLISTSWAP();
+                    PLAYLISTSWAP();
                 }
                 else if (IsWordSame(CurrentWord, WordREMOVE)) {
                     printf("RUN PLAYLISTREMOVE\n");
