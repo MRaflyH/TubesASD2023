@@ -34,6 +34,7 @@ void InsertLD(ListDinamik *l, ElType x, IdxType i) {
     Detail d;
 
 	CreateSB(&xsb);
+	Title(xsb) = x;
 
     int j;
 
