@@ -6,6 +6,7 @@ int main() {
     // untuk testing aja
     Word WordDISPLAY;
     CreateWord(7, "DISPLAY", &WordDISPLAY);
+    // sampe sini
 
     printf(" _       __     __                             __                \n");
     printf("| |     / /__  / /________  ____ ___  ___     / /_____           \n");
@@ -35,6 +36,7 @@ int main() {
         else if (IsWordSame(CurrentWord, WordDISPLAY)) {
             DISPLAY();
         }
+        // SAMPE SINI
         else {
             printf("Command tidak diketahui!\n");
         }
