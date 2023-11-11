@@ -20,7 +20,7 @@ boolean IsFullLD(ListDinamik l) {
     return l.Neff == l.Capacity;
 }
 
-boolean IsIdValidLD(ListDinamik l, IdxType i) {
+boolean IsIdxValidLD(ListDinamik l, IdxType i) {
     return i < l.Neff && i >= 0;
 }
 

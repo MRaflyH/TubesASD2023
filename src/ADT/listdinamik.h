@@ -36,7 +36,7 @@ boolean IsEmptyLD(ListDinamik l);
 
 boolean IsFullLD(ListDinamik l);
 
-boolean IsIdValidLD(ListDinamik l, IdxType i);
+boolean IsIdxValidLD(ListDinamik l, IdxType i);
 
 ElType GetLD(ListDinamik l, IdxType i);
 /**
