@@ -35,11 +35,21 @@ int main() {
     while (!EndProgram) {
         StartWordI();
         if (IsWordSame(CurrentWord, WordSTART)) {
-            START();
+            if (!LoggedIn) {
+                START();
+            }
+            else {
+                ValidCommand = false;
+            }
         }
         else if (IsWordSame(CurrentWord, WordLOAD)) {
             AdvWordI();
-            LOAD();
+            if (!LoggedIn) {
+                LOAD();
+            }
+            else {
+                ValidCommand = false;
+            }
         }
         else if (IsWordSame(CurrentWord, WordQUIT)) {
             EndProgram = true;
@@ -50,7 +60,11 @@ int main() {
         }
         // SAMPE SINI
         else {
-            printf("Command tidak diketahui!\n");
+            KnownCommand = false;
+        }
+
+        if (!KnownCommand || !ValidCommand) {
+            INVALIDCOMMAND();
         }
 
         printf("\n");

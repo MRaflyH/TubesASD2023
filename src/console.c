@@ -219,6 +219,7 @@ void INVALIDCOMMAND() {
     }
     else {
         printf("Command tidak diketahui!\n");
+        KnownCommand = true;
     }
 }
 

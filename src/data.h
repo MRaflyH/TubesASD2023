@@ -19,6 +19,7 @@ extern Word CurrentLagu;
 extern boolean EndProgram;
 extern boolean LoggedIn;
 extern boolean ValidCommand;
+extern boolean KnownCommand;
 
 extern Word WordSTART;
 extern Word WordLOAD;

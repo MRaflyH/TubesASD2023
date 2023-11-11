@@ -10,6 +10,7 @@ Word CurrentLagu;
 boolean EndProgram;
 boolean LoggedIn;
 boolean ValidCommand;
+boolean KnownCommand;
 
 Word WordSTART;
 Word WordLOAD;
@@ -39,6 +40,7 @@ void Initiate() {
     EndProgram = false;
     LoggedIn = false;
     ValidCommand = true;
+    KnownCommand = true;
     DaftarPenyanyi = CreateLS();
     DaftarPlaylist = CreateLD();
     CreateQ(&QueueLagu);
