@@ -6,7 +6,7 @@ Queue QueueLagu;
 Stack RiwayatLagu;
 Map AlbumPenyanyi;
 Map LaguAlbum;
-Word CurrentLagu;
+Detail CurrentLagu;
 boolean EndProgram;
 boolean LoggedIn;
 boolean ValidCommand;
