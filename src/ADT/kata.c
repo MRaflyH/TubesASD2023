@@ -53,7 +53,7 @@ void DisplayWord(Word w) {
 
 void DisplayWordSpace(Word w) {
     if (w.Length == 0) {
-        printf("Kosong\n");
+        printf("Kosong");
     }
     else {
         for (int i = 0; i < w.Length; i++) {
