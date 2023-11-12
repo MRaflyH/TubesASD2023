@@ -420,6 +420,7 @@ void PLAYLISTSWAP(){
         }
     }
 }
+
 void PLAYLISTREMOVE() {
     int id, n;
     AdvWordI();
@@ -583,9 +584,9 @@ void SAVE() {
         }
     }
 
-
     EndWrite();
 }
+
 void QUIT();
 void HELP();
 
