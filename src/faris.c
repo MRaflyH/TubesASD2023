@@ -7,7 +7,7 @@ void playSong(){
     DisplayLS(DaftarPenyanyi);
 
     printf("Masukkan Nama Penyanyi yang dipilih : ");
-    StartLineI(); // Mulai membaca kata
+    StartWordI();
     Word penyanyi = CurrentWord;
 
     if (SearchLS(DaftarPenyanyi, penyanyi)) {
@@ -17,7 +17,7 @@ void playSong(){
         DisplayValueM(AlbumPenyanyi, penyanyi);
 
         printf("Masukkan Judul Album yang dipilih : ");
-        StartLineI(); // Mulai membaca kata
+        StartWordI();
         Word album = CurrentWord;
         
         if (IsMemberSet(ValueM(AlbumPenyanyi, penyanyi), album)) {
@@ -30,7 +30,7 @@ void playSong(){
             DisplayValueM(LaguAlbum, album);
 
             printf("Masukkan ID Lagu yang dipilih : ");
-            StartLineI(); // Mulai membaca kata
+            StartWordI();
             int id_lagu = WordToInt(CurrentWord) - 1;
 
             if (IsIdxValidSet(ValueM(LaguAlbum, album), id_lagu)){
@@ -41,8 +41,16 @@ void playSong(){
                 printf("” oleh “");
                 DisplayWordSpace(penyanyi);
                 printf("”.\n");
-                CreateQ(&QueueLagu);
-                CreateS(&RiwayatLagu);
+                
+                Detail temp;
+                while (!IsEmptyQ(QueueLagu)){
+                    DequeueQ(&QueueLagu, &temp);
+                }
+                
+                while (!IsEmptyS(RiwayatLagu)){
+                    PopS(&RiwayatLagu, &temp);
+                }
+
             }else{
                 printf("ID Lagu %d tidak ada dalam daftar. Silakan coba lagi.\n", id_lagu + 1);
             }
@@ -61,9 +69,9 @@ void playSong(){
 }
 
 
-int playPlaylist(){
+void playPlaylist(){
     printf("Masukkan ID Playlist : ");
-    StartLineI();
+    StartWordI();
     int id_playlist = WordToInt(CurrentWord) - 1;
 
     if (IsIdValidLD(DaftarPlaylist, id_playlist)) {
@@ -72,9 +80,15 @@ int playPlaylist(){
         printf("Memutar playlist “");
         DisplayWordSpace(playlist);
         printf("”.\n");
-
-        CreateQ(&QueueLagu);
-        CreateS(&RiwayatLagu);
+                
+        Detail temp;
+        while (!IsEmptyQ(QueueLagu)){
+            DequeueQ(&QueueLagu, &temp);
+        }
+                
+        while (!IsEmptyS(RiwayatLagu)){
+            PopS(&RiwayatLagu, &temp);
+        }
 
         Address p = First(DaftarPlaylist.Content[id_playlist]);
         while (p != Nil){
@@ -89,15 +103,12 @@ int playPlaylist(){
 }
 
 
-int songNext(){
+void songNext(){
     Detail temp;
-    PasteD(HEAD(QueueLagu), &temp);
-
     DequeueQ(&QueueLagu, &temp);
-    PushS (&RiwayatLagu, temp);
+    PushS(&RiwayatLagu, temp);
 
     if (IsEmptyQ(QueueLagu)){
-        EnqueueQ(&QueueLagu, temp);
         printf("Queue kosong, memutar kembali lagu\n");
         DisplayWordSpace(temp.Lagu);
         printf("” oleh “");
@@ -114,7 +125,7 @@ int songNext(){
 }
 
 
-int songPrevious(){
+void songPrevious(){
     if (IsEmptyS(RiwayatLagu)){
         printf("Riwayat lagu kosong, memutar kembali lagu\n");
     }
