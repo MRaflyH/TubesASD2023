@@ -35,6 +35,7 @@ Word WordQUIT;
 Word WordY;
 Word WordN;
 Word WordHELP;
+extern Word WordKOSONG;
 
 void Initiate() {
     EndProgram = false;
@@ -72,4 +73,5 @@ void Initiate() {
     CreateWord(1, "Y", &WordY);
     CreateWord(1, "N", &WordN);
     CreateWord(4, "HELP", &WordHELP);
+    CreateWord(0, "", &WordKOSONG);
 }
