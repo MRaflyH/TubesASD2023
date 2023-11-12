@@ -35,7 +35,7 @@ Word WordQUIT;
 Word WordY;
 Word WordN;
 Word WordHELP;
-extern Word WordKOSONG;
+Word WordKOSONG;
 
 void Initiate() {
     EndProgram = false;
