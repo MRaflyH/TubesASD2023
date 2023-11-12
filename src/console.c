@@ -614,7 +614,7 @@ void DISPLAY() {
     printf("\nINI MAP LAGU : ALBUM\n");
     DisplayM(LaguAlbum);
     printf("\nINI CURRENT LAGU\n");
-    DisplayWord(CurrentLagu);
+    DisplayD(CurrentLagu);
     printf("\nINI ISI PLAYLIST\n");
     DisplaySemuaLD(DaftarPlaylist);
 }
