@@ -6,6 +6,11 @@
 #include "ADT/mesinfile.h"
 #include "ADT/mesininput.h"
 
+void playSong();
 
+void playPlaylist();
 
+void songNext();
+
+void songPrevious();
 #endif
