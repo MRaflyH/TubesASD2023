@@ -48,7 +48,6 @@ void Initiate() {
     CreateS(&RiwayatLagu);
     CreateM(&AlbumPenyanyi);
     CreateM(&LaguAlbum);
-    CreateWord(0, "", &CurrentLagu);
 
     CreateWord(5, "START", &WordSTART);
     CreateWord(4, "LOAD", &WordLOAD);
@@ -74,4 +73,6 @@ void Initiate() {
     CreateWord(1, "N", &WordN);
     CreateWord(4, "HELP", &WordHELP);
     CreateWord(0, "", &WordKOSONG);
+
+    CreateD(&CurrentLagu, WordKOSONG, WordKOSONG, WordKOSONG);
 }
