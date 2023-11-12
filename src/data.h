@@ -15,7 +15,7 @@ extern Queue QueueLagu;
 extern Stack RiwayatLagu;
 extern Map AlbumPenyanyi;
 extern Map LaguAlbum;
-extern Word CurrentLagu;
+extern Detail CurrentLagu;
 extern boolean EndProgram;
 extern boolean LoggedIn;
 extern boolean ValidCommand;
