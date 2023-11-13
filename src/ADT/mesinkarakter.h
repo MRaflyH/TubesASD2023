@@ -10,7 +10,9 @@
 extern char CurrentChar;
 extern boolean EOP;
 
-void StartF(char * FileName);
+void StartRead(char * FileName);
+
+
 void StartWrite(char * FileName);
 
 void Start();

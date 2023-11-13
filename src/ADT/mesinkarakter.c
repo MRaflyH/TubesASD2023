@@ -6,7 +6,7 @@ boolean EOP;
 static FILE *pita;
 static int retval;
 
-void StartF(char * FileName) {
+void StartRead(char * FileName) {
     pita = fopen(FileName, "r");
     Adv();
 }

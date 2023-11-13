@@ -17,7 +17,7 @@ void IgnoreBlanksF() {
 }
 
 void StartFileF(char *FileName) {
-   StartF(FileName);
+   StartRead(FileName);
    IgnoreBlanksF();
    if (CurrentChar == NewLine) {
       EndWord = true;
