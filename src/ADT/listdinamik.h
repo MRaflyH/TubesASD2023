@@ -88,6 +88,7 @@ void DisplayIsiLD(ListDinamik l, ElType x);
  *     4. {Element 4 Judul x}
  * 
  * berakhir akhir dengan '\n'
+ * Prekondisi: x adalah member dari l
 */
 
 void DisplaySemuaLD(ListDinamik l);
