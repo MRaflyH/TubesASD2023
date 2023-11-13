@@ -79,12 +79,10 @@ int main() {
             AdvWordI();
             if (LoggedIn) {
                 if (IsWordSame(CurrentWord, WordSONG)) {
-                    printf("RUN PLAYSONG\n");
-                    // PLAYSONG();
+                    PLAYSONG();
                 }
                 else if (IsWordSame(CurrentWord, WordPLAYLIST)) {
-                    printf("RUN PLAYPLAYLIST\n");
-                    // PLAYPLAYLIST();
+                    PLAYPLAYLIST();
                 }
                 else {
                     KnownCommand = false;
@@ -129,12 +127,10 @@ int main() {
             AdvWordI();
             if (LoggedIn) {
                 if (IsWordSame(CurrentWord, WordNEXT)) {
-                    printf("RUN SONGNEXT\n");
-                    // SONGNEXT();
+                    SONGNEXT();
                 }
                 else if (IsWordSame(CurrentWord, WordPREVIOUS)) {
-                    printf("RUN SONGPREVIOUS\n");
-                    // SONGPREVIOUS();
+                    SONGPREVIOUS();
                 }
                 else {
                     KnownCommand = false;
