@@ -737,11 +737,41 @@ void SAVE() {
             AdvWriteWord(tempLagu);
         }
     }
-
+    
     EndWrite();
+    printf("Save file berhasil disimpan.\n");
 }
 
-void QUIT();
+void QUIT() {
+    Word Y, N;
+    Word input;
+
+    CreateWord(0, "", &input);
+    CreateWord(1, "Y", &Y);
+    CreateWord(1, "N", &N);
+
+    while (!IsWordSame(input, Y) && !IsWordSame(input, N)) {
+        printf("Apakah kamu ingin menyimpan data sesi sekarang? ");
+        StartLineI();
+        printf("\n");
+        PasteWord(CurrentWord, &input);
+
+        if (IsWordSame(CurrentWord, Y)) {
+            printf("Input nama save file : ");
+            StartLineI();
+            printf("\n");
+            SAVE();
+        }
+        else if (IsWordSame(CurrentWord, N)) {
+            printf("Keluar tanpa save file.\n");
+        }
+        else {
+            printf("Input hanya bisa dalam bentuk Y/N.\n\n");
+        }
+    }
+    
+    EndProgram = true;
+}
 void HELP();
 
 void INVALIDCOMMAND() {
