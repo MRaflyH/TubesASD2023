@@ -29,11 +29,11 @@ void InsertLS(ListStatik *l, ElType x) {
 
 void DisplayLS(ListStatik l) {
     if (IsEmptyLS(l)) {
-        printf("   Kosong\n");
+        printf("Kosong\n");
     }
     else {
         for (int i = 0; i < l.Neff ; i++) {
-            printf("   %d. ", i+1);
+            printf("    %d. ", i+1);
             DisplayWord(l.Content[i]);
         }
     }
