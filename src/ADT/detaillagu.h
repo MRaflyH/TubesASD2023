@@ -21,7 +21,6 @@ boolean IsEmptyD(Detail d);
 /* Fungsi untuk mengecek jika isi d kosong (penyanyi kosong, album kosong, dan lagu kosong) */
 /* Prekondisi d terdefinisi. */
 
-
 void PasteD(Detail source, Detail *dest);
 /* I.S. source terdefinisi, dest sembarang. */
 /* F.S. mengisi dest dengan isi source. */
