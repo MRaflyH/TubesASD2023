@@ -17,10 +17,15 @@ void PasteD(Detail source, Detail *dest) {
 }
 
 void DisplayD(Detail d) {
-    DisplayWordSpace(d.Penyanyi);
-    printf(" - ");
-    DisplayWordSpace(d.Album);
-    printf(" - ");
-    DisplayWordSpace(d.Lagu);
-    printf("\n");
+    if (IsEmptyD(d)) {
+        printf("Kosong\n");
+    }
+    else {
+        DisplayWordSpace(d.Penyanyi);
+        printf(" - ");
+        DisplayWordSpace(d.Album);
+        printf(" - ");
+        DisplayWordSpace(d.Lagu);
+        printf("\n");
+    }
 }
