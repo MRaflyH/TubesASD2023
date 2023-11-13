@@ -18,6 +18,7 @@ void StartWordI() {
     }
     IgnoreBlanksI();
 }
+
 void StartLineI() {
     Start();
     IgnoreBlanksI();
@@ -41,6 +42,7 @@ void AdvWordI() {
     }
     IgnoreBlanksI();
 }
+
 void AdvLineI() {
     IgnoreBlanksI();
     if (CurrentChar == Mark) {
@@ -67,6 +69,7 @@ void CopyWordI() {
         CurrentWord.Length = MaxChar;
     }
 } 
+
 void CopyLineI() {
     int i = 0;
     while (CurrentChar != Mark) {
