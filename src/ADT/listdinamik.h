@@ -95,12 +95,12 @@ void DisplaySemuaLD(ListDinamik l);
  * print dan judul playlist dan isinya dalam list dinamik
  * jika kosong print "Kosong"
  * 
- * Judul {Judul A}
+ * Judul 1: {Judul A}
  *     1. {Element 1 Judul A}
  *     2. {Element 2 Judul A}
  *     3. {Element 3 Judul A}
  *     4. {Element 4 Judul A}
- * Judul {Judul B}
+ * Judul 2: {Judul B}
  * Kosong
  * 
  * berakhir akhir dengan '\n'
