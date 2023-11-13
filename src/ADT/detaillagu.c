@@ -6,6 +6,10 @@ void CreateD(Detail *d, Word penyanyi, Word album, Word lagu) {
     PasteWord(lagu, &(*d).Lagu);
 }
 
+boolean IsEmptyD(Detail d) {
+    return d.Penyanyi.Length == 0 && d.Album.Length == 0 && d.Lagu.Length == 0;
+}
+
 void PasteD(Detail source, Detail *dest) {
     PasteWord(source.Penyanyi, &(*dest).Penyanyi);
     PasteWord(source.Album, &(*dest).Album);
