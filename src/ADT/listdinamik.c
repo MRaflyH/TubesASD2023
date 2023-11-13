@@ -104,8 +104,8 @@ void DisplayLD(ListDinamik l) {
 	}
 	else {
 		for (int i = 0; i < l.Neff; i++) {
-			printf("%d. ", i+1);
-			DisplayWord(Title(l.Content[i]));
+			printf("    %d. ", i+1);
+			DisplayWordNewLine(Title(l.Content[i]));
 		}
 	}
 }
@@ -131,8 +131,8 @@ void DisplaySemuaLD(ListDinamik l) {
 	}
 
 	for (int i = 0; i < l.Neff; i++) {
-		printf("Playlist %d ", i+1);
-		DisplayWord(Title(l.Content[i]));
+		printf("Judul %d: ", i+1);
+		DisplayWordNewLine(Title(l.Content[i]));
 		DisplaySB(l.Content[i]);
 	}
 

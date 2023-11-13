@@ -5,11 +5,11 @@ int main() {
 
     CreateWord(6, "pisang", &kata1);
     printf("Kata 1: ");
-    DisplayWord(kata1);
+    DisplayWordNewLine(kata1);
     
     PasteWord(kata1, &kata2);
     printf("Kata 2: ");
-    DisplayWord(kata2);
+    DisplayWordNewLine(kata2);
 
     printf("Hasil IsWordSame(kata1, kata2) : %d\n", IsWordSame(kata1, kata2));
 

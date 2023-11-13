@@ -29,7 +29,14 @@ void PushS (Stack * S, Detail X)
 /* I.S. S mungkin kosong, tabel penampung elemen stack TIDAK penuh */
 /* F.S. X menjadi Top yang baru,Top bertambah 1 */
 {
-    Top(*S) += 1;
+    if (IsFullS(*S)) {
+        for (int i = 0; i < (*S).Top; i++) {
+            PasteD((*S).Content[i+1], &(*S).Content[i]);
+        }
+    }
+    else {
+        Top(*S) += 1;
+    }
     PasteD(X, &InfoTop(*S));
 }
 
@@ -58,10 +65,10 @@ void DisplayS(Stack s){
     } else{
         IdxType i;
         for(i=Top(s); i>0; i--){
-            printf("%d. ",  Top(s) - i + 1);
+            printf("    %d. ",  Top(s) - i + 1);
             DisplayD(s.Content[i]);
         }
-        printf("%d. ", Top(s) - i + 1);
+        printf("    %d. ", Top(s) - i + 1);
         DisplayD(s.Content[i]);
     }
 }

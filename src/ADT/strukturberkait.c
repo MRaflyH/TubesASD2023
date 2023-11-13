@@ -126,7 +126,7 @@ void DisplaySB(StrukBerkait s) {
     else {
         int i = 0;
         while (p != Nil) {
-            printf("%d. ", i+1);
+            printf("    %d. ", i+1);
             DisplayD(Info(p));
             p = Next(p);
             i++;

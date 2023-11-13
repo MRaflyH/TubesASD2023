@@ -9,29 +9,47 @@ int main() {
     CreateWord(7, "DISPLAY", &WordDISPLAY);
     // sampe sini
 
-    printf(" _       __     __                             __                \n");
     usleep(100000);
-    printf("| |     / /__  / /________  ____ ___  ___     / /_____           \n");
+    printf(" _       __     __                             __\n");
     usleep(100000);
-    printf("| | /| / / _ \\/ / ___/ __ \\/ __ `__ \\/ _ \\   / __/ __ \\          \n");
+    printf("| |     / /__  / /________  ____ ___  ___     / /_____\n");
     usleep(100000);
-    printf("| |/ |/ /  __/ / /__/ /_/ / / / / / /  __/  / /_/ /_/ /          \n");
+    printf("| | /| / / _ \\/ / ___/ __ \\/ __ `__ \\/ _ \\   / __/ __ \\\n");
     usleep(100000);
-    printf("|__/|__/\\___/_/\\___/\\____/_/ /_/ /_/\\___/   \\__/\\____/           \n");
+    printf("| |/ |/ /  __/ / /__/ /_/ / / / / / /  __/  / /_/ /_/ /\n");
     usleep(100000);
-    printf(" _       __                             _       __               \n");
+    printf("|__/|__/\\___/_/\\___/\\____/_/ /_/ /_/\\___/   \\__/\\____/\n");
     usleep(100000);
-    printf("| |     / /___ ___  ______ _____  ____ | |     / /___ __   _____ \n");
+    printf(" _       __                             _       __\n");
+    usleep(100000);
+    printf("| |     / /___ ___  ______ _____  ____ | |     / /___ __   _____\n");
     usleep(100000);
     printf("| | /| / / __ `/ / / / __ `/ __ \\/ __ `/ | /| / / __ `/ | / / _ \\\n");
     usleep(100000);
     printf("| |/ |/ / /_/ / /_/ / /_/ / / / / /_/ /| |/ |/ / /_/ /| |/ /  __/\n");
     usleep(100000);
-    printf("|__/|__/\\__,_/\\__, /\\__,_/_/ /_/\\__, / |__/|__/\\__,_/ |___/\\___/ \n");
+    printf("|__/|__/\\__,_/\\__, /\\__,_/_/ /_/\\__, / |__/|__/\\__,_/ |___/\\___/\n");
     usleep(100000);
-    printf("             /____/            /____/                            \n\n");
+    printf("             /____/            /____/\n");
+    usleep(100000);
+    printf("\n");
+    usleep(100000);
+    printf("    __  __      ____         //|    //|     __\n");
+    usleep(100000);
+    printf("   / / / /___ _/ / /___     |/||   |/||   _/_/\n");
+    usleep(100000);
+    printf("  / /_/ / __ `/ / / __ \\                _/_/  \n");
+    usleep(100000);
+    printf(" / __  / /_/ / / / /_/ /              _/_/\n");
+    usleep(100000);
+    printf("/_/ /_/\\__,_/_/_/\\____/     ______   /_/\n");
+    usleep(100000);
+    printf("                           /_____/\n");
+    usleep(100000);
+    printf("\n");
     usleep(100000);
 
+    // HELP();
 
     while (!EndProgram) {
 
@@ -79,12 +97,10 @@ int main() {
             AdvWordI();
             if (LoggedIn) {
                 if (IsWordSame(CurrentWord, WordSONG)) {
-                    printf("RUN PLAYSONG\n");
-                    // PLAYSONG();
+                    PLAYSONG();
                 }
                 else if (IsWordSame(CurrentWord, WordPLAYLIST)) {
-                    printf("RUN PLAYPLAYLIST\n");
-                    // PLAYPLAYLIST();
+                    PLAYPLAYLIST();
                 }
                 else {
                     KnownCommand = false;
@@ -129,12 +145,10 @@ int main() {
             AdvWordI();
             if (LoggedIn) {
                 if (IsWordSame(CurrentWord, WordNEXT)) {
-                    printf("RUN SONGNEXT\n");
-                    // SONGNEXT();
+                    SONGNEXT();
                 }
                 else if (IsWordSame(CurrentWord, WordPREVIOUS)) {
-                    printf("RUN SONGPREVIOUS\n");
-                    // SONGPREVIOUS();
+                    SONGPREVIOUS();
                 }
                 else {
                     KnownCommand = false;
@@ -200,9 +214,7 @@ int main() {
         }
         else if (IsWordSame(CurrentWord, WordQUIT)) {
             if (LoggedIn) {
-                printf("RUN QUIT\n");
-                // QUIT();
-                EndProgram = true;
+                QUIT();
             }
             else {
                 ValidCommand = false;
@@ -231,28 +243,45 @@ int main() {
         printf("\n");
     }
 
+    usleep(100000);
+    printf("    __ __                         __        __                        __           _\n");
+    usleep(100000);
+    printf("   / //_/___ _____ ___  __  __   / /_____  / /_  ______ ______   ____/ /___ ______(_)\n");
+    usleep(100000);
+    printf("  / ,< / __ `/ __ `__ \\/ / / /  / //_/ _ \\/ / / / / __ `/ ___/  / __  / __ `/ ___/ /\n");
+    usleep(100000);
+    printf(" / /| / /_/ / / / / / / /_/ /  / ,< /  __/ / /_/ / /_/ / /     / /_/ / /_/ / /  / /\n");
+    usleep(100000);
+    printf("/_/ |_\\__,_/_/ /_/ /_/\\__,_/  /_/|_|\\___/_/\\__,_/\\__,_/_/      \\__,_/\\__,_/_/  /_/\n");
+    usleep(100000);
+    printf(" _       __                             _       __\n");
+    usleep(100000);
+    printf("| |     / /___ ___  ______ _____  ____ | |     / /___ __   _____\n");
+    usleep(100000);
+    printf("| | /| / / __ `/ / / / __ `/ __ \\/ __ `/ | /| / / __ `/ | / / _ \\\n");
+    usleep(100000);
+    printf("| |/ |/ / /_/ / /_/ / /_/ / / / / /_/ /| |/ |/ / /_/ /| |/ /  __/\n");
+    usleep(100000);
+    printf("|__/|__/\\__,_/\\__, /\\__,_/_/ /_/\\__, / |__/|__/\\__,_/ |___/\\___(_)\n");
+    usleep(100000);
+    printf("             /____/            /____/\n");
+    usleep(100000);
+    printf("\n");
+    usleep(100000);
+    printf("    ____            __      __       //|    //|     __\n");
+    usleep(100000);
+    printf("   / __ \\____ _____/ /___ _/ /_     |/||   |/||   _/_/\n");
+    usleep(100000);
+    printf("  / / / / __ `/ __  / __ `/ __ \\                _/_/\n");
+    usleep(100000);
+    printf(" / /_/ / /_/ / /_/ / /_/ / / / /              _/_/\n");
+    usleep(100000);
+    printf("/_____/\\__,_/\\__,_/\\__,_/_/ /_/     ______   /_/\n");
+    usleep(100000);
+    printf("                                   /_____/\n");
+    usleep(100000);
+    printf("\n");
+    usleep(100000);
 
-    printf("  ________                __      __  __               \n");
-    usleep(100000);
-    printf(" /_  __/ /_  ____ _____  / /__    \\ \\/ /___  __  __    \n");
-    usleep(100000);
-    printf("  / / / __ \\/ __ `/ __ \\/ //_/     \\  / __ \\/ / / /    \n");
-    usleep(100000);
-    printf(" / / / / / / /_/ / / / / ,<        / / /_/ / /_/ /     \n");
-    usleep(100000);
-    printf("/_/ /_/ /_/\\__,_/_/ /_/_/|_|      /_/\\____/\\__,_/      \n");
-    usleep(100000);
-    printf("    ____              ____  __            _            \n");
-    usleep(100000);
-    printf("   / __/___  _____   / __ \\/ /___ ___  __(_)___  ____ _\n");
-    usleep(100000);
-    printf("  / /_/ __ \\/ ___/  / /_/ / / __ `/ / / / / __ \\/ __ `/\n");
-    usleep(100000);
-    printf(" / __/ /_/ / /     / ____/ / /_/ / /_/ / / / / / /_/ / \n");
-    usleep(100000);
-    printf("/_/  \\____/_/     /_/   /_/\\__,_/\\__, /_/_/ /_/\\__, /  \n");
-    usleep(100000);
-    printf("                                /____/        /____/   \n\n");
-    usleep(100000);
     return 0;
 }

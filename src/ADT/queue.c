@@ -125,11 +125,11 @@ void DisplayQ(Queue q)
     } else {
         int i = IDX_HEAD(q);
         while (i != IDX_TAIL(q)) {
-            printf("%d. ", i+1);
+            printf("    %d. ", i+1);
             DisplayD(q.Content[i]);
             i++;
         }
-        printf("%d. ", i+1);
+        printf("    %d. ", i+1);
         DisplayD(q.Content[i]);
     }
 }

@@ -31,12 +31,16 @@ void InsertLS(ListStatik *l, ElType x);
 /* F.S. v menjadi elemen terakhir L. */
 
 void DisplayLS(ListStatik l);
-// Mungkin kosong = "Kosong\n"
-// 1. New Jeans
-// 2. BLACKPINK
-// 3. Central Cee
-// 4. Rich Brian
-// 5. Denny Caknan
-// 6. Via Vallen
+/**
+ * print element isi list statik
+ * jika kosong print "Kosong"
+ * 
+ *     1. {Element 1}
+ *     2. {Element 2}
+ *     3. {Element 3}
+ *     4. {Element 4}
+ * 
+ * berakhir akhir dengan '\n'
+*/
 
 #endif
