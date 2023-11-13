@@ -12,7 +12,7 @@ void playSong(){
 
     if (SearchLS(DaftarPenyanyi, penyanyi)) {
         printf("Daftar Album oleh ");
-        DisplayWordSpace(penyanyi);
+        DisplayWord(penyanyi);
         printf(" :\n");
         DisplayValueM(AlbumPenyanyi, penyanyi);
 
@@ -22,9 +22,9 @@ void playSong(){
         
         if (IsMemberSet(ValueM(AlbumPenyanyi, penyanyi), album)) {
             printf("Daftar Lagu Album ");
-            DisplayWordSpace(album);
+            DisplayWord(album);
             printf(" oleh ");
-            DisplayWordSpace(penyanyi);
+            DisplayWord(penyanyi);
             printf(" :\n");
 
             DisplayValueM(LaguAlbum, album);
@@ -37,9 +37,9 @@ void playSong(){
                 Word lagu;
                 PasteWord(ValueM(LaguAlbum, album).Content[id_lagu], &lagu);
                 printf("Memutar lagu “");
-                DisplayWordSpace(lagu);
+                DisplayWord(lagu);
                 printf("” oleh “");
-                DisplayWordSpace(penyanyi);
+                DisplayWord(penyanyi);
                 printf("”.\n");
                 
                 Detail temp;
@@ -57,13 +57,13 @@ void playSong(){
         }
         else {
             printf("Album ");
-            DisplayWordSpace(album);
+            DisplayWord(album);
             printf(" tidak ada dalam daftar. Silakan coba lagi.\n");
         }
     }
     else {
         printf("Penyanyi ");
-        DisplayWordSpace(penyanyi);
+        DisplayWord(penyanyi);
         printf(" tidak ada dalam daftar. Silakan coba lagi.\n");
     }
 }
@@ -78,7 +78,7 @@ void playPlaylist(){
         Word playlist;
         PasteWord(Title(DaftarPlaylist.Content[id_playlist]), &playlist);
         printf("Memutar playlist “");
-        DisplayWordSpace(playlist);
+        DisplayWord(playlist);
         printf("”.\n");
                 
         Detail temp;
@@ -110,16 +110,16 @@ void songNext(){
 
     if (IsEmptyQ(QueueLagu)){
         printf("Queue kosong, memutar kembali lagu\n");
-        DisplayWordSpace(temp.Lagu);
+        DisplayWord(temp.Lagu);
         printf("” oleh “");
-        DisplayWordSpace(temp.Penyanyi);
+        DisplayWord(temp.Penyanyi);
         printf("”\n");
     }
     else{
         printf("Memutar lagu selanjutnya\n");
-        DisplayWordSpace(HEAD(QueueLagu).Lagu);
+        DisplayWord(HEAD(QueueLagu).Lagu);
         printf("” oleh “");
-        DisplayWordSpace(HEAD(QueueLagu).Penyanyi);
+        DisplayWord(HEAD(QueueLagu).Penyanyi);
         printf("”\n");
     }
 }
@@ -134,9 +134,9 @@ void songPrevious(){
         printf("Memutar lagu sebelumnya\n");
     }
     
-    DisplayWordSpace(HEAD(QueueLagu).Lagu);
+    DisplayWord(HEAD(QueueLagu).Lagu);
     printf("” oleh “");
-    DisplayWordSpace(HEAD(QueueLagu).Penyanyi);
+    DisplayWord(HEAD(QueueLagu).Penyanyi);
     printf("”\n");
 }
 

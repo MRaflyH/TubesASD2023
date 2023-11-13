@@ -55,7 +55,7 @@ void DeleteSet(Set *s, ElType x){
 
 void GetSet(Set s, int i){
     if (i < (s).Length){
-        DisplayWord(s.Content[i]);
+        DisplayWordNewLine(s.Content[i]);
     }
 }
 
@@ -65,7 +65,7 @@ void DisplaySet(Set s){
     } else{
         for (int i = 0; i < s.Length; i++){
             printf("    %d. ", i+1);
-            DisplayWord(s.Content[i]);
+            DisplayWordNewLine(s.Content[i]);
         }
     }
 }

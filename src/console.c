@@ -206,7 +206,7 @@ void PLAYSONG() {
 
     if (SearchLS(DaftarPenyanyi, penyanyi)) {
         printf("Daftar Album oleh ");
-        DisplayWordSpace(penyanyi);
+        DisplayWord(penyanyi);
         printf(" :\n");
         DisplayValueM(AlbumPenyanyi, penyanyi);
         printf("\n");
@@ -218,9 +218,9 @@ void PLAYSONG() {
         
         if (IsMemberSet(ValueM(AlbumPenyanyi, penyanyi), album)) {
             printf("Daftar Lagu Album ");
-            DisplayWordSpace(album);
+            DisplayWord(album);
             printf(" oleh ");
-            DisplayWordSpace(penyanyi);
+            DisplayWord(penyanyi);
             printf(" :\n");
 
             DisplayValueM(LaguAlbum, album);
@@ -235,9 +235,9 @@ void PLAYSONG() {
                 Word lagu;
                 PasteWord(ValueM(LaguAlbum, album).Content[id_lagu], &lagu);
                 printf("Memutar lagu “");
-                DisplayWordSpace(lagu);
+                DisplayWord(lagu);
                 printf("” oleh “");
-                DisplayWordSpace(penyanyi);
+                DisplayWord(penyanyi);
                 printf("”.\n");
                 
                 Detail temp;
@@ -258,13 +258,13 @@ void PLAYSONG() {
         }
         else {
             printf("Album ");
-            DisplayWordSpace(album);
+            DisplayWord(album);
             printf(" tidak ada dalam daftar. Silakan coba lagi.\n");
         }
     }
     else {
         printf("Penyanyi ");
-        DisplayWordSpace(penyanyi);
+        DisplayWord(penyanyi);
         printf(" tidak ada dalam daftar. Silakan coba lagi.\n");
     }
 }
@@ -279,7 +279,7 @@ void PLAYPLAYLIST() {
         Word playlist;
         PasteWord(Title(DaftarPlaylist.Content[id_playlist]), &playlist);
         printf("Memutar playlist “");
-        DisplayWordSpace(playlist);
+        DisplayWord(playlist);
         printf("”.\n");
                 
         Detail temp;
@@ -320,9 +320,9 @@ void QUEUECLEAR();
 void SONGNEXT() {
     if (IsEmptyQ(QueueLagu)){
         printf("Queue kosong, memutar kembali lagu\n");
-        DisplayWordSpace(CurrentLagu.Lagu);
+        DisplayWord(CurrentLagu.Lagu);
         printf("” oleh “");
-        DisplayWordSpace(CurrentLagu.Penyanyi);
+        DisplayWord(CurrentLagu.Penyanyi);
         printf("”\n");
     }
     else{
@@ -332,9 +332,9 @@ void SONGNEXT() {
         DequeueQ(&QueueLagu, &CurrentLagu);
 
         printf("Memutar lagu selanjutnya\n");
-        DisplayWordSpace(CurrentLagu.Lagu);
+        DisplayWord(CurrentLagu.Lagu);
         printf("” oleh “");
-        DisplayWordSpace(CurrentLagu.Penyanyi);
+        DisplayWord(CurrentLagu.Penyanyi);
         printf("”\n");
     }
 }
@@ -351,9 +351,9 @@ void SONGPREVIOUS() {
         printf("Memutar lagu sebelumnya\n");
     }
     
-    DisplayWordSpace(CurrentLagu.Lagu);
+    DisplayWord(CurrentLagu.Lagu);
     printf("” oleh “");
-    DisplayWordSpace(CurrentLagu.Penyanyi);
+    DisplayWord(CurrentLagu.Penyanyi);
     printf("”\n");
 }
 
@@ -376,7 +376,7 @@ void PLAYLISTCREATE()
         // Menambahkan playlist baru ke ListDinamik
         InsertLD(&DaftarPlaylist, CurrentWord, DaftarPlaylist.Neff);
         printf("Playlist ");
-        DisplayWordSpace(CurrentWord);
+        DisplayWord(CurrentWord);
         printf(" berhasil dibuat! Silakan masukkan lagu - lagu artis terkini kesayangan Anda!\n");        
     }
 }
@@ -393,7 +393,7 @@ void PLAYLISTADDSONG() {
 
     if (SearchLS(DaftarPenyanyi, penyanyi)) {
         printf("Daftar Album oleh ");
-        DisplayWordSpace(penyanyi);
+        DisplayWord(penyanyi);
         printf(" :\n");
         DisplayValueM(AlbumPenyanyi, penyanyi);
         printf("\n");
@@ -405,9 +405,9 @@ void PLAYLISTADDSONG() {
         
         if (IsMemberSet(ValueM(AlbumPenyanyi, penyanyi), album)) {
             printf("Daftar Lagu Album ");
-            DisplayWordSpace(album);
+            DisplayWord(album);
             printf(" oleh ");
-            DisplayWordSpace(penyanyi);
+            DisplayWord(penyanyi);
             printf(" :\n");
 
             DisplayValueM(LaguAlbum, album);
@@ -439,13 +439,13 @@ void PLAYLISTADDSONG() {
                     InsertSB(&DaftarPlaylist.Content[id_playlist], d, LengthSB(DaftarPlaylist.Content[id_playlist]));
                     
                     printf("Lagu dengan judul “");
-                    DisplayWordSpace(lagu);
+                    DisplayWord(lagu);
                     printf("” pada album ");
-                    DisplayWordSpace(album);
+                    DisplayWord(album);
                     printf(" oleh penyanyi \n");
-                    DisplayWordSpace(penyanyi);
+                    DisplayWord(penyanyi);
                     printf(" berhasil ditambahkan ke dalam playlist ");
-                    DisplayWordSpace(playlist);
+                    DisplayWord(playlist);
                     printf(".\n");
                 }
                 else {
@@ -458,13 +458,13 @@ void PLAYLISTADDSONG() {
         }
         else {
             printf("Album ");
-            DisplayWordSpace(album);
+            DisplayWord(album);
             printf(" tidak ada dalam daftar. Silakan coba lagi.\n");
         }
     }
     else {
         printf("Penyanyi ");
-        DisplayWordSpace(penyanyi);
+        DisplayWord(penyanyi);
         printf(" tidak ada dalam daftar. Silakan coba lagi.\n");
     }
 }
@@ -481,7 +481,7 @@ void PLAYLISTADDALBUM(){
 
     if (SearchLS(DaftarPenyanyi, penyanyi)) {
         printf("Daftar Album oleh ");
-        DisplayWordSpace(penyanyi);
+        DisplayWord(penyanyi);
         printf(" :\n");
         DisplayValueM(AlbumPenyanyi, penyanyi);
         printf("\n");
@@ -515,9 +515,9 @@ void PLAYLISTADDALBUM(){
                 }
                 
                 printf("Album dengan judul “");
-                DisplayWordSpace(album);
+                DisplayWord(album);
                 printf("” berhasil ditambahkan ke dalam playlist pengguna “");
-                DisplayWordSpace(playlist);
+                DisplayWord(playlist);
                 printf("”.\n");
             }
             else {
@@ -526,13 +526,13 @@ void PLAYLISTADDALBUM(){
         }
         else {
             printf("Album ");
-            DisplayWordSpace(album);
+            DisplayWord(album);
             printf(" tidak ada dalam daftar. Silakan coba lagi.\n");
         }
     }
     else {
         printf("Penyanyi ");
-        DisplayWordSpace(penyanyi);
+        DisplayWord(penyanyi);
         printf(" tidak ada dalam daftar. Silakan coba lagi.\n");
     }
 }
@@ -565,11 +565,11 @@ void PLAYLISTSWAP(){
             SetSB(&DaftarPlaylist.Content[id], tempx, y);
 
             printf("Berhasil menukar lagu dengan nama “");
-            DisplayWordSpace(tempx.Lagu);
+            DisplayWord(tempx.Lagu);
             printf("” dengan “");
-            DisplayWordSpace(tempy.Lagu);
+            DisplayWord(tempy.Lagu);
             printf("” di playlist “");
-            DisplayWordSpace(Title(DaftarPlaylist.Content[id]));
+            DisplayWord(Title(DaftarPlaylist.Content[id]));
             printf("”\n");
         }
     }
@@ -594,11 +594,11 @@ void PLAYLISTREMOVE() {
             DeleteSB(&playlist, &lagu, n);
 
             printf("Lagu “");
-            DisplayWordSpace(lagu.Lagu);
+            DisplayWord(lagu.Lagu);
             printf("” oleh “");
-            DisplayWordSpace(lagu.Penyanyi);
+            DisplayWord(lagu.Penyanyi);
             printf("” telah dihapus dari playlist “");
-            DisplayWordSpace(Title(playlist));
+            DisplayWord(Title(playlist));
             printf("”!\n");
         }
     }
@@ -625,7 +625,7 @@ void PLAYLISTDELETE() {
         playlist = GetLD(DaftarPlaylist, id);
         DeleteLD(&DaftarPlaylist, id);
         printf("Playlist ID %d dengan judul ”", id+1);
-        DisplayWordSpace(playlist);
+        DisplayWord(playlist);
         printf("” berhasil dihapus.\n");
     }
 }

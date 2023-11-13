@@ -21,11 +21,11 @@ void DisplayD(Detail d) {
         printf("Kosong\n");
     }
     else {
-        DisplayWordSpace(d.Penyanyi);
+        DisplayWord(d.Penyanyi);
         printf(" - ");
-        DisplayWordSpace(d.Album);
+        DisplayWord(d.Album);
         printf(" - ");
-        DisplayWordSpace(d.Lagu);
+        DisplayWord(d.Lagu);
         printf("\n");
     }
 }

@@ -34,7 +34,7 @@ void DisplayLS(ListStatik l) {
     else {
         for (int i = 0; i < l.Neff ; i++) {
             printf("    %d. ", i+1);
-            DisplayWord(l.Content[i]);
+            DisplayWordNewLine(l.Content[i]);
         }
     }
 }

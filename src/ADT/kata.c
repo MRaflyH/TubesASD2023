@@ -39,7 +39,7 @@ void PasteWord(Word source, Word * dest) {
     }
 }
 
-void DisplayWord(Word w) {
+void DisplayWordNewLine(Word w) {
     if (w.Length == 0) {
         printf("Kosong\n");
     }
@@ -51,7 +51,7 @@ void DisplayWord(Word w) {
     }
 }
 
-void DisplayWordSpace(Word w) {
+void DisplayWord(Word w) {
     if (w.Length == 0) {
         printf("Kosong");
     }

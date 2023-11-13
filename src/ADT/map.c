@@ -82,7 +82,7 @@ void DisplayM(Map m) {
     else {
         for (int i = 0; i < m.Length; i++) {
             printf("Key %d: ", i+1);
-            DisplayWord(m.Content[i].Key);
+            DisplayWordNewLine(m.Content[i].Key);
             DisplaySet(m.Content[i].Value);
         }
     }
