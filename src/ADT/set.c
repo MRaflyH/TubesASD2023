@@ -64,7 +64,7 @@ void DisplaySet(Set s){
         printf("Kosong\n");
     } else{
         for (int i = 0; i < s.Length; i++){
-            printf("%d. ", i+1);
+            printf("    %d. ", i+1);
             DisplayWord(s.Content[i]);
         }
     }
