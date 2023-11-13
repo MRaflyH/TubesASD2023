@@ -28,11 +28,13 @@ void CreateQ(Queue *q);
 
 /* ********** Pemeriksa Status Queue ********** */
 boolean IsEmptyQ(Queue q);
-/* Mengirim true jika q kosong: lihat definisi di atas */
+/* Mengirim true jika q kosong */
 
 boolean IsIdxValidQ(Queue *q, int i);
+/* Mengirim true i adalah id valid dalam q */
 
 int LengthQ(Queue q);
+/* Mengirim panjang q */
 
 /* ********** Primitif Add/Delete ********** */
 void EnqueueQ(Queue *q, Detail x);
@@ -58,8 +60,11 @@ void DisplayQ(Queue q);
    siku; antara dua elemen dipisahkan dengan separator "koma", tanpa tambahan 
    karakter di depan, di tengah, atau di belakang, termasuk spasi dan enter */
 /* I.S. q boleh kosong */
-/* F.S. Jika q tidak kosong: [e1,e2,...,en] */
-/* Contoh : jika ada tiga elemen bernilai 1, 20, 30 akan dicetak: [1,20,30] */
-/* Jika Queue kosong : menulis [] */
+/* F.S. Jika q tidak kosong: */
+/*     1. {Top Element}
+ *     2. {Element Selanjutnya}
+ *     3. {Element Selanjutnya}
+ *     4. {Element Selanjutnya} */ 
+/* Jika Queue kosong : menulis "Kosong" */
 
 #endif
