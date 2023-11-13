@@ -45,6 +45,6 @@ void IntToWord(int i, Word * w);
 
 char *WordtoFileName(Word w);
 /* Fungsi untuk mengubah suatu word dengan isi filename.txt menjadi string "../save/filename.txt"  */
-/* Prekondisi w terdefinisi dan ada isinya. */
+/* Prekondisi w terdefinisi dan ada isinya .txt. */
 
 #endif
