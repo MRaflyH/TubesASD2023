@@ -66,26 +66,26 @@ void DeleteLD(ListDinamik *l, IdxType i);
 
 void DisplayLD(ListDinamik l);
 /**
- * print judul semua playlist dalam list dinamik
+ * print judul semua element dalam list dinamik
  * jika kosong print "Kosong"
  * 
- *     1. {Playlist 1}
- *     2. {Playlist 2}
- *     3. {Playlist 3}
- *     4. {Playlist 4}
+ *     1. {Judul 1}
+ *     2. {Judul 2}
+ *     3. {Judul 3}
+ *     4. {Judul 4}
  * 
  * berakhir akhir dengan '\n'
 */
 
 void DisplayIsiLD(ListDinamik l, ElType x);
 /**
- * print isi playlist dengan judul x dalam list dinamik
+ * print isi element suatu struktur berkait dengan judul x dalam list dinamik
  * jika kosong print "Kosong"
  * 
- *     1. {Lagu 1 Playlist x}
- *     2. {Lagu 2 Playlist x}
- *     3. {Lagu 3 Playlist x}
- *     4. {Lagu 4 Playlist x}
+ *     1. {Element 1 Judul x}
+ *     2. {Element 2 Judul x}
+ *     3. {Element 3 Judul x}
+ *     4. {Element 4 Judul x}
  * 
  * berakhir akhir dengan '\n'
 */
@@ -95,12 +95,12 @@ void DisplaySemuaLD(ListDinamik l);
  * print dan judul playlist dan isinya dalam list dinamik
  * jika kosong print "Kosong"
  * 
- * Playlist A
- *     1. {Lagu 1 Playlist A}
- *     2. {Lagu 2 Playlist A}
- *     3. {Lagu 3 Playlist A}
- *     4. {Lagu 4 Playlist A}
- * Playlist B
+ * Judul {Judul A}
+ *     1. {Element 1 Judul A}
+ *     2. {Element 2 Judul A}
+ *     3. {Element 3 Judul A}
+ *     4. {Element 4 Judul A}
+ * Judul {Judul B}
  * Kosong
  * 
  * berakhir akhir dengan '\n'
