@@ -15,6 +15,8 @@ typedef struct {
 
 void CreateD(Detail *d, Word penyanyi, Word album, Word lagu);
 
+boolean IsEmptyD(Detail d);
+
 void PasteD(Detail source, Detail *dest);
 
 void DisplayD(Detail d);
