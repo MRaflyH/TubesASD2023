@@ -18,7 +18,7 @@ ListDinamik CreateLD();
 /**
  * Konstruktor
  * I.S. sembarang
- * F.S. Terbentuk ArrayDin kosong dengan ukuran InitialSize
+ * F.S. Terbentuk ArrayDin kosong dengan ukuran InitialCapacity
  */
 
 void DeallocateLD(ListDinamik *l);
@@ -35,8 +35,16 @@ boolean IsEmptyLD(ListDinamik l);
  */
 
 boolean IsFullLD(ListDinamik l);
+/**
+ * Fungsi untuk mengetahui apakah suatu array penuh.
+ * Prekondisi: array terdefinisi
+ */
 
 boolean IsIdxValidLD(ListDinamik l, IdxType i);
+/**
+ * Fungsi untuk mengetahui apakah suatu id valid dalam array.
+ * Prekondisi: array terdefinisi dan i terdefinisi
+ */
 
 ElType GetLD(ListDinamik l, IdxType i);
 /**
@@ -57,14 +65,45 @@ void DeleteLD(ListDinamik *l, IdxType i);
  */
 
 void DisplayLD(ListDinamik l);
-// Mungkin kosong = "Kosong"
-// 1. K-pop Enjoyer
-// 2. Z E R O 4.0
-// 3. Be the main character
-// 4. Hey i liked you.
+/**
+ * print judul semua playlist dalam list dinamik
+ * jika kosong print "Kosong"
+ * 
+ *     1. {Playlist 1}
+ *     2. {Playlist 2}
+ *     3. {Playlist 3}
+ *     4. {Playlist 4}
+ * 
+ * berakhir akhir dengan '\n'
+*/
 
 void DisplayIsiLD(ListDinamik l, ElType x);
-void DisplaySemuaLD(ListDinamik l);
+/**
+ * print isi playlist dengan judul x dalam list dinamik
+ * jika kosong print "Kosong"
+ * 
+ *     1. {Lagu 1 Playlist x}
+ *     2. {Lagu 2 Playlist x}
+ *     3. {Lagu 3 Playlist x}
+ *     4. {Lagu 4 Playlist x}
+ * 
+ * berakhir akhir dengan '\n'
+*/
 
+void DisplaySemuaLD(ListDinamik l);
+/**
+ * print dan judul playlist dan isinya dalam list dinamik
+ * jika kosong print "Kosong"
+ * 
+ * Playlist A
+ *     1. {Lagu 1 Playlist A}
+ *     2. {Lagu 2 Playlist A}
+ *     3. {Lagu 3 Playlist A}
+ *     4. {Lagu 4 Playlist A}
+ * Playlist B
+ * Kosong
+ * 
+ * berakhir akhir dengan '\n'
+*/
 
 #endif
