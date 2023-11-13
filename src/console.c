@@ -268,7 +268,48 @@ void PLAYSONG() {
         printf(" tidak ada dalam daftar. Silakan coba lagi.\n");
     }
 }
-void PLAYPLAYLIST();
+
+void PLAYPLAYLIST() {
+    printf("Masukkan ID Playlist : ");
+    StartLineI();
+    printf("\n");
+    int id_playlist = WordToInt(CurrentWord) - 1;
+
+    if (IsIdxValidLD(DaftarPlaylist, id_playlist)) {
+        Word playlist;
+        PasteWord(Title(DaftarPlaylist.Content[id_playlist]), &playlist);
+        printf("Memutar playlist “");
+        DisplayWordSpace(playlist);
+        printf("”.\n");
+                
+        Detail temp;
+        while (!IsEmptyQ(QueueLagu)){
+            DequeueQ(&QueueLagu, &temp);
+        }
+                
+        while (!IsEmptyS(RiwayatLagu)){
+            PopS(&RiwayatLagu, &temp);
+        }
+
+        Address p = First(DaftarPlaylist.Content[id_playlist]);
+
+        // blok ini dihapus kalau ternyata ga masuk ke current song
+        if (p != Nil) {
+            PasteD(Info(p), &CurrentLagu);
+            PushS(&RiwayatLagu, Info(p));
+            p = Next(p);
+        }
+
+        while (p != Nil){
+            EnqueueQ(&QueueLagu, Info(p));
+            PushS(&RiwayatLagu, Info(p));
+            p = Next(p);
+        }
+    }
+    else{
+        printf("ID Playlist %d tidak ada dalam daftar. Silakan coba lagi.\n", id_playlist + 1);
+    }
+}
 void QUEUESONG();
 void QUEUEPLAYLIST();
 void QUEUESWAP();
