@@ -310,13 +310,52 @@ void PLAYPLAYLIST() {
         printf("ID Playlist %d tidak ada dalam daftar. Silakan coba lagi.\n", id_playlist + 1);
     }
 }
+
 void QUEUESONG();
 void QUEUEPLAYLIST();
 void QUEUESWAP();
 void QUEUEREMOVE();
 void QUEUECLEAR();
-void SONGNEXT();
-void SONGPREVIOUS();
+
+void SONGNEXT() {
+    if (IsEmptyQ(QueueLagu)){
+        printf("Queue kosong, memutar kembali lagu\n");
+        DisplayWordSpace(CurrentLagu.Lagu);
+        printf("” oleh “");
+        DisplayWordSpace(CurrentLagu.Penyanyi);
+        printf("”\n");
+    }
+    else{
+        if (!IsEmptyD(CurrentLagu)) {
+            PushS(&RiwayatLagu, CurrentLagu);
+        }
+        DequeueQ(&QueueLagu, &CurrentLagu);
+
+        printf("Memutar lagu selanjutnya\n");
+        DisplayWordSpace(CurrentLagu.Lagu);
+        printf("” oleh “");
+        DisplayWordSpace(CurrentLagu.Penyanyi);
+        printf("”\n");
+    }
+}
+
+void SONGPREVIOUS() {
+    if (IsEmptyS(RiwayatLagu)){
+        printf("Riwayat lagu kosong, memutar kembali lagu\n");
+    }
+    else{
+        if (!IsEmptyD(CurrentLagu)) {
+            EnqueueFirstQ(&QueueLagu, CurrentLagu);
+        }
+        PopS(&RiwayatLagu, &CurrentLagu);
+        printf("Memutar lagu sebelumnya\n");
+    }
+    
+    DisplayWordSpace(CurrentLagu.Lagu);
+    printf("” oleh “");
+    DisplayWordSpace(CurrentLagu.Penyanyi);
+    printf("”\n");
+}
 
 void PLAYLISTCREATE()
 {
@@ -721,6 +760,8 @@ void DISPLAY() {
     DisplayLS(DaftarPenyanyi);
     printf("\nINI DAFTAR PLAYLIST\n");
     DisplayLD(DaftarPlaylist);
+    printf("\nINI CURRENT LAGU\n");
+    DisplayD(CurrentLagu);
     printf("\nINI QUEUE LAGU\n");
     DisplayQ(QueueLagu);
     printf("\nINI RIWAYAT LAGU\n");
@@ -729,8 +770,6 @@ void DISPLAY() {
     DisplayM(AlbumPenyanyi);
     printf("\nINI MAP LAGU : ALBUM\n");
     DisplayM(LaguAlbum);
-    printf("\nINI CURRENT LAGU\n");
-    DisplayD(CurrentLagu);
     printf("\nINI ISI PLAYLIST\n");
     DisplaySemuaLD(DaftarPlaylist);
 }
