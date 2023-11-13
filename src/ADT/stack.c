@@ -58,10 +58,10 @@ void DisplayS(Stack s){
     } else{
         IdxType i;
         for(i=Top(s); i>0; i--){
-            printf("%d. ",  Top(s) - i + 1);
+            printf("    %d. ",  Top(s) - i + 1);
             DisplayD(s.Content[i]);
         }
-        printf("%d. ", Top(s) - i + 1);
+        printf("    %d. ", Top(s) - i + 1);
         DisplayD(s.Content[i]);
     }
 }
