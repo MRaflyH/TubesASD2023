@@ -205,7 +205,6 @@ int main() {
         else if (IsWordSame(CurrentWord, WordSAVE)) {
             AdvWordI();
             if (LoggedIn) {
-                printf("RUN SAVE\n");
                 SAVE();
             }
             else {
