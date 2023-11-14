@@ -3,7 +3,7 @@
 void START() {
     char * file_name = "../save/config.txt";
 
-    Word tempPenyanyi, tempAlbum, tempLagu, tempPlaylist;
+    Word tempPenyanyi, tempAlbum, tempLagu;
     Set tempSetAlbum, tempSetLagu;
 
     DaftarPenyanyi = CreateLS();
@@ -13,8 +13,7 @@ void START() {
     CreateM(&AlbumPenyanyi);
     CreateM(&LaguAlbum);
 
-    int NPenyanyi, NAlbum, NLagu, NQueue, NRiwayat, NPlaylist;
-    Detail DLagu;
+    int NPenyanyi, NAlbum, NLagu;
 
     StartFileF(file_name);
     NPenyanyi = 0;
