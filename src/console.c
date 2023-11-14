@@ -330,7 +330,7 @@ void QUEUECLEAR();
 
 void SONGNEXT() {
     if (IsEmptyQ(QueueLagu)){
-        printf("Queue kosong, memutar kembali lagu\n");
+        printf("Queue kosong, memutar kembali lagu\n”");
         DisplayWord(CurrentLagu.Lagu);
         printf("” oleh “");
         DisplayWord(CurrentLagu.Penyanyi);
@@ -342,7 +342,7 @@ void SONGNEXT() {
         }
         DequeueQ(&QueueLagu, &CurrentLagu);
 
-        printf("Memutar lagu selanjutnya\n");
+        printf("Memutar lagu selanjutnya\n”");
         DisplayWord(CurrentLagu.Lagu);
         printf("” oleh “");
         DisplayWord(CurrentLagu.Penyanyi);
@@ -781,10 +781,18 @@ void QUIT() {
         PasteWord(CurrentWord, &input);
 
         if (IsWordSame(CurrentWord, Y)) {
-            printf("Input nama save file : ");
-            StartLineI();
-            printf("\n");
-            SAVE();
+            while (IsWordSame(CurrentWord, Y)) {
+                printf("Input nama save file : ");
+                StartLineI();
+                printf("\n");
+                
+                if (IsWordSame(CurrentWord, Y)) {
+                    printf("Nama save file jangan dikosongkan.\n\n");
+                }
+                else {
+                    SAVE();
+                }
+            }
         }
         else if (IsWordSame(CurrentWord, N)) {
             printf("Keluar tanpa save file.\n");
