@@ -58,68 +58,108 @@ int main() {
         printf("\n");
 
         if (IsWordSame(CurrentWord, WordSTART)) {
-            if (!LoggedIn) {
-                START();
-            }
+            if (IsEOP()) {
+                if (!LoggedIn) {
+                    START();
+                }
+                else {
+                    CorrectSession = false;
+                }
+                }
             else {
-                ValidCommand = false;
+                KnownCommand = false;
             }
         }
         else if (IsWordSame(CurrentWord, WordLOAD)) {
             AdvLineI();
-            if (!LoggedIn) {
-                LOAD();
+            if (IsEOP()) {
+                if (!LoggedIn) {
+                    LOAD();
+                }
+                else {
+                    CorrectSession = false;
+                }
             }
             else {
-                ValidCommand = false;
+                KnownCommand = false;
             }
         }
         else if (IsWordSame(CurrentWord, WordLIST)) {
             AdvWordI();
-            if (LoggedIn) {
+            if (!IsEOP()) {
                 if (IsWordSame(CurrentWord, WordDEFAULT)) {
-                    printf("RUN LISTDEFAULT\n");
-                    // LISTDEFAULT();
+                    if (LoggedIn) {
+                        printf("RUN LISTDEFAULT\n");
+                        // LISTDEFAULT();
+                    }
+                    else {
+                        CorrectSession = false;
+                    }
                 }
                 else if (IsWordSame(CurrentWord, WordPLAYLIST)) {
-                    printf("RUN LISTPLAYLIST\n");
-                    // LISTPLAYLIST();
+                    if (LoggedIn) {
+                        printf("RUN LISTPLAYLIST\n");
+                        // LISTPLAYLIST();
+                    }
+                    else {
+                        CorrectSession = false;
+                    }
                 }
                 else {
                     KnownCommand = false;
                 }
             }
             else {
-                ValidCommand = false;
+                KnownCommand = false;
             }
         }
         else if (IsWordSame(CurrentWord, WordPLAY)) {
             AdvWordI();
-            if (LoggedIn) {
+            if (IsEOP()) {
                 if (IsWordSame(CurrentWord, WordSONG)) {
-                    PLAYSONG();
+                    if (LoggedIn) {
+                        PLAYSONG();
+                    }
+                    else {
+                        CorrectSession = false;
+                    }
                 }
                 else if (IsWordSame(CurrentWord, WordPLAYLIST)) {
-                    PLAYPLAYLIST();
+                    if (LoggedIn) {
+                        PLAYPLAYLIST();
+                    }
+                    else {
+                        CorrectSession = false;
+                    }
                 }
                 else {
                     KnownCommand = false;
                 }
             }
             else {
-                ValidCommand = false;
+                KnownCommand = false;
             }
         }
         else if (IsWordSame(CurrentWord, WordQUEUE)) {
             AdvWordI();
-            if (LoggedIn) {
+            if (IsEOP()) {
                 if (IsWordSame(CurrentWord, WordSONG)) {
-                    printf("RUN QUEUESONG\n");
-                    // QUEUESONG();
+                    if (LoggedIn) {
+                        printf("RUN QUEUESONG\n");
+                        // QUEUESONG();
+                    }
+                    else {
+                        CorrectSession = false;
+                    }
                 }
                 else if (IsWordSame(CurrentWord, WordPLAYLIST)) {
-                    printf("RUN QUEUEPLAYLIST\n");
-                    // QUEUEPLAYLIST();
+                    if (LoggedIn) {
+                        printf("RUN QUEUEPLAYLIST\n");
+                        // QUEUEPLAYLIST();
+                    }
+                    else {
+                        CorrectSession = false;
+                    }
                 }
                 else if (IsWordSame(CurrentWord, WordSWAP)) {
                     printf("RUN QUEUESWAP\n");
@@ -130,32 +170,47 @@ int main() {
                     // QUEUEREMOVE();
                 }
                 else if (IsWordSame(CurrentWord, WordCLEAR)) {
-                    printf("RUN QUEUECLEAR\n");
-                    // QUEUECLEAR();
+                    if (LoggedIn) {
+                        printf("RUN QUEUECLEAR\n");
+                        // QUEUECLEAR();
+                    }
+                    else {
+                        CorrectSession = false;
+                    }
                 }
                 else {
                     KnownCommand = false;
                 }
             }
             else {
-                ValidCommand = false;
+                KnownCommand = false;
             }
         }
         else if (IsWordSame(CurrentWord, WordSONG)) {
             AdvWordI();
-            if (LoggedIn) {
+            if (IsEOP()) {
                 if (IsWordSame(CurrentWord, WordNEXT)) {
-                    SONGNEXT();
+                    if (LoggedIn) {
+                        SONGNEXT();
+                    }
+                    else {
+                        CorrectSession = false;
+                    }
                 }
                 else if (IsWordSame(CurrentWord, WordPREVIOUS)) {
-                    SONGPREVIOUS();
+                    if (LoggedIn) {
+                        SONGPREVIOUS();
+                    }
+                    else {
+                        CorrectSession = false;
+                    }
                 }
                 else {
                     KnownCommand = false;
                 }
             }
             else {
-                ValidCommand = false;
+                KnownCommand = false;
             }
         }
         else if (IsWordSame(CurrentWord, WordPLAYLIST)) {
@@ -190,7 +245,7 @@ int main() {
                 }
             }
             else {
-                ValidCommand = false;
+                CorrectSession = false;
             }
         }
         else if (IsWordSame(CurrentWord, WordSTATUS)) {
@@ -199,7 +254,7 @@ int main() {
                 // STATUS();
             }
             else {
-                ValidCommand = false;
+                CorrectSession = false;
             }
         }
         else if (IsWordSame(CurrentWord, WordSAVE)) {
@@ -208,7 +263,7 @@ int main() {
                 SAVE();
             }
             else {
-                ValidCommand = false;
+                CorrectSession = false;
             }
         }
         else if (IsWordSame(CurrentWord, WordQUIT)) {
@@ -216,7 +271,7 @@ int main() {
                 QUIT();
             }
             else {
-                ValidCommand = false;
+                CorrectSession = false;
             }
         }
         else if (IsWordSame(CurrentWord, WordHELP)) {
@@ -232,7 +287,7 @@ int main() {
             KnownCommand = false;
         }
 
-        if (!KnownCommand || !ValidCommand) {
+        if (!KnownCommand || !CorrectSession) {
             INVALIDCOMMAND();
         }
 
