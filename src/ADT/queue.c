@@ -25,7 +25,10 @@ boolean IsIdxValidQ(Queue *q, int i)
 /* Mengirim true jika index i adalah valid */
 
 int LengthQ(Queue q) {
-    if (q.IdxTail < q.IdxHead) {
+    if (q.IdxHead == IdxUndef && q.IdxTail == IdxUndef) {
+        return 0;
+    }
+    else if (q.IdxTail < q.IdxHead) {
         q.IdxTail += MaxCapacity;
     }
     return q.IdxTail - q.IdxHead + 1;
