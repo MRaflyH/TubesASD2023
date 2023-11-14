@@ -804,6 +804,7 @@ void QUIT() {
     
     EndProgram = true;
 }
+
 void HELP();
 
 void INVALIDCOMMAND() {
