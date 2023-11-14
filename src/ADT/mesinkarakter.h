@@ -68,7 +68,7 @@ void EndWrite();
 char GetCC();
 /* Mengirimkan currentChar */
 
-boolean IsEOP();
+boolean IsEOF();
 /* Mengirimkan true jika feof(pita) == true */
 
 #endif

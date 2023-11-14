@@ -236,7 +236,7 @@ int main() {
             INVALIDCOMMAND();
         }
 
-        if (!IsEOP()) {
+        if (!IsEOF()) {
             AdvLineI();
         }
         printf("\n");

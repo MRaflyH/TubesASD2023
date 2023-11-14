@@ -45,6 +45,6 @@ char GetCC() {
     return CurrentChar;
 }
 
-boolean IsEOP() {
+boolean IsEOF() {
     return (feof(pita));
 }
