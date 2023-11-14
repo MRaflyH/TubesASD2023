@@ -70,6 +70,7 @@ int main() {
                 KnownCommand = false;
             }
         }
+        
         else if (IsWordSame(CurrentWord, WordLOAD)) {
             AdvLineI();
             if (IsEOP()) {
@@ -84,6 +85,7 @@ int main() {
                 KnownCommand = false;
             }
         }
+        
         else if (IsWordSame(CurrentWord, WordLIST)) {
             AdvWordI();
             if (!IsEOP()) {
@@ -113,6 +115,7 @@ int main() {
                 KnownCommand = false;
             }
         }
+        
         else if (IsWordSame(CurrentWord, WordPLAY)) {
             AdvWordI();
             if (IsEOP()) {
@@ -140,6 +143,7 @@ int main() {
                 KnownCommand = false;
             }
         }
+        
         else if (IsWordSame(CurrentWord, WordQUEUE)) {
             AdvWordI();
             if (IsEOP()) {
@@ -186,6 +190,7 @@ int main() {
                 KnownCommand = false;
             }
         }
+        
         else if (IsWordSame(CurrentWord, WordSONG)) {
             AdvWordI();
             if (IsEOP()) {
@@ -213,6 +218,7 @@ int main() {
                 KnownCommand = false;
             }
         }
+        
         else if (IsWordSame(CurrentWord, WordPLAYLIST)) {
             AdvWordI();
             if (LoggedIn) {
@@ -248,6 +254,7 @@ int main() {
                 CorrectSession = false;
             }
         }
+        
         else if (IsWordSame(CurrentWord, WordSTATUS)) {
             if (LoggedIn) {
                 printf("RUN STATUS\n");
@@ -257,6 +264,7 @@ int main() {
                 CorrectSession = false;
             }
         }
+        
         else if (IsWordSame(CurrentWord, WordSAVE)) {
             AdvLineI();
             if (LoggedIn) {
@@ -266,6 +274,7 @@ int main() {
                 CorrectSession = false;
             }
         }
+        
         else if (IsWordSame(CurrentWord, WordQUIT)) {
             if (IsEOP()) {
                 if (LoggedIn) {
@@ -279,6 +288,7 @@ int main() {
                 KnownCommand = false;
             }
         }
+        
         else if (IsWordSame(CurrentWord, WordHELP)) {
             printf("RUN HELP\n");
             // HELP();
