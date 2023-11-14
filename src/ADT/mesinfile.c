@@ -65,7 +65,7 @@ void AdvMarkF() {
 
 void CopyWordF() {
     int i = 0;
-    while (CurrentChar != EOF && CurrentChar != Blank && !IsEOP()) {
+    while (CurrentChar != Blank && !IsEOP()) {
         CurrentWord.Content[i] = CurrentChar;
         Adv();
         i += 1;
@@ -81,7 +81,7 @@ void CopyWordF() {
 
 void CopyLineF() {
     int i = 0;
-    while (CurrentChar != EOF && CurrentChar != NewLine && !IsEOP()) {
+    while (CurrentChar != NewLine && !IsEOP()) {
         CurrentWord.Content[i] = CurrentChar;
         Adv();
         i += 1;
@@ -97,7 +97,7 @@ void CopyLineF() {
 
 void CopyMarkF() {
     int i = 0;
-    while (CurrentChar != EOF && CurrentChar != Mark && !IsEOP()) {
+    while (CurrentChar != Mark && CurrentChar != NewLine && !IsEOP()) {
         CurrentWord.Content[i] = CurrentChar;
         Adv();
         i += 1;
