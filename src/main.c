@@ -267,11 +267,16 @@ int main() {
             }
         }
         else if (IsWordSame(CurrentWord, WordQUIT)) {
-            if (LoggedIn) {
-                QUIT();
+            if (IsEOP()) {
+                if (LoggedIn) {
+                    QUIT();
+                }
+                else {
+                    CorrectSession = false;
+                }
             }
             else {
-                CorrectSession = false;
+                KnownCommand = false;
             }
         }
         else if (IsWordSame(CurrentWord, WordHELP)) {
