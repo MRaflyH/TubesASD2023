@@ -5,7 +5,7 @@
 int main() {
     Initiate();
     // untuk testing aja
-    Word WordDISPLAY, tempWord;
+    Word WordDISPLAY;
     CreateWord(7, "DISPLAY", &WordDISPLAY);
     // sampe sini
 
@@ -221,57 +221,99 @@ int main() {
         
         else if (IsWordSame(CurrentWord, WordPLAYLIST)) {
             AdvWordI();
-            if (LoggedIn) {
-                if (IsWordSame(CurrentWord, WordCREATE)) {
-                    PLAYLISTCREATE();
-                }
-                else if (IsWordSame(CurrentWord, WordADD)) {
-                    AdvWordI();
+            if (IsWordSame(CurrentWord, WordADD)) {
+                AdvWordI();
+                if (IsEOP()) {
                     if (IsWordSame(CurrentWord, WordSONG)) {
-                        PLAYLISTADDSONG();
+                        if (LoggedIn) {
+                            PLAYLISTADDSONG();
+                        }
+                        else {
+                            CorrectSession = false;
+                        }
                     }
                     else if (IsWordSame(CurrentWord, WordALBUM)) {
-                        PLAYLISTADDALBUM();
+                        if (LoggedIn) {
+                            PLAYLISTADDALBUM();
+                        }
+                        else {
+                            CorrectSession = false;
+                        }
                     }
                     else {
                         KnownCommand = false;
                     }
-                }
-                else if (IsWordSame(CurrentWord, WordSWAP)) {
-                    PLAYLISTSWAP();
-                }
-                else if (IsWordSame(CurrentWord, WordREMOVE)) {
-                    PLAYLISTREMOVE();
-                }
-                else if (IsWordSame(CurrentWord, WordDELETE)) {
-                    PLAYLISTDELETE();
                 }
                 else {
                     KnownCommand = false;
                 }
             }
             else {
-                CorrectSession = false;
+                if (IsWordSame(CurrentWord, WordCREATE)) {
+                    if (LoggedIn) {
+                        PLAYLISTCREATE();
+                    }
+                    else {
+                        CorrectSession = false;
+                    }
+                }
+                else if (IsWordSame(CurrentWord, WordSWAP)) {
+                    if (LoggedIn) {
+                        PLAYLISTSWAP();
+                    }
+                    else {
+                        CorrectSession = false;
+                    }
+                }
+                else if (IsWordSame(CurrentWord, WordREMOVE)) {
+                    if (LoggedIn) {
+                        PLAYLISTREMOVE();
+                    }
+                    else {
+                        CorrectSession = false;
+                    }
+                }
+                else if (IsWordSame(CurrentWord, WordDELETE)) {
+                    if (LoggedIn) {
+                        PLAYLISTDELETE();
+                    }
+                    else {
+                        CorrectSession = false;
+                    }
+                }
+                else {
+                    KnownCommand = false;
+                }
             }
         }
         
         else if (IsWordSame(CurrentWord, WordSTATUS)) {
-            if (LoggedIn) {
-                printf("RUN STATUS\n");
-                // STATUS();
+            if (IsEOP()) {
+                if (LoggedIn) {
+                    printf("RUN STATUS\n");
+                    // STATUS();
+                }
+                else {
+                    CorrectSession = false;
+                }
             }
             else {
-                CorrectSession = false;
+                KnownCommand = false;
             }
         }
         
         else if (IsWordSame(CurrentWord, WordSAVE)) {
-            AdvLineI();
-            if (LoggedIn) {
-                SAVE();
+            if (!IsEOP()) {
+                AdvLineI();
+                if (LoggedIn) {
+                    SAVE();
+                }
+                else {
+                    CorrectSession = false;
+                }
             }
             else {
-                CorrectSession = false;
+                KnownCommand = false;
             }
         }
         
@@ -290,8 +332,13 @@ int main() {
         }
         
         else if (IsWordSame(CurrentWord, WordHELP)) {
-            printf("RUN HELP\n");
-            // HELP();
+            if (IsEOP) {
+                printf("RUN HELP\n");
+                // HELP();
+            }
+            else {
+                KnownCommand = false;
+            }
         }
         // UNTUK TESTING
         else if (IsWordSame(CurrentWord, WordDISPLAY)) {
@@ -309,6 +356,7 @@ int main() {
         if (!IsEOF()) {
             AdvLineI();
         }
+        
         printf("\n");
     }
 
