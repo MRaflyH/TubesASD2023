@@ -117,6 +117,18 @@ void LOAD() {
             InsertM(&AlbumPenyanyi, tempPenyanyi, tempSetAlbum);
         }
 
+        AdvMarkF();
+        
+        if (CurrentWord.Content[0] != '-') {
+            PasteWord(CurrentWord, &tempPenyanyi);
+            AdvMarkF();
+            PasteWord(CurrentWord, &tempAlbum);
+            AdvLineF();
+            PasteWord(CurrentWord, &tempLagu);
+
+            CreateD(&CurrentLagu, tempPenyanyi, tempAlbum, tempLagu);
+        }
+
         AdvLineF();
 
         NQueue = 0;
@@ -673,6 +685,19 @@ void SAVE() {
             }
         }
     }
+
+    if (IsEmptyD(CurrentLagu)) {
+        AdvWrite('-');
+    }
+    else {
+        AdvWriteWord(CurrentLagu.Penyanyi);
+        AdvWriteMark();
+        AdvWriteWord(CurrentLagu.Album);
+        AdvWriteMark();
+        AdvWriteWord(CurrentLagu.Lagu);
+    }
+
+    AdvWriteNewLine();
 
     NQueue = LengthQ(QueueLagu);
     IntToWord(NQueue, &tempInt);
