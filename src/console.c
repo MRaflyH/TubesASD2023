@@ -799,9 +799,9 @@ void QUIT() {
 void HELP();
 
 void INVALIDCOMMAND() {
-    if (!ValidCommand) {
+    if (!CorrectSession) {
         printf("Command tidak bisa dieksekusi!\n");
-        ValidCommand = true;
+        CorrectSession = true;
     }
     else {
         printf("Command tidak diketahui!\n");

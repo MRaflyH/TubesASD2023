@@ -71,4 +71,6 @@ char GetCC();
 boolean IsEOF();
 /* Mengirimkan true jika feof(pita) == true */
 
+boolean IsEOP();
+
 #endif

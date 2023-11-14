@@ -9,7 +9,7 @@ Map LaguAlbum;
 Detail CurrentLagu;
 boolean EndProgram;
 boolean LoggedIn;
-boolean ValidCommand;
+boolean CorrectSession;
 boolean KnownCommand;
 
 Word WordSTART;
@@ -40,7 +40,7 @@ Word WordKOSONG;
 void Initiate() {
     EndProgram = false;
     LoggedIn = false;
-    ValidCommand = true;
+    CorrectSession = true;
     KnownCommand = true;
     DaftarPenyanyi = CreateLS();
     DaftarPlaylist = CreateLD();

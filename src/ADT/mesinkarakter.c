@@ -48,3 +48,7 @@ char GetCC() {
 boolean IsEOF() {
     return (feof(pita));
 }
+
+boolean IsEOP() {
+    return CurrentChar == ';';
+}
