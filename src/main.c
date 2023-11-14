@@ -5,7 +5,7 @@
 int main() {
     Initiate();
     // untuk testing aja
-    Word WordDISPLAY;
+    Word WordDISPLAY, tempWord;
     CreateWord(7, "DISPLAY", &WordDISPLAY);
     // sampe sini
 
@@ -66,7 +66,7 @@ int main() {
             }
         }
         else if (IsWordSame(CurrentWord, WordLOAD)) {
-            AdvWordI();
+            AdvLineI();
             if (!LoggedIn) {
                 LOAD();
             }
@@ -203,7 +203,7 @@ int main() {
             }
         }
         else if (IsWordSame(CurrentWord, WordSAVE)) {
-            AdvWordI();
+            AdvLineI();
             if (LoggedIn) {
                 SAVE();
             }
