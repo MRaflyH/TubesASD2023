@@ -30,8 +30,6 @@ ElType GetLD(ListDinamik l, IdxType i) {
 
 void InsertLD(ListDinamik *l, ElType x, IdxType i) {
 	StrukBerkait xsb;
-    Word wkosong;
-    Detail d;
 
 	CreateSB(&xsb);
 	Title(xsb) = x;
