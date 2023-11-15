@@ -426,9 +426,56 @@ void QUEUEPLAYLIST() {
     }
 }
 
-void QUEUESWAP();
-void QUEUEREMOVE();
-void QUEUECLEAR();
+void QUEUESWAP() {
+    int x, y;
+
+    AdvWordI();
+    x = WordToInt(CurrentWord) - 1;
+    AdvWordI();
+    y = WordToInt(CurrentWord) - 1;
+    
+    if (x < 0 || x >= LengthQ(QueueLagu) || y < 0 || y >= LengthQ(QueueLagu)) {
+        printf("Lagu dengan urutan ke %d atau %d tidak terdapat dalam queue!\n", x+1, y+1);
+        return;
+    }
+
+    SwapQ(&QueueLagu, x, y);
+
+    printf("Lagu “");
+    DisplayWord(QueueLagu.Content[(QueueLagu.IdxHead + y)%MaxCapacity].Lagu);
+    printf("” berhasil ditukar dengan “");
+    DisplayWord(QueueLagu.Content[(QueueLagu.IdxHead + x)%MaxCapacity].Lagu);
+    printf("”\n");
+}
+
+void QUEUEREMOVE() {
+    int id;
+
+    AdvWordI();
+    id = WordToInt(CurrentWord) - 1;
+
+    if (id < 0 || id >= LengthQ(QueueLagu)) {
+        printf("Lagu dengan urutan ke %d tidak ada.\n", id+1);
+        return;
+    }
+
+    printf("Lagu “");
+    DisplayWord(QueueLagu.Content[(id + QueueLagu.IdxHead)%MaxCapacity].Lagu);
+    printf("” oleh “");
+    DisplayWord(QueueLagu.Content[(id + QueueLagu.IdxHead)%MaxCapacity].Penyanyi);
+    printf("” telah dihapus dari queue!\n");
+    
+    DeleteQ(&QueueLagu, id);
+}
+
+void QUEUECLEAR() {
+    Detail temp;
+    while (!IsEmptyQ(QueueLagu)) {
+        DequeueQ(&QueueLagu, &temp);
+    }
+
+    printf("Queue berhasil dikosongkan.\n");
+}
 
 void SONGNEXT() {
     if (IsEmptyQ(QueueLagu)){
