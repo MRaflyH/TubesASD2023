@@ -110,8 +110,7 @@ int main() {
             if (IsEOP()) {
                 if (IsWordSame(CurrentWord, WordSONG)) {
                     if (LoggedIn) {
-                        printf("RUN QUEUESONG\n");
-                        // QUEUESONG();
+                        QUEUESONG();
                     }
                     else {
                         CorrectSession = false;
@@ -119,8 +118,7 @@ int main() {
                 }
                 else if (IsWordSame(CurrentWord, WordPLAYLIST)) {
                     if (LoggedIn) {
-                        printf("RUN QUEUEPLAYLIST\n");
-                        // QUEUEPLAYLIST();
+                        QUEUEPLAYLIST();
                     }
                     else {
                         CorrectSession = false;
