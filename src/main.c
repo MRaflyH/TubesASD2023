@@ -107,7 +107,7 @@ int main() {
         
         else if (IsWordSame(CurrentWord, WordQUEUE)) {
             AdvWordI();
-            if (IsEOP()) {
+            // if (IsEOP()) {
                 if (IsWordSame(CurrentWord, WordSONG)) {
                     if (LoggedIn) {
                         QUEUESONG();
@@ -125,17 +125,14 @@ int main() {
                     }
                 }
                 else if (IsWordSame(CurrentWord, WordSWAP)) {
-                    printf("RUN QUEUESWAP\n");
-                    // QUEUEPLAYSWAP();
+                    QUEUESWAP();
                 }
                 else if (IsWordSame(CurrentWord, WordREMOVE)) {
-                    printf("RUN QUEUEREMOVE\n");
-                    // QUEUEREMOVE();
+                    QUEUEREMOVE();
                 }
                 else if (IsWordSame(CurrentWord, WordCLEAR)) {
                     if (LoggedIn) {
-                        printf("RUN QUEUECLEAR\n");
-                        // QUEUECLEAR();
+                        QUEUECLEAR();
                     }
                     else {
                         CorrectSession = false;
@@ -144,10 +141,10 @@ int main() {
                 else {
                     KnownCommand = false;
                 }
-            }
-            else {
-                KnownCommand = false;
-            }
+            // }
+            // else {
+            //     KnownCommand = false;
+            // }
         }
         
         else if (IsWordSame(CurrentWord, WordSONG)) {
