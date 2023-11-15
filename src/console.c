@@ -322,8 +322,110 @@ void PLAYPLAYLIST() {
     }
 }
 
-void QUEUESONG();
-void QUEUEPLAYLIST();
+void QUEUESONG() {
+    printf("Daftar Penyanyi :\n");
+    DisplayLS(DaftarPenyanyi);
+    printf("\n");
+
+    printf("Masukkan Nama Penyanyi : ");
+    StartLineI();
+    printf("\n");
+    Word penyanyi = CurrentWord;
+
+    if (SearchLS(DaftarPenyanyi, penyanyi)) {
+        printf("Daftar Album oleh ");
+        DisplayWord(penyanyi);
+        printf(" :\n");
+        DisplayValueM(AlbumPenyanyi, penyanyi);
+        printf("\n");
+
+        printf("Masukkan Judul Album yang dipilih : ");
+        StartLineI();
+        printf("\n");
+        Word album = CurrentWord;
+        
+        if (IsMemberSet(ValueM(AlbumPenyanyi, penyanyi), album)) {
+            printf("Daftar Lagu Album ");
+            DisplayWord(album);
+            printf(" oleh ");
+            DisplayWord(penyanyi);
+            printf(" :\n");
+
+            DisplayValueM(LaguAlbum, album);
+            printf("\n");
+
+            printf("Masukkan ID Lagu yang dipilih : ");
+            StartLineI();
+            printf("\n");
+            int id_lagu = WordToInt(CurrentWord) - 1;
+
+            if (IsIdxValidSet(ValueM(LaguAlbum, album), id_lagu)){
+                Word lagu;
+                Detail temp;
+
+                PasteWord(ValueM(LaguAlbum, album).Content[id_lagu], &lagu);
+
+                CreateD(&temp, penyanyi, album, lagu);
+                EnqueueQ(&QueueLagu, temp);
+                printf("Berhasil menambahkan lagu “");
+                DisplayWord(lagu);
+                printf("” oleh “");
+                DisplayWord(penyanyi);
+                printf("” ke queue.\n");
+            } 
+
+            else {
+                printf("ID Lagu %d tidak ada dalam daftar. Silakan coba lagi.\n", id_lagu + 1);
+            }
+        } 
+        
+        else {
+            printf("Album ");
+            DisplayWord(album);
+            printf(" tidak ada dalam daftar. Silakan coba lagi.\n");
+        } 
+    } 
+    
+    else {
+        printf("Penyanyi ");
+        DisplayWord(penyanyi);
+        printf(" tidak ada dalam daftar. Silakan coba lagi.\n");
+    }
+}
+
+void QUEUEPLAYLIST() {
+    printf("Masukkan ID Playlist : ");
+    StartLineI();
+    printf("\n");
+    int id_playlist = WordToInt(CurrentWord) - 1;
+
+    if (IsIdxValidLD(DaftarPlaylist, id_playlist)) {
+        Word playlist;
+        Detail temp;
+        Address p;
+        Word penyanyi, album, lagu;
+
+        PasteWord(Title(DaftarPlaylist.Content[id_playlist]), &playlist);
+        p = First(DaftarPlaylist.Content[id_playlist]);
+
+        while (p != Nil) {
+            PasteWord(Info(p).Penyanyi, &penyanyi);
+            PasteWord(Info(p).Album, &album);
+            PasteWord(Info(p).Lagu, &lagu);
+            CreateD(&temp, penyanyi, album, lagu);
+            EnqueueQ(&QueueLagu, temp);
+            p = Next(p);
+        }
+        printf("Berhasil menambahkan playlist “");
+        DisplayWord(playlist);
+        printf("” ke queue.\n");
+    } 
+    
+    else {
+        printf("ID Playlist %d tidak ada dalam daftar. Silakan coba lagi.\n", id_playlist + 1);
+    }
+}
+
 void QUEUESWAP();
 void QUEUEREMOVE();
 void QUEUECLEAR();
