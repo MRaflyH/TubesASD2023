@@ -92,9 +92,11 @@ void DequeueQ(Queue *q, Detail *x)
 void SwapQ(Queue *q, IdxType i, IdxType j)
 {
     Detail temp;
-    PasteD((*q).Content[i], &temp);
-    PasteD((*q).Content[j], &(*q).Content[i]);
-    PasteD(temp, &(*q).Content[j]);
+    int head = (*q).IdxHead;
+
+    PasteD((*q).Content[(head+i)%MaxCapacity], &temp);
+    PasteD((*q).Content[(head+j)%MaxCapacity], &(*q).Content[i]);
+    PasteD(temp, &(*q).Content[(head+j)%MaxCapacity]);
 }
 /* Proses: Melakukan swap antara element di index i dan element di index j */
 /* I.S. q tidak mungkin kosong */
@@ -103,10 +105,11 @@ sedangkan element di index j berubah menjadi isinya sama dengan element di index
 
 void DeleteQ(Queue *q, IdxType i)
 {
-    for(IdxType j =i; j!= IDX_TAIL(*q); j= (j+1)%MaxCapacity){
+    for(IdxType j =(i+(*q).IdxHead)%MaxCapacity; j!= IDX_TAIL(*q); j= (j+1)%MaxCapacity){
         PasteD((*q).Content[(j+1)%MaxCapacity], &(*q).Content[j]);
     }
-    if (IDX_HEAD(*q) == IDX_TAIL(*q)){
+
+    if (IDX_HEAD(*q) == IDX_TAIL(*q) && IDX_HEAD(*q) != IdxUndef && IDX_TAIL(*q) != IdxUndef){
         IDX_HEAD(*q) = IdxUndef;
         IDX_TAIL(*q) = IdxUndef;
     }else if (IDX_TAIL(*q) == 0) {
