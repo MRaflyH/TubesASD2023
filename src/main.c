@@ -107,44 +107,46 @@ int main() {
         
         else if (IsWordSame(CurrentWord, WordQUEUE)) {
             AdvWordI();
-            // if (IsEOP()) {
-                if (IsWordSame(CurrentWord, WordSONG)) {
-                    if (LoggedIn) {
-                        QUEUESONG();
+            if (IsWordSame(CurrentWord, WordSWAP)) {
+                QUEUESWAP();
+            }
+            else if (IsWordSame(CurrentWord, WordREMOVE)) {
+                QUEUEREMOVE();
+            }
+            else {
+                if (IsEOP()) {
+                    if (IsWordSame(CurrentWord, WordSONG)) {
+                        if (LoggedIn) {
+                            QUEUESONG();
+                        }
+                        else {
+                            CorrectSession = false;
+                        }
+                    }
+                    else if (IsWordSame(CurrentWord, WordPLAYLIST)) {
+                        if (LoggedIn) {
+                            QUEUEPLAYLIST();
+                        }
+                        else {
+                            CorrectSession = false;
+                        }
+                    }
+                    else if (IsWordSame(CurrentWord, WordCLEAR)) {
+                        if (LoggedIn) {
+                            QUEUECLEAR();
+                        }
+                        else {
+                            CorrectSession = false;
+                        }
                     }
                     else {
-                        CorrectSession = false;
-                    }
-                }
-                else if (IsWordSame(CurrentWord, WordPLAYLIST)) {
-                    if (LoggedIn) {
-                        QUEUEPLAYLIST();
-                    }
-                    else {
-                        CorrectSession = false;
-                    }
-                }
-                else if (IsWordSame(CurrentWord, WordSWAP)) {
-                    QUEUESWAP();
-                }
-                else if (IsWordSame(CurrentWord, WordREMOVE)) {
-                    QUEUEREMOVE();
-                }
-                else if (IsWordSame(CurrentWord, WordCLEAR)) {
-                    if (LoggedIn) {
-                        QUEUECLEAR();
-                    }
-                    else {
-                        CorrectSession = false;
+                        KnownCommand = false;
                     }
                 }
                 else {
                     KnownCommand = false;
                 }
-            // }
-            // else {
-            //     KnownCommand = false;
-            // }
+            }
         }
         
         else if (IsWordSame(CurrentWord, WordSONG)) {
