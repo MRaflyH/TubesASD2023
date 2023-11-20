@@ -987,85 +987,93 @@ void DISPLAY() {
 }
 
 void PRINTWELCOME() {
-    usleep(100000);
+    delay();
     printf(" _       __     __                             __\n");
-    usleep(100000);
+    delay();
     printf("| |     / /__  / /________  ____ ___  ___     / /_____\n");
-    usleep(100000);
+    delay();
     printf("| | /| / / _ \\/ / ___/ __ \\/ __ `__ \\/ _ \\   / __/ __ \\\n");
-    usleep(100000);
+    delay();
     printf("| |/ |/ /  __/ / /__/ /_/ / / / / / /  __/  / /_/ /_/ /\n");
-    usleep(100000);
+    delay();
     printf("|__/|__/\\___/_/\\___/\\____/_/ /_/ /_/\\___/   \\__/\\____/\n");
-    usleep(100000);
+    delay();
     printf(" _       __                             _       __\n");
-    usleep(100000);
+    delay();
     printf("| |     / /___ ___  ______ _____  ____ | |     / /___ __   _____\n");
-    usleep(100000);
+    delay();
     printf("| | /| / / __ `/ / / / __ `/ __ \\/ __ `/ | /| / / __ `/ | / / _ \\\n");
-    usleep(100000);
+    delay();
     printf("| |/ |/ / /_/ / /_/ / /_/ / / / / /_/ /| |/ |/ / /_/ /| |/ /  __/\n");
-    usleep(100000);
+    delay();
     printf("|__/|__/\\__,_/\\__, /\\__,_/_/ /_/\\__, / |__/|__/\\__,_/ |___/\\___/\n");
-    usleep(100000);
+    delay();
     printf("             /____/            /____/\n");
-    usleep(100000);
+    delay();
     printf("\n");
-    usleep(100000);
+    delay();
     printf("    __  __      ____         //|    //|     __\n");
-    usleep(100000);
+    delay();
     printf("   / / / /___ _/ / /___     |/||   |/||   _/_/\n");
-    usleep(100000);
+    delay();
     printf("  / /_/ / __ `/ / / __ \\                _/_/  \n");
-    usleep(100000);
+    delay();
     printf(" / __  / /_/ / / / /_/ /              _/_/\n");
-    usleep(100000);
+    delay();
     printf("/_/ /_/\\__,_/_/_/\\____/     ______   /_/\n");
-    usleep(100000);
+    delay();
     printf("                           /_____/\n");
-    usleep(100000);
+    delay();
     printf("\n");
-    usleep(100000);
+    delay();
 }
 
 void PRINTKELUAR() {
-    usleep(100000);
+    delay();
     printf("    __ __                         __        __                        __           _\n");
-    usleep(100000);
+    delay();
     printf("   / //_/___ _____ ___  __  __   / /_____  / /_  ______ ______   ____/ /___ ______(_)\n");
-    usleep(100000);
+    delay();
     printf("  / ,< / __ `/ __ `__ \\/ / / /  / //_/ _ \\/ / / / / __ `/ ___/  / __  / __ `/ ___/ /\n");
-    usleep(100000);
+    delay();
     printf(" / /| / /_/ / / / / / / /_/ /  / ,< /  __/ / /_/ / /_/ / /     / /_/ / /_/ / /  / /\n");
-    usleep(100000);
+    delay();
     printf("/_/ |_\\__,_/_/ /_/ /_/\\__,_/  /_/|_|\\___/_/\\__,_/\\__,_/_/      \\__,_/\\__,_/_/  /_/\n");
-    usleep(100000);
+    delay();
     printf(" _       __                             _       __\n");
-    usleep(100000);
+    delay();
     printf("| |     / /___ ___  ______ _____  ____ | |     / /___ __   _____\n");
-    usleep(100000);
+    delay();
     printf("| | /| / / __ `/ / / / __ `/ __ \\/ __ `/ | /| / / __ `/ | / / _ \\\n");
-    usleep(100000);
+    delay();
     printf("| |/ |/ / /_/ / /_/ / /_/ / / / / /_/ /| |/ |/ / /_/ /| |/ /  __/\n");
-    usleep(100000);
+    delay();
     printf("|__/|__/\\__,_/\\__, /\\__,_/_/ /_/\\__, / |__/|__/\\__,_/ |___/\\___(_)\n");
-    usleep(100000);
+    delay();
     printf("             /____/            /____/\n");
-    usleep(100000);
+    delay();
     printf("\n");
-    usleep(100000);
+    delay();
     printf("    ____            __      __       //|    //|     __\n");
-    usleep(100000);
+    delay();
     printf("   / __ \\____ _____/ /___ _/ /_     |/||   |/||   _/_/\n");
-    usleep(100000);
+    delay();
     printf("  / / / / __ `/ __  / __ `/ __ \\                _/_/\n");
-    usleep(100000);
+    delay();
     printf(" / /_/ / /_/ / /_/ / /_/ / / / /              _/_/\n");
-    usleep(100000);
+    delay();
     printf("/_____/\\__,_/\\__,_/\\__,_/_/ /_/     ______   /_/\n");
-    usleep(100000);
+    delay();
     printf("                                   /_____/\n");
-    usleep(100000);
+    delay();
     printf("\n");
-    usleep(100000);
+    delay();
+}
+
+void delay() {
+	// Storing start time
+	clock_t start_time = clock();
+
+	// looping till required time is not achieved
+	while (clock() < start_time + 100000);
 }
