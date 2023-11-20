@@ -4,7 +4,7 @@
 #include "data.h"
 #include "ADT/mesinfile.h"
 #include "ADT/mesininput.h"
-#include <unistd.h>
+#include <time.h>
 
 void START();
 void LOAD();
@@ -33,5 +33,6 @@ void INVALIDCOMMAND();
 void DISPLAY();
 void PRINTWELCOME();
 void PRINTKELUAR();
+void delay();
 
 #endif
