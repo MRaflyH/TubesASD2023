@@ -49,11 +49,10 @@ int main() {
         
         else if (IsWordSame(CurrentWord, WordLIST)) {
             AdvWordI();
-            if (!IsEOP()) {
+            if (IsEOP()) {
                 if (IsWordSame(CurrentWord, WordDEFAULT)) {
                     if (LoggedIn) {
-                        printf("RUN LISTDEFAULT\n");
-                        // LISTDEFAULT();
+                        LISTDEFAULT();
                     }
                     else {
                         CorrectSession = false;
