@@ -202,7 +202,47 @@ void LOAD() {
     }
 }
 
-void LISTDEFAULT();
+void LISTDEFAULT() {
+    printf("Daftar Penyanyi: \n");
+    DisplayLS(DaftarPenyanyi);
+    printf("\n");
+    printf("Ingin melihat album yang ada? (Y/N): ");
+    StartLineI();
+
+    if (IsWordSame(CurrentWord, WordY)){
+        printf("Pilih penyanyi untuk melihat album mereka: ");
+        StartLineI();
+        Word penyanyi = CurrentWord;
+        // cari penyanyi
+        if (SearchLS(DaftarPenyanyi, penyanyi)) {
+            printf("\n");
+            printf("Daftar Album oleh ");
+            DisplayWord(penyanyi);
+            printf(" :\n");
+            DisplayValueM(AlbumPenyanyi, penyanyi);
+            printf("\n");
+
+            printf("Ingin melihat lagu yang ada? (Y/N): ");
+            StartLineI();
+
+            if (IsWordSame(CurrentWord, WordY)){
+                printf("Pilih album untuk melihat lagu yang ada di album: ");
+                StartLineI();
+                Word album = CurrentWord;
+
+                if (IsMemberSet(ValueM(AlbumPenyanyi, penyanyi), album)) {
+                    printf("Daftar Lagu Album ");
+                    DisplayWord(album);
+                    printf(" oleh ");
+                    DisplayWord(penyanyi);
+                    printf(" :\n");
+                    DisplayValueM(LaguAlbum, album);
+                }
+            }
+        }
+    }
+}
+
 void LISTPLAYLIST();
 
 void PLAYSONG() {
