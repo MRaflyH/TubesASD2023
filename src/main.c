@@ -108,10 +108,20 @@ int main() {
         else if (IsWordSame(CurrentWord, WordQUEUE)) {
             AdvWordI();
             if (IsWordSame(CurrentWord, WordSWAP)) {
-                QUEUESWAP();
+                if (LoggedIn) {
+                    QUEUESWAP();
+                }
+                else {
+                    CorrectSession = false;
+                }
             }
             else if (IsWordSame(CurrentWord, WordREMOVE)) {
-                QUEUEREMOVE();
+                if (LoggedIn) {
+                    QUEUEREMOVE();
+                }
+                else {
+                    CorrectSession = false;
+                }
             }
             else {
                 if (IsEOP()) {
@@ -207,15 +217,7 @@ int main() {
                 }
             }
             else {
-                if (IsWordSame(CurrentWord, WordCREATE)) {
-                    if (LoggedIn) {
-                        PLAYLISTCREATE();
-                    }
-                    else {
-                        CorrectSession = false;
-                    }
-                }
-                else if (IsWordSame(CurrentWord, WordSWAP)) {
+                if (IsWordSame(CurrentWord, WordSWAP)) {
                     if (LoggedIn) {
                         PLAYLISTSWAP();
                     }
@@ -231,16 +233,31 @@ int main() {
                         CorrectSession = false;
                     }
                 }
-                else if (IsWordSame(CurrentWord, WordDELETE)) {
-                    if (LoggedIn) {
-                        PLAYLISTDELETE();
+                else {
+                    if (IsEOP()) {
+                        if (IsWordSame(CurrentWord, WordCREATE)) {
+                            if (LoggedIn) {
+                                PLAYLISTCREATE();
+                            }
+                            else {
+                                CorrectSession = false;
+                            }
+                        }
+                        else if (IsWordSame(CurrentWord, WordDELETE)) {
+                            if (LoggedIn) {
+                                PLAYLISTDELETE();
+                            }
+                            else {
+                                CorrectSession = false;
+                            }
+                        }
+                        else {
+                            KnownCommand = false;
+                        }
                     }
                     else {
-                        CorrectSession = false;
+                        KnownCommand = false;
                     }
-                }
-                else {
-                    KnownCommand = false;
                 }
             }
         }
