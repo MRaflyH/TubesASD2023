@@ -428,15 +428,15 @@ void QUEUEPLAYLIST() {
 
 void QUEUESWAP() {
     int x, y;
-    if (!IsEOP()) {
+    // if (!IsEOP()) {
         AdvWordI();
         x = WordToInt(CurrentWord) - 1;
         
-        if (!IsEOP()) {
+        // if (!IsEOP()) {
             AdvWordI();
             y = WordToInt(CurrentWord) - 1;
 
-            if (IsEOP()) {
+            // if (IsEOP()) {
                 
                 if (LoggedIn) {
                     if (x < 0 || x >= LengthQ(QueueLagu) || y < 0 || y >= LengthQ(QueueLagu)) {
@@ -455,28 +455,28 @@ void QUEUESWAP() {
                 else {
                     CorrectSession = false;
                 }
-            }
-            else {
-                KnownCommand = false;
-            }
-        }
-        else {
-            KnownCommand = false;
-        }
-    }
-    else {
-        KnownCommand = false;
-    }
+    //         }
+    //         else {
+    //             KnownCommand = false;
+    //         }
+    //     }
+    //     else {
+    //         KnownCommand = false;
+    //     }
+    // }
+    // else {
+    //     KnownCommand = false;
+    // }
 }
 
 void QUEUEREMOVE() {
-    if (!IsEOP()) {
+    // if (!IsEOP()) {
         int id;
 
         AdvWordI();
         id = WordToInt(CurrentWord) - 1;
 
-        if (IsEOP()) {
+        // if (IsEOP()) {
 
             if (LoggedIn) {
                 if (id < 0 || id >= LengthQ(QueueLagu)) {
@@ -495,14 +495,14 @@ void QUEUEREMOVE() {
             else {
                 CorrectSession = false;
             }
-        }
-        else {
-            KnownCommand = false;
-        }
-    }
-    else {
-        KnownCommand = false;
-    }
+    //     }
+    //     else {
+    //         KnownCommand = false;
+    //     }
+    // }
+    // else {
+    //     KnownCommand = false;
+    // }
 }
 
 void QUEUECLEAR() {
