@@ -209,6 +209,11 @@ void LISTDEFAULT() {
     printf("Ingin melihat album yang ada? (Y/N): ");
     StartLineI();
 
+    while (!IsWordSame(CurrentWord, WordY) && !IsWordSame(CurrentWord, WordN)) {
+        printf("Input harus Y/N: ");
+        StartLineI();
+    }
+
     if (IsWordSame(CurrentWord, WordY)){
         printf("Pilih penyanyi untuk melihat album mereka: ");
         StartLineI();
@@ -225,6 +230,11 @@ void LISTDEFAULT() {
             printf("Ingin melihat lagu yang ada? (Y/N): ");
             StartLineI();
 
+            while (!IsWordSame(CurrentWord, WordY) && !IsWordSame(CurrentWord, WordN)) {
+                printf("Input harus Y/N: ");
+                StartLineI();
+            }
+
             if (IsWordSame(CurrentWord, WordY)){
                 printf("Pilih album untuk melihat lagu yang ada di album: ");
                 StartLineI();
@@ -238,7 +248,19 @@ void LISTDEFAULT() {
                     printf(" :\n");
                     DisplayValueM(LaguAlbum, album);
                 }
+                else {
+                    printf("\n");
+                    printf("Album ");
+                    DisplayWord(album);
+                    printf(" tidak ada dalam daftar. Silakan coba lagi.\n");
+                }
             }
+        }
+        else {
+            printf("\n");
+            printf("Penyanyi ");
+            DisplayWord(penyanyi);
+            printf(" tidak ada dalam daftar. Silakan coba lagi.\n");
         }
     }
 }
