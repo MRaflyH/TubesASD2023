@@ -56,7 +56,7 @@ void AdvLineI() {
 
 void CopyWordI() {
     int i = 0;
-    while (CurrentChar != Mark && CurrentChar != Blank && CurrentChar != NewLine) {
+    while (CurrentChar != Mark && CurrentChar != Blank) {
         CurrentWord.Content[i] = CurrentChar;
         Adv();
         i += 1;
