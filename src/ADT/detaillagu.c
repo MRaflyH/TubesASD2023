@@ -29,3 +29,7 @@ void DisplayD(Detail d) {
         printf("\n");
     }
 }
+
+boolean IsDSame(Detail d1, Detail d2) {
+    return (IsWordSame(d1.Penyanyi, d2.Penyanyi) && IsWordSame(d1.Album, d2.Album) && IsWordSame(d1.Lagu, d2.Lagu));
+}

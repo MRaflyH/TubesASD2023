@@ -9,8 +9,9 @@ int main() {
     // sampe sini
 
     PRINTWELCOME();
-
-    // HELP();
+    printf("\n");
+    HELP();
+    printf("\n");
 
     while (!EndProgram) {
 
@@ -60,8 +61,7 @@ int main() {
                 }
                 else if (IsWordSame(CurrentWord, WordPLAYLIST)) {
                     if (LoggedIn) {
-                        printf("RUN LISTPLAYLIST\n");
-                        // LISTPLAYLIST();
+                        LISTPLAYLIST();
                     }
                     else {
                         CorrectSession = false;
@@ -265,7 +265,7 @@ int main() {
             if (IsEOP()) {
                 if (LoggedIn) {
                     printf("RUN STATUS\n");
-                    // STATUS();
+                    STATUS();
                 }
                 else {
                     CorrectSession = false;
@@ -307,8 +307,7 @@ int main() {
         
         else if (IsWordSame(CurrentWord, WordHELP)) {
             if (IsEOP()) {
-                printf("RUN HELP\n");
-                // HELP();
+                HELP();
             }
             else {
                 KnownCommand = false;

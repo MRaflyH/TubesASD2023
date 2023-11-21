@@ -265,7 +265,15 @@ void LISTDEFAULT() {
     }
 }
 
-void LISTPLAYLIST();
+void LISTPLAYLIST() {
+    printf("Daftar playlist yang kamu miliki:\n");
+    if (!IsEmptyLD(DaftarPlaylist)) {
+        DisplayLD(DaftarPlaylist);
+    }
+    else {
+        printf("Kamu tidak memiliki playlist.\n");
+    }
+}
 
 void PLAYSONG() {
     printf("Daftar Penyanyi :\n");
@@ -607,7 +615,7 @@ void SONGPREVIOUS() {
             EnqueueFirstQ(&QueueLagu, CurrentLagu);
         }
         PopS(&RiwayatLagu, &CurrentLagu);
-        printf("Memutar lagu sebelumnya\n");
+        printf("Memutar lagu sebelumnya\n”");
     }
     
     DisplayWord(CurrentLagu.Lagu);
@@ -889,7 +897,31 @@ void PLAYLISTDELETE() {
     }
 }
 
-void STATUS();
+void STATUS() {
+    boolean foundplaylist = false;
+    boolean partofplaylist = true;
+    int i = 0;
+    int j = IDX_HEAD(QueueLagu);
+
+    while (!foundplaylist && i < DaftarPlaylist.Neff) {
+        partofplaylist = IsMemberSB(DaftarPlaylist.Content[i], &CurrentLagu);
+        j = IDX_HEAD(QueueLagu);
+        while (partofplaylist && j != IDX_TAIL(QueueLagu)) {
+            if (!IsMemberSB(DaftarPlaylist.Content[i], &QueueLagu.Content[j])) {
+                partofplaylist = false;
+            }
+            j = (j+1) % MaxCapacity;
+        }
+        if (partofplaylist == true) {
+            foundplaylist = true;
+        }
+        i++;
+    }
+
+    if (foundplaylist) {
+        DisplayWordNewLine(DaftarPlaylist.Content[i-1].Title);
+    }
+}
 
 void SAVE() {
     Word tempPenyanyi, tempAlbum, tempLagu, tempPlaylist, tempInt;
@@ -1053,7 +1085,24 @@ void QUIT() {
     EndProgram = true;
 }
 
-void HELP();
+void HELP() {
+    if (!LoggedIn) {
+        printf("==============[ Menu Help WayangWave ]==============\n");
+        printf("1. START    : Untuk masuk sesi baru.\n");
+        printf("2. LOAD     : Untuk memulai sesi berdasarkan file konfigurasi.\n");
+    }
+    else {
+        printf("==============[ Menu Help WayangWave ]==============\n");
+        printf("1. LIST     : Untuk menampilkan playlist, daftar penyanyi, daftar album dan daftar lagu yang ada di almbum.\n");
+        printf("2. PLAY     : Untuk memutar lagu atau playlist yang dipilih.\n");
+        printf("3. QUEUE    : Untuk memanipulasi lagu dengan menambahkan, menukar, menghapus atau mengosongkan lagu.\n");
+        printf("4. SONG     : Untuk navigasi lagu.\n");
+        printf("5. PLAYLIST : Basic command untuk playlist yaitu CREATE, ADD, SWAP, REMOVE dan DELETE.\n");
+        printf("6. STATUS   : Untuk menampilkan lagu yang sedang dimainkan .\n");
+        printf("7. SAVE     : Untuk menyimpan state aplikasi terbaru ke dalam suatu file.\n");
+        printf("8. QUIT     : Untuk keluar dari aplikasi WayangWave.\n");
+    }
+}
 
 void INVALIDCOMMAND() {
     if (!CorrectSession) {

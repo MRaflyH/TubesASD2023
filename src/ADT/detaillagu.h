@@ -29,4 +29,6 @@ void DisplayD(Detail d);
 /* I.S. d terdefinisi. */
 /* F.S. menampilkan "penyanyi - album - lagu". */
 
+boolean IsDSame(Detail d1, Detail d2);
+
 #endif

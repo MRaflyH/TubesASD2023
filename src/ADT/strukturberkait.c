@@ -35,6 +35,7 @@ int LengthSB(StrukBerkait s) {
     }
     return counter;
 }
+
 void GetSB(StrukBerkait *s, Detail *x, int i) {
     int idx;
     Address p;
@@ -132,4 +133,21 @@ void DisplaySB(StrukBerkait s) {
             i++;
         }
     }
+}
+
+boolean IsMemberSB(StrukBerkait s, Detail *x) {
+    boolean found = false;
+    Address p;
+    p = First(s);
+    
+    while (p != Nil && !found) {
+        if (IsDSame(Info(p), (*x))) {
+            found = true;
+        }
+        else {
+            p = Next(p);
+        }
+    }
+
+    return found;
 }

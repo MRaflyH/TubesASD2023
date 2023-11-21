@@ -130,10 +130,12 @@ void DisplayQ(Queue q)
         printf("Kosong\n");
     } else {
         int i = IDX_HEAD(q);
+        int j = 1;
         while (i != IDX_TAIL(q)) {
-            printf("    %d. ", i+1);
+            printf("    %d. ", j);
             DisplayD(q.Content[i]);
-            i++;
+            i = (i+1) % MaxCapacity;
+            j++;
         }
         printf("    %d. ", i+1);
         DisplayD(q.Content[i]);
