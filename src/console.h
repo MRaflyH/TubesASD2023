@@ -34,7 +34,7 @@ void DISPLAY();
 void PRINTWELCOME();
 void PRINTKELUAR();
 void delay();
-int random(int max_num);
+int gacha(int max_num);
 void ENHANCE();
 
 #endif

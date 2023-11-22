@@ -903,19 +903,21 @@ void STATUS() {
     int i = 0;
     int j = IDX_HEAD(QueueLagu);
 
-    while (!foundplaylist && i < DaftarPlaylist.Neff) {
-        partofplaylist = IsMemberSB(DaftarPlaylist.Content[i], &CurrentLagu);
-        j = IDX_HEAD(QueueLagu);
-        while (partofplaylist && j != IDX_TAIL(QueueLagu)) {
-            if (!IsMemberSB(DaftarPlaylist.Content[i], &QueueLagu.Content[j])) {
-                partofplaylist = false;
+    if (!IsEmptyQ(QueueLagu)) {
+        while (!foundplaylist && i < DaftarPlaylist.Neff) {
+            partofplaylist = IsMemberSB(DaftarPlaylist.Content[i], &CurrentLagu);
+            j = IDX_HEAD(QueueLagu);
+            while (partofplaylist && j != IDX_TAIL(QueueLagu)) {
+                if (!IsMemberSB(DaftarPlaylist.Content[i], &QueueLagu.Content[j])) {
+                    partofplaylist = false;
+                }
+                j = (j+1) % MaxCapacity;
             }
-            j = (j+1) % MaxCapacity;
+            if (partofplaylist == true) {
+                foundplaylist = true;
+            }
+            i++;
         }
-        if (partofplaylist == true) {
-            foundplaylist = true;
-        }
-        i++;
     }
 
     if (foundplaylist) {
@@ -1246,9 +1248,17 @@ void delay() {
 	while (clock() < start_time + 100000);
 }
 
-int random(int max_num) {
+int gacha(int max_num) {
     clock_t time = clock();
     return time % max_num;
 }
 
-void ENHANCE();
+void ENHANCE() {
+    printf("Playlist Anda:\n");
+    DisplayLD(DaftarPlaylist);
+    printf("\n");
+    printf("Pilih ID playlist yang ingin di-enhance: ");
+    StartLineI();
+    printf("\n");
+    int id_playlist = WordToInt(CurrentWord) - 1;
+}
