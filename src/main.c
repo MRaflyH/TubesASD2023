@@ -264,7 +264,6 @@ int main() {
         else if (IsWordSame(CurrentWord, WordSTATUS)) {
             if (IsEOP()) {
                 if (LoggedIn) {
-                    printf("RUN STATUS\n");
                     STATUS();
                 }
                 else {

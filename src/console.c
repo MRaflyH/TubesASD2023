@@ -919,8 +919,28 @@ void STATUS() {
     }
 
     if (foundplaylist) {
+        printf("Current Playlist: ");
         DisplayWordNewLine(DaftarPlaylist.Content[i-1].Title);
+        printf("\n");
     }
+
+    printf("Now Playing:\n");
+    if (IsEmptyD(CurrentLagu)) {
+        printf("No songs have been played yet. Please search for a song to begin playback.\n");
+    }
+    else {
+        DisplayD(CurrentLagu);
+    }
+
+    printf("\n");
+    printf("Queue:\n");
+    if (IsEmptyD(CurrentLagu)) {
+        printf("Your queue is empty.\n");
+    }
+    else {
+        DisplayQ(QueueLagu);
+    }
+
 }
 
 void SAVE() {
@@ -1225,3 +1245,10 @@ void delay() {
 	// looping till required time is not achieved
 	while (clock() < start_time + 100000);
 }
+
+int random(int max_num) {
+    clock_t time = clock();
+    return time % max_num;
+}
+
+void ENHANCE();
