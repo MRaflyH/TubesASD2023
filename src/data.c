@@ -36,6 +36,7 @@ Word WordY;
 Word WordN;
 Word WordHELP;
 Word WordKOSONG;
+Word WordENHANCE;
 
 void Initiate() {
     EndProgram = false;
@@ -73,6 +74,7 @@ void Initiate() {
     CreateWord(1, "N", &WordN);
     CreateWord(4, "HELP", &WordHELP);
     CreateWord(0, "", &WordKOSONG);
+    CreateWord(7, "ENHANCE", &WordENHANCE);
 
     CreateD(&CurrentLagu, WordKOSONG, WordKOSONG, WordKOSONG);
 }

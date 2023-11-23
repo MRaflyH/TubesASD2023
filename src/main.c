@@ -317,6 +317,10 @@ int main() {
             DISPLAY();
         }
         // SAMPE SINI
+        else if (IsWordSame(CurrentWord, WordENHANCE)) {
+            ENHANCE();
+        }
+
         else {
             KnownCommand = false;
         }

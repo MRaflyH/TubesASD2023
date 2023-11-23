@@ -905,10 +905,10 @@ void STATUS() {
 
     if (!IsEmptyQ(QueueLagu)) {
         while (!foundplaylist && i < DaftarPlaylist.Neff) {
-            partofplaylist = IsMemberSB(DaftarPlaylist.Content[i], &CurrentLagu);
+            partofplaylist = IsMemberSB(DaftarPlaylist.Content[i], CurrentLagu);
             j = IDX_HEAD(QueueLagu);
             while (partofplaylist && j != IDX_TAIL(QueueLagu)) {
-                if (!IsMemberSB(DaftarPlaylist.Content[i], &QueueLagu.Content[j])) {
+                if (!IsMemberSB(DaftarPlaylist.Content[i], QueueLagu.Content[j])) {
                     partofplaylist = false;
                 }
                 j = (j+1) % MaxCapacity;
@@ -1261,4 +1261,45 @@ void ENHANCE() {
     StartLineI();
     printf("\n");
     int id_playlist = WordToInt(CurrentWord) - 1;
+
+    if (IsIdxValidLD(DaftarPlaylist, id_playlist)) {
+        int n_list_lagu = 0;
+        int id_penyanyi;
+        int id_album;
+        Word penyanyi;
+        Word album;
+        StrukBerkait list_lagu;
+        Set list_album;
+        Detail temp;
+        while (n_list_lagu < 2) {
+
+            id_penyanyi = gacha(DaftarPenyanyi.Neff);
+            PasteWord(DaftarPenyanyi.Content[id_penyanyi], &penyanyi);
+            list_album = ValueM(AlbumPenyanyi, penyanyi);
+
+            id_album = gacha(list_album.Length);
+            PasteWord(list_album.Content[id_album], &album);
+
+            CreateSB(&list_lagu);
+
+            for (int i = 0; i < ValueM(LaguAlbum, album).Length; i++) {
+                CreateD(&temp, penyanyi, album, ValueM(LaguAlbum, album).Content[i]);
+                if (!IsMemberSB(DaftarPlaylist.Content[id_playlist], temp)) {
+                    InsertSB(&list_lagu, temp, LengthSB(list_lagu));
+                }
+            }
+
+            n_list_lagu = LengthSB(list_lagu);
+        }
+
+        printf("Berikut adalah lagu-lagu rekomendasi dari penyanyi ");
+        DisplayWord(penyanyi);
+        printf(" dalam album ");
+        DisplayWord(album);
+        printf(" :\n");
+        DisplaySB(list_lagu);
+    }
+    else {
+        printf("ID Playlist %d tidak ada dalam daftar. Silakan coba lagi.\n", id_playlist + 1);
+    }
 }

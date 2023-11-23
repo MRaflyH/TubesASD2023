@@ -135,13 +135,13 @@ void DisplaySB(StrukBerkait s) {
     }
 }
 
-boolean IsMemberSB(StrukBerkait s, Detail *x) {
+boolean IsMemberSB(StrukBerkait s, Detail x) {
     boolean found = false;
     Address p;
     p = First(s);
     
     while (p != Nil && !found) {
-        if (IsDSame(Info(p), (*x))) {
+        if (IsDSame(Info(p), (x))) {
             found = true;
         }
         else {

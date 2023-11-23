@@ -59,6 +59,6 @@ void DisplaySB(StrukBerkait s);
 /* Contoh : jika ada tiga elemen bernilai 1, 20, 30 akan dicetak: [1,20,30] */
 /* Jika StrukBerkait kosong : menulis [] */
 
-boolean IsMemberSB(StrukBerkait s, Detail *x);
+boolean IsMemberSB(StrukBerkait s, Detail x);
 
 #endif
