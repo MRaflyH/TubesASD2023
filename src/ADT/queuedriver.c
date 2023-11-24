@@ -6,6 +6,7 @@ int main() {
     Detail d;
 
     CreateQ(&q);
+    printf("IsEmpty: %d\n", IsEmptyQ(q));
 
     CreateWord(4, "satu", &w1);
     CreateWord(4, "utas", &w2);
@@ -26,9 +27,18 @@ int main() {
     CreateWord(5, "patem", &w2);
     CreateWord(5, "pamte", &w3);
     CreateD(&d, w1, w2, w3);
-    EnqueueQ(&q, d);
+    EnqueueFirstQ(&q, d);
+
+    printf("Length: %d\n", LengthQ(q));
+    printf("IsIdxValid 0: %d\n", IsIdxValidQ(&q, 0));
+    printf("IsIdxValid 100: %d\n", IsIdxValidQ(&q, 100));
 
     DisplayQ(q);
+    DequeueQ(&q, &d);
+    printf("\nsetelah dequeque\n");
+    DisplayQ(q);
+    printf("\nyang dequeque: ");
+    DisplayD(d);
 
     return 0;
 }
