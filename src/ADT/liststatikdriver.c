@@ -5,6 +5,7 @@ int main() {
     Word w;
 
     ls = CreateLS();
+    printf("IsEmptyLS : %d\n", IsEmptyLS(ls));
 
     CreateWord(6, "pisang", &w);
     InsertLS(&ls, w);
@@ -14,6 +15,8 @@ int main() {
     InsertLS(&ls, w);
     CreateWord(4, "ayam", &w);
     InsertLS(&ls, w);
+
+    printf("Search ayam : %d\n", SearchLS(ls, w));
 
     DisplayLS(ls);
 
