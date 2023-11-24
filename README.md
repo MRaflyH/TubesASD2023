@@ -6,6 +6,7 @@ Wayang Wave adalah sebuah aplikasi yang digunakan untuk melakukan streaming musi
 3. Membuat dan menghapus playlist
 4. Mengatur urutan pemutaran lagu
 5. Menampilkan status dari aplikasi
+
 Berdasarkan deskripsi tersebut, kami mengembangkan program streaming musik dengan berbagai fitur seperti start, load, list, play, queue, song, playlist, status, save, quit, help, dan invalid command.
 
 Untuk run program, jalankan berikut di terminal yang sudah dalam direktori program
