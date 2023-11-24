@@ -1264,14 +1264,18 @@ void ENHANCE() {
 
     if (IsIdxValidLD(DaftarPlaylist, id_playlist)) {
         int n_list_lagu = 0;
+        int max_iteration = 0;
         int id_penyanyi;
         int id_album;
+        int id_lagu;
         Word penyanyi;
         Word album;
+        Word inputYN;
         StrukBerkait list_lagu;
         Set list_album;
         Detail temp;
-        while (n_list_lagu < 2) {
+
+        while (max_iteration < 10 && n_list_lagu < 2) {
 
             id_penyanyi = gacha(DaftarPenyanyi.Neff);
             PasteWord(DaftarPenyanyi.Content[id_penyanyi], &penyanyi);
@@ -1290,14 +1294,57 @@ void ENHANCE() {
             }
 
             n_list_lagu = LengthSB(list_lagu);
+            max_iteration++;
         }
 
-        printf("Berikut adalah lagu-lagu rekomendasi dari penyanyi ");
-        DisplayWord(penyanyi);
-        printf(" dalam album ");
-        DisplayWord(album);
-        printf(" :\n");
-        DisplaySB(list_lagu);
+        if (n_list_lagu >= 2) {
+            PasteWord(WordY, &inputYN);
+
+            while (!IsWordSame(inputYN, WordN)) {
+                printf("Berikut adalah lagu-lagu rekomendasi dari penyanyi ");
+                DisplayWord(penyanyi);
+                printf(" dalam album ");
+                DisplayWord(album);
+                printf(" :\n");
+                DisplaySB(list_lagu);
+                printf("\n");
+
+                printf("Apakah Anda ingin memasuki lagu rekomendasi dalam playlist? (Y/N): ");
+                StartLineI();
+                PasteWord(CurrentWord, &inputYN);
+
+                if (IsWordSame(inputYN, WordY)) {
+                    printf("ID lagu berapa yang ingin ditambahkan?: ");
+                    StartLineI();
+                    id_lagu = WordToInt(CurrentWord) - 1;
+                    printf("\n");
+
+                    if (IsIdxValidSB(list_lagu, id_lagu)) {
+                        GetSB(&list_lagu, &temp, id_lagu);
+                        if (!IsMemberSB(DaftarPlaylist.Content[id_playlist], temp)) {
+                            printf("Lagu ");
+                            DisplayWord(temp.Lagu);
+                            printf(" sudah dimasukkan ke dalam playlist.\n\n");
+                            InsertSB(&DaftarPlaylist.Content[id_playlist], temp, LengthSB(DaftarPlaylist.Content[id_playlist]));
+                        }
+                        else {
+                            printf("Lagu ");
+                            DisplayWord(temp.Lagu);
+                            printf(" sudah pernah dimasukkan ke dalam playlist.\n\n");
+                        }
+                    }
+                    else {
+                        printf("ID Lagu %d tidak ada dalam rekomendasi. Silakan coba lagi.\n\n", id_lagu + 1);
+                    }
+                }
+                else if (!IsWordSame(inputYN, WordN)) {
+                    printf("Input hanya bisa Y/N!\n\n");
+                }
+            }
+        }
+        else {
+            printf("ID Playlist %d memiliki terlalu banyak lagu untuk direkomendasi.\n", id_playlist + 1);
+        }
     }
     else {
         printf("ID Playlist %d tidak ada dalam daftar. Silakan coba lagi.\n", id_playlist + 1);
