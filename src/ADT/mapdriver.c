@@ -6,6 +6,8 @@ int main() {
     Set set;
 
     CreateM(&map);
+    printf("IsEmpty: %d\n", IsEmptyM(map));
+    printf("IsFull: %d\n", IsFullM(map));
     printf("Ini map kosong: \n");
     DisplayM(map);
 
@@ -37,12 +39,18 @@ int main() {
 
     printf("\nIni inisial map: \n");
     DisplayM(map);
+    
+    printf("IsMember John Mayer: %d\n", IsMemberM(map, key));
+    printf("Value John Mayer:\n");
+    DisplayValueM(map, key);
 
     CreateWord(10, "John Mayer", &key);
     DeleteM(&map, key);
 
     printf("\nDihapus John Mayer: \n");
     DisplayM(map);
+
+
 
     return 0;
 }
