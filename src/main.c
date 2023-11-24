@@ -3,11 +3,6 @@
 
 int main() {
     Initiate();
-    // untuk testing aja
-    Word WordDISPLAY;
-    CreateWord(7, "DISPLAY", &WordDISPLAY);
-    // sampe sini
-
     PRINTWELCOME();
     printf("\n");
     HELP();

@@ -46,6 +46,7 @@ extern Word WordN;
 extern Word WordHELP;
 extern Word WordKOSONG;
 extern Word WordENHANCE;
+extern Word WordDISPLAY;
 
 void Initiate();
 
